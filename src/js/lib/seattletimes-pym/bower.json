@@ -1,0 +1,18 @@
+{
+    "name": "seattletimes-pym",
+    "version": "1.0.0",
+    "homepage": "https://github.com/seattletimes/pym.js",
+    "authors": ["NPR", "Thomas Wilburn"],
+    "description": "Resize an iframe responsively depending on the height of its content and the width of its container.",
+    "main": "src/pym.js",
+    "keywords": [
+        "iframe",
+        "responsive",
+        "browser"
+    ],
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "examples"
+    ]
+}
