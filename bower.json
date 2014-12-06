@@ -18,6 +18,8 @@
     "tests"
   ],
   "dependencies": {
-    "seattletimes-pym": "~1.0.0"
+    "seattletimes-pym": "~1.0.0",
+    "leaflet": "~0.7.3",
+    "jquery": "~2.1.1"
   }
 }
