@@ -1,0 +1,30 @@
+{
+  "1": {
+    "name": "District 1",
+    "color": "yellow"
+  },
+  "2": {
+    "name": "District 2",
+    "color": "purple"
+  },
+  "3": {
+    "name": "District 3",
+    "color": "green"
+  },
+  "4": {
+    "name": "District 4",
+    "color": "blue"
+  },
+  "5": {
+    "name": "District 5",
+    "color": "red"
+  },
+  "6": {
+    "name": "District 6",
+    "color": "brown"
+  },
+  "7": {
+    "name": "District 7",
+    "color": "orange"
+  }
+}

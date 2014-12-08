@@ -13,6 +13,15 @@ $.ajax({
   url: "assets/district_shapes.geojson",
   dataType: "json"
 }).then(function(data) {
-  var layer = L.geoJson(data);
+  var layer = L.geoJson(data, {
+    style: function(feature) {
+      var district = districtData[feature.properties.dist_name]
+      return {color: district.color};
+    },
+    onEachFeature: function (feature, layer) {
+      var district = districtData[feature.properties.dist_name]
+      layer.bindPopup(district.name);
+    }
+  });
   layer.addTo(map);
-})
+});
