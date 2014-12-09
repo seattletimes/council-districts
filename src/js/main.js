@@ -1,10 +1,10 @@
 //Use CommonJS style via browserify to load other modules
 
-var L = require("leaflet");
-var $ = require("jquery");
-var wolf = window.wolf = require("wherewolf")();
-var locate  = require("./geolocation");
-var dropPin = require("./dropPin");
+var L      = require("leaflet");
+var $      = require("jquery");
+var wolf   = require("wherewolf")();
+var locate = require("./geolocation");
+var findMe = require("./findMe");
 
 var map = L.map('map').setView([47.6097, -122.3331], 11);
 
@@ -37,11 +37,7 @@ var request = $.ajax({
 var location = locate();
 
 $.when(location, request).then(function(position) {
-  dropPin(position, map);
-  var results = wolf.find(position, { layer: "Seattle City Council Districts" });
-  var district = districtData[results.dist_name]
-  $(".result").html(district.name);
-
+  findMe(position, map, wolf);
 }, function(err) {
   console.error(err);
 });
@@ -62,7 +58,7 @@ $(".onward").on("click", function(event) {
       var lng = data.results[0].geometry.location.lng;
 
       var position = {lat: lat, lng: lng};
-      dropPin(position, map);
+      findMe(position, map, wolf);
     });
   }
 });
