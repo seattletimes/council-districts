@@ -3,7 +3,8 @@
 var L = require("leaflet");
 var $ = require("jquery");
 var wolf = window.wolf = require("wherewolf")();
-var locate = require("./geolocation");
+var locate  = require("./geolocation");
+var dropPin = require("./dropPin");
 
 var map = L.map('map').setView([47.6097, -122.3331], 11);
 
@@ -36,17 +37,7 @@ var request = $.ajax({
 var location = locate();
 
 $.when(location, request).then(function(position) {
-  var icon = new L.DivIcon({className: 'my-location'});
-  var marker = L.marker([position.lat,position.lng], {icon: icon});
-  marker.addTo(map);
-  var oldTransform = marker._icon.style.transform;
-  var newTransform = oldTransform.replace(/, \d+/, ", 0");
-  marker._icon.style.transform = newTransform;
-  marker._icon.style.transition = "transform .5s ease-in";
-  setTimeout(function() {
-    marker._icon.style.transform = oldTransform;
-  }, 100)
-
+  dropPin(position, map);
   var results = wolf.find(position, { layer: "Seattle City Council Districts" });
   var district = districtData[results.dist_name]
   $(".result").html(district.name);
@@ -59,18 +50,19 @@ location.always(function() {
   $(".spinner").hide();
 });
 
-  // Use google geocoding api for dodgy users
-  // $.ajax({
-  //   url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + address
-  // }).then(function(data) {
-  //   var lat = data.results[0].geometry.location.lat;
-  //   var lng = data.results[0].geometry.location.lng;
-  //   console.log(lat, lng);
+$(".onward").on("click", function(event) {
+  if ($('#address') !== null) {
+    var address = $('#address').val().replace(/\s/g, '+');
+    $(".spinner").show();
+    $.ajax({
+      url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + address
+    }).then(function(data) {
+      $(".spinner").hide();
+      var lat = data.results[0].geometry.location.lat;
+      var lng = data.results[0].geometry.location.lng;
 
-  //   var pin = new L.DivIcon();
-  //   L.marker([lat, lng], {icon: pin}).addTo(map);
-  // });
-
-  // if ($('#address') !== null) {
-
-  //   var address = $('#address').val().replace(/\s/g, '+');
+      var position = {lat: lat, lng: lng};
+      dropPin(position, map);
+    });
+  }
+});
