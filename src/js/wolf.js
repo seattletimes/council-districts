@@ -10,6 +10,10 @@ module.exports = {
   instance: wolf,
   findDistrict: function(position) {
     var results = wolf.find(position, { layer: districtTag });
-    return districtData[results.dist_name]
+    if (results) {
+      return districtData[results.dist_name]
+    } else {
+      return {name: "N/A"}
+    }
   }
 }

@@ -7,19 +7,30 @@ var MapView = function(map) {
 
 MapView.prototype = {
   addLayer: function(data) {
+    var self = this;
+    var markers = [];
     var layer = L.geoJson(data, {
       style: function(feature) {
         var district = districtData[feature.properties.dist_name];
         return {color: district.color};
       },
       onEachFeature: function (feature, layer) {
-        var district = districtData[feature.properties.dist_name];
-        layer.bindPopup(district.name);
+        layer.bindPopup(feature.properties.dist_name);
+
+        var center = layer.getBounds().getCenter();
+        var icon = new L.divIcon({className: 'district-label', html: feature.properties.dist_name, iconAnchor: [6, 16]});
+        var marker = L.marker([center.lat,center.lng], {icon: icon});
+        markers.push(marker);
       }
     });
     layer.addTo(this.map);
+
+    // Hack attack!!
+    setTimeout(function() {
+      markers.forEach(function(m) { m.addTo(self.map) });
+    });
   },
-  
+
   dropPin: function(position) {
     $(".my-location").remove(); // get rid of any previously dropped pins
     var icon = new L.divIcon({className: 'my-location'});
