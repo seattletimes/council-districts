@@ -1,13 +1,30 @@
 var L = require("leaflet");
 var $ = require("jquery");
 
-module.exports = function(position, map, wolf) {
+var MapView = function(map) {
+  this.map = map;
+};
 
-  function dropPin(position, map) {
+MapView.prototype = {
+  addLayer: function(data) {
+    var layer = L.geoJson(data, {
+      style: function(feature) {
+        var district = districtData[feature.properties.dist_name];
+        return {color: district.color};
+      },
+      onEachFeature: function (feature, layer) {
+        var district = districtData[feature.properties.dist_name];
+        layer.bindPopup(district.name);
+      }
+    });
+    layer.addTo(this.map);
+  },
+  
+  dropPin: function(position) {
     $(".my-location").remove(); // get rid of any previously dropped pins
     var icon = new L.divIcon({className: 'my-location'});
     var marker = L.marker([position.lat,position.lng], {icon: icon});
-    marker.addTo(map);
+    marker.addTo(this.map);
     var oldTransform = marker._icon.style.transform;
     var newTransform = oldTransform.replace(/, \d+/, ", 0");
     marker._icon.style.transform = newTransform;
@@ -20,14 +37,6 @@ module.exports = function(position, map, wolf) {
       marker._icon.style.transition = "";
     }, 600)
   }
-
-  function findDistrict(wolf) {
-    var results = wolf.find(position, { layer: "Seattle City Council Districts" });
-    var district = districtData[results.dist_name]
-    $(".result").html(district.name);
-    $(".find-by-address").show();
-  }
-
-  dropPin(position, map);
-  findDistrict(wolf);
 };
+
+module.exports = MapView;

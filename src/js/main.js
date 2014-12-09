@@ -1,43 +1,35 @@
 //Use CommonJS style via browserify to load other modules
 
-var L      = require("leaflet");
-var $      = require("jquery");
-var wolf   = require("wherewolf")();
-var locate = require("./geolocation");
-var findMe = require("./findMe");
+var L       = require("leaflet");
+var $       = require("jquery");
+var wolf    = require("./wolf");
+var locate  = require("./geolocation");
+var MapView = require("./mapView");
 
-var map = L.map('map').setView([47.6097, -122.3331], 11);
+var map  = L.map('map').setView([47.6097, -122.3331], 11);
+var view = new MapView(map);
 
 L.tileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
   maxZoom: 15,
   minZoom: 11
 }).addTo(map);
 
-var districtTag = "Seattle City Council Districts";
-
 var request = $.ajax({
   url: "assets/district_shapes.geojson",
   dataType: "json"
 }).then(function(data) {
-  wolf.add(districtTag, data);
+  wolf.init(data);
 
-  var layer = L.geoJson(data, {
-    style: function(feature) {
-      var district = districtData[feature.properties.dist_name];
-      return {color: district.color};
-    },
-    onEachFeature: function (feature, layer) {
-      var district = districtData[feature.properties.dist_name];
-      layer.bindPopup(district.name);
-    }
-  });
-  layer.addTo(map);
+  view.addLayer(data);
 });
 
-var location = locate();
+// true for dev
+var location = locate(true);
 
 $.when(location, request).then(function(position) {
-  findMe(position, map, wolf);
+  view.dropPin(position);
+  var district = wolf.findDistrict(position);
+  updateDistrict(district);
 }, function(err) {
   console.error(err);
 });
@@ -56,9 +48,16 @@ $(".onward").on("click", function(event) {
       $(".spinner").hide();
       var lat = data.results[0].geometry.location.lat;
       var lng = data.results[0].geometry.location.lng;
-
       var position = {lat: lat, lng: lng};
-      findMe(position, map, wolf);
+
+      view.dropPin(position);
+      var district = wolf.findDistrict(position);
+      updateDistrict(district);
     });
   }
 });
+
+var updateDistrict = function(district) {
+  $(".result").html(district.name);
+  $(".find-by-address").show();
+};
