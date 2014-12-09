@@ -41,9 +41,10 @@ location.always(function() {
 $(".onward").on("click", function(event) {
   if ($('#address') !== null) {
     var address = $('#address').val().replace(/\s/g, '+');
+    var bounds = "&bounds=47.4955511,-122.4359085|47.734145,-122.2359032";
     $(".spinner").show();
     $.ajax({
-      url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + address
+      url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + bounds
     }).then(function(data) {
       $(".spinner").hide();
       var lat = data.results[0].geometry.location.lat;
