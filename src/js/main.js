@@ -36,7 +36,15 @@ var request = $.ajax({
 var location = locate();
 
 $.when(location, request).then(function(position) {
-  L.marker([position.lat,position.lng], {icon: new L.DivIcon()}).addTo(map);
+  var marker = L.marker([position.lat,position.lng], {icon: new L.DivIcon()})
+  marker.addTo(map);
+  var oldTransform = marker._icon.style.transform;
+  var newTransform = oldTransform.replace(/, \d+/, ", 0");
+  marker._icon.style.transform = newTransform;
+  marker._icon.style.transition = "transform .5s ease-in";
+  setTimeout(function() {
+    marker._icon.style.transform = oldTransform;
+  }, 100)
 
   var results = wolf.find(position, { layer: "Seattle City Council Districts" });
   var district = districtData[results.dist_name]
