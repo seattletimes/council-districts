@@ -22,7 +22,8 @@
     "mime": "^1.2.11",
     "shelljs": "^0.3.0",
     "through2": "^0.6.3",
-    "typogr": "^0.6.4"
+    "typogr": "^0.6.4",
+    "wherewolf": "^1.0.2"
   },
   "browser": {
     "share": "./src/js/lib/share.min.js",
