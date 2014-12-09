@@ -9,12 +9,17 @@ module.exports = function() {
     deferred.reject("This browser doesn't support geolocation.");
   }
 
-  navigator.geolocation.getCurrentPosition(function(position) {
-    deferred.resolve({
-      lat: position.coords.latitude,
-      lng: position.coords.longitude
-    });
+  deferred.resolve({
+    lat: 47.618,
+    lng: -122.333
   });
+
+  // navigator.geolocation.getCurrentPosition(function(position) {
+  //   deferred.resolve({
+  //     lat: position.coords.latitude,
+  //     lng: position.coords.longitude
+  //   });
+  // });
 
   return deferred.promise();
 };
