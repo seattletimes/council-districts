@@ -9,6 +9,7 @@ module.exports = function() {
     deferred.reject("This browser doesn't support geolocation.");
   }
 
+// DEV ONLY
   deferred.resolve({
     lat: 47.618,
     lng: -122.333

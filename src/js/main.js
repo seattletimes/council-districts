@@ -36,7 +36,8 @@ var request = $.ajax({
 var location = locate();
 
 $.when(location, request).then(function(position) {
-  var marker = L.marker([position.lat,position.lng], {icon: new L.DivIcon()})
+  var icon = new L.DivIcon({className: 'my-location'});
+  var marker = L.marker([position.lat,position.lng], {icon: icon});
   marker.addTo(map);
   var oldTransform = marker._icon.style.transform;
   var newTransform = oldTransform.replace(/, \d+/, ", 0");
