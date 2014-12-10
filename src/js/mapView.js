@@ -23,8 +23,10 @@ MapView.prototype = {
           click: function(e) {
             var bounds = layer.getBounds();
             self.map.fitBounds(bounds);
-            self.selectedItem = e.target;
-            self.update();
+            if (self.selectedItem == null) {
+              self.selectedItem = e.target;
+              self.update();
+            }
           },
           mouseover: function(e) {
             layer.setStyle({color: "#4B1BDE"});
@@ -72,13 +74,24 @@ MapView.prototype = {
 
   update: function() {
     if (this.selectedItem) {
+      $("#map").removeClass("frozen");
       $(".exit").show();
       this.control = new L.Control.Zoom();
-      this.map.addControl(this.control);
+      this.map.addControl(this.control);      
+      this.map.dragging.enable();
+      this.map.boxZoom.enable();
+      this.map.touchZoom.enable();
+      this.map.doubleClickZoom.enable();
     } else {
+      $("#map").addClass("frozen");
       $(".exit").hide();
       this.map.removeControl(this.control);
       this.map.setView([47.6097, -122.3331], 11);
+      this.map.dragging.disable();
+      this.map.boxZoom.disable();
+      this.map.touchZoom.disable();
+      this.map.doubleClickZoom.disable();
+
     }
   }
 };

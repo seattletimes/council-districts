@@ -6,9 +6,13 @@ var wolf    = require("./wolf");
 var locate  = require("./geolocation");
 var MapView = require("./mapView");
 
-var map  = L.map('map', {
+var map = window.map =  L.map('map', {
+  dragging:        false,
+  zoomControl:     false,
+  boxZoom:         false,
+  touchZoom:       false,
   scrollWheelZoom: false,
-  zoomControl: false
+  doubleClickZoom: false
 }).setView([47.6097, -122.3331], 11);
 
 var view = new MapView(map);
