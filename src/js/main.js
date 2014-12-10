@@ -6,7 +6,11 @@ var wolf    = require("./wolf");
 var locate  = require("./geolocation");
 var MapView = require("./mapView");
 
-var map  = L.map('map').setView([47.6097, -122.3331], 11);
+var map  = L.map('map', {
+  scrollWheelZoom: false,
+  zoomControl: false
+}).setView([47.6097, -122.3331], 11);
+
 var view = new MapView(map);
 
 L.tileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
@@ -62,3 +66,7 @@ var updateDistrict = function(district) {
   $(".result").html(district.name);
   $(".find-by-address").show();
 };
+
+$(".exit").on("click", function() {
+  view.zoomOut();
+});

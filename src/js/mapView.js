@@ -3,13 +3,15 @@ var $ = require("jquery");
 
 var MapView = function(map) {
   this.map = map;
+  this.selectedItem = null;
+  this.control = null;
 };
 
 MapView.prototype = {
   addLayer: function(data) {
     var self = this;
     var markers = [];
-    var layer = L.geoJson(data, {
+    var layer = this.districts = L.geoJson(data, {
       style: function(feature) {
         var district = districtData[feature.properties.dist_name];
         return {color: district.color};
@@ -21,9 +23,10 @@ MapView.prototype = {
           click: function(e) {
             var bounds = layer.getBounds();
             self.map.fitBounds(bounds);
+            self.selectedItem = e.target;
+            self.update();
           },
           mouseover: function(e) {
-            console.log(e.target)
             layer.setStyle({color: "#4B1BDE"});
           },
           mouseout: function(e) {
@@ -58,9 +61,25 @@ MapView.prototype = {
       marker._icon.style.transform = oldTransform;
     }, 100);
     setTimeout(function() {
-      // once pin is dropped, we don't want to transition anymore (e.g. on map zoom)
-      marker._icon.style.transition = "";
+      marker._icon.style.transition = ""; // once pin is dropped, we don't want to transition anymore (e.g. on map zoom)
     }, 600)
+  },
+
+  zoomOut: function() {
+    this.selectedItem = null;
+    this.update();
+  },
+
+  update: function() {
+    if (this.selectedItem) {
+      $(".exit").show();
+      this.control = new L.Control.Zoom();
+      this.map.addControl(this.control);
+    } else {
+      $(".exit").hide();
+      this.map.removeControl(this.control);
+      this.map.setView([47.6097, -122.3331], 11);
+    }
   }
 };
 

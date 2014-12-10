@@ -8,11 +8,26 @@
 }
 
 body {
-  display: inline-block;
   height: 800px;
   width: 100%;
   font-family: "Source Sans Pro";
   font-size: 14px;
+  margin: 0;
+}
+
+.exit {
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 48px;
+  background: white;
+  z-index: 999;
+  padding: 5px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+  &:hover {
+    background: #ffcc00;
+  }
 }
 
 #map { 
@@ -36,7 +51,8 @@ body {
 
 .info-box {
   position: absolute;
-  right: 10px;
+  right: 15px;
+  top: 15px;
 
   .inner {
     border-radius: 5px;
@@ -50,9 +66,16 @@ body {
     .find-by-address {
       display: none;
 
+      .address {
+        border: 1px solid #CCC;
+        width: 100%;
+        padding: 0.5em;
+        border-radius: 3px;
+      }
+
       .onward {
         font-size: 15px;
-        background: #fe392e;
+        background: #fe2954;
         border: none;
         padding: 10px;
         width: 100%;
@@ -61,6 +84,7 @@ body {
         color: white;
         font-weight: bold;
         cursor: pointer;
+        border-radius: 3px;
 
         &:hover {
           background: #ff9500;
