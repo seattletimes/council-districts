@@ -15,7 +15,10 @@ MapView.prototype = {
         return {color: district.color};
       },
       onEachFeature: function (feature, layer) {
-        layer.bindPopup(feature.properties.dist_name);
+        layer.on("click", function(e) {
+          var bounds = layer.getBounds();
+          self.map.fitBounds(bounds);
+        });
 
         var center = layer.getBounds().getCenter();
         var icon = new L.divIcon({className: 'district-label', html: feature.properties.dist_name, iconAnchor: [6, 16]});
