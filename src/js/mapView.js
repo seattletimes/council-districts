@@ -15,9 +15,20 @@ MapView.prototype = {
         return {color: district.color};
       },
       onEachFeature: function (feature, layer) {
-        layer.on("click", function(e) {
-          var bounds = layer.getBounds();
-          self.map.fitBounds(bounds);
+        var district = districtData[feature.properties.dist_name];
+
+        layer.on({
+          click: function(e) {
+            var bounds = layer.getBounds();
+            self.map.fitBounds(bounds);
+          },
+          mouseover: function(e) {
+            console.log(e.target)
+            layer.setStyle({color: "#4B1BDE"});
+          },
+          mouseout: function(e) {
+            layer.setStyle({color: district.color});
+          }
         });
 
         var center = layer.getBounds().getCenter();
