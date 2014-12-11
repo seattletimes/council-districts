@@ -72,8 +72,8 @@ var updateDistrict = function(district) {
   $(".search").show();
 };
 
-$(".search").on("click", function() {
-  $(".find-by-address").addClass("show-find");
+$(".inner").on("click", ".search", function() {
+  $(".find-by-address").toggleClass("show-find");
 });
 
 $(".exit").on("click", function() {

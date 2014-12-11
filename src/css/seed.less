@@ -1,5 +1,8 @@
 @import (inline) "src/js/lib/leaflet/dist/leaflet.css";
 
+@pink: #fe2954;
+@gold: #ff9500;
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -20,14 +23,15 @@ body {
   position: absolute;
   top: 10px;
   left: 48px;
-  background: white;
+  background: @pink;
+  color: white;
   z-index: 999;
   padding: 5px 8px;
   border-radius: 3px;
   cursor: pointer;
 
   &:hover {
-    background: #ffcc00;
+    background: @gold;
   }
 }
 
@@ -46,7 +50,7 @@ body {
   }
 
   .my-location {
-    background-color: #fe2954;
+    background-color: @pink;
     border-radius: 6px;
     border-width: 2px;
     border-style: solid;
@@ -64,56 +68,62 @@ body {
     background-color: #EEE;
     padding: 12px;
 
-    .result {
-      text-align: center;
+    .location-box {
+      .result {
+        text-align: center;
+      }
+
+      .search {
+        display: none;
+
+        a {
+          text-decoration: none;
+          color: black;
+
+          &:hover {
+            color: @pink;
+          }
+        }
+      }
+
+      .find-by-address {
+        overflow: hidden;
+        height: 0px;
+        transition: height 0.5s linear;
+
+        &.show-find {
+          height: 82px;
+        }
+
+        .address {
+          border: 1px solid #CCC;
+          width: 100%;
+          padding: 0.5em;
+          border-radius: 3px;
+        }
+
+        .onward-button {
+          font-size: 15px;
+          background: @pink;
+          border: none;
+          padding: 10px;
+          width: 100%;
+          margin-top: 4px;
+          border-radius: 2px;
+          color: white;
+          font-weight: bold;
+          cursor: pointer;
+          border-radius: 3px;
+
+          &:hover {
+            background: @gold;
+          }
+        }
+      }
     }
 
-    .search {
+    .district-box {
       display: none;
-
-      a {
-        text-decoration: none;
-        color: black;
-
-        &:hover {
-          color: #fe2954;
-        }
-      }
-    }
-
-    .find-by-address {
-      overflow: hidden;
-      height: 0px;
-      transition: height 0.5s linear;
-
-      &.show-find {
-        height: 82px;
-      }
-
-      .address {
-        border: 1px solid #CCC;
-        width: 100%;
-        padding: 0.5em;
-        border-radius: 3px;
-      }
-
-      .onward-button {
-        font-size: 15px;
-        background: #fe2954;
-        border: none;
-        padding: 10px;
-        width: 100%;
-        margin-top: 4px;
-        border-radius: 2px;
-        color: white;
-        font-weight: bold;
-        cursor: pointer;
-        border-radius: 3px;
-
-        &:hover {
-          background: #ff9500;
-        }
-      }
     }
   }
 
