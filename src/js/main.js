@@ -8,7 +8,6 @@ var MapView = require("./mapView");
 
 var map = window.map =  L.map('map', {
   dragging:        false,
-  zoomControl:     false,
   boxZoom:         false,
   touchZoom:       false,
   scrollWheelZoom: false,
@@ -32,12 +31,13 @@ var request = $.ajax({
 });
 
 // true for dev
-var location = locate(true);
+var location = locate();
 
 $.when(location, request).then(function(position) {
   view.dropPin(position);
   var district = wolf.findDistrict(position);
   updateDistrict(district);
+  view.colorMyDistrict(district);
 }, function(err) {
   console.error(err);
 });
@@ -62,13 +62,14 @@ $(".onward-button").on("click", function(event) {
       view.dropPin(position);
       var district = wolf.findDistrict(position);
       updateDistrict(district);
+      view.colorMyDistrict(district);
       $(".find-by-address").removeClass("show-find")
     });
   }
 });
 
 var updateDistrict = function(district) {
-  $(".result").html(district.name);
+  $(".result").html("District " + district.name);
   $(".search").show();
 };
 
@@ -78,5 +79,4 @@ $(".inner").on("click", ".search", function() {
 
 $(".exit").on("click", function() {
   view.zoomOut();
-  $(".find-by-address").hide();
 });

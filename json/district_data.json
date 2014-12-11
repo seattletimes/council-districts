@@ -1,30 +1,30 @@
 {
   "1": {
-    "name": "District 1",
+    "name": "1",
     "color": "#fef200"
   },
   "2": {
-    "name": "District 2",
+    "name": "2",
     "color": "#5b55d6"
   },
   "3": {
-    "name": "District 3",
+    "name": "3",
     "color": "#4cda64"
   },
   "4": {
-    "name": "District 4",
+    "name": "4",
     "color": "#1b79ff"
   },
   "5": {
-    "name": "District 5",
+    "name": "5",
     "color": "#fe392e"
   },
   "6": {
-    "name": "District 6",
+    "name": "6",
     "color": "#ffcc00"
   },
   "7": {
-    "name": "District 7",
+    "name": "7",
     "color": "#ff9500"
   }
 }

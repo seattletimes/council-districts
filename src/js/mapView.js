@@ -1,10 +1,22 @@
 var L = require("leaflet");
 var $ = require("jquery");
 
+var restyle = function(feature) {
+  if (this.selectedDistrict) {
+  //if selected && this is the selected - color
+  //  else gray
+  } else {
+      //  switch color based on myDistrict
+  }
+  return {color: "gray"};
+}
+
 var MapView = function(map) {
   this.map = map;
   this.selectedDistrict = null;
+  this.myDistrict = null;
   this.control = null;
+  this.restyle = restyle.bind(this);
 };
 
 MapView.prototype = {
@@ -12,18 +24,14 @@ MapView.prototype = {
     var self = this;
     var markers = [];
     var layer = this.districts = L.geoJson(data, {
-      style: function(feature) {
-        // var district = districtData[feature.properties.dist_name];
-        // return {color: district.color};
-        return {color: "gray"};
-      },
+      style: self.restyle,
       onEachFeature: function (feature, layer) {
         var district = districtData[feature.properties.dist_name];
 
         layer.on({
           click: function(e) {
             if (self.selectedDistrict !== null) {
-              self.selectedDistrict.setStyle({color: "gray"});
+              self.selectedDistrict.setStyle({color: "gray"}); // reset color of previously selected district
             }
             var bounds = layer.getBounds();
             self.map.fitBounds(bounds);
@@ -36,11 +44,9 @@ MapView.prototype = {
           },
           mouseover: function(e) {
               layer.setStyle({color: district.color});
-
           },
           mouseout: function(e) {
             if (e.target !== self.selectedDistrict) {
-              // layer.setStyle({color: district.color});
               layer.setStyle({color: "gray"});
             }
           }
@@ -73,44 +79,50 @@ MapView.prototype = {
       marker._icon.style.transform = oldTransform;
     }, 100);
     setTimeout(function() {
-      marker._icon.style.transition = ""; // once pin is dropped, we don't want to transition anymore (e.g. on map zoom)
-    }, 600)
+      marker._icon.style.transition = ""; // once pin is dropped, stop transitioning transform
+    }, 600);
+  },
+
+  colorMyDistrict: function(district) {
+    var self = this;
+    if (self.myDistrict !== null) {
+      self.myDistrict.setStyle({color: "gray"});
+    }
+    self.map.eachLayer(function(layer) {
+      if (layer.feature && layer.feature.properties.dist_name == district.name) {
+        self.myDistrict = layer;
+      }
+    });
+    self.myDistrict.setStyle({color: district.color});
   },
 
   zoomOut: function() {
+    //this.map.setStyle(this.restyle);
     this.selectedDistrict.setStyle({color: "gray"});
     this.selectedDistrict = null;
+    this.myDistrict.setStyle({color: districtData[this.myDistrict.feature.properties.dist_name].color});
     this.updateView();
   },
 
   updateView: function() {
     if (this.selectedDistrict) {
+      this.myDistrict.setStyle({color: "gray"});
       this.selectedDistrict.setStyle({color: districtData[this.selectedDistrict.feature.properties.dist_name].color});
-      $("#map").removeClass("frozen");
-      $(".exit").show();
-      $(".district-box").show();
-      $(".location-box").hide();
-      if (this.control == null) {
-        this.control = new L.Control.Zoom();
-        this.map.addControl(this.control);   
-      }
-      this.map.dragging.enable();
-      this.map.boxZoom.enable();
-      this.map.touchZoom.enable();
-      this.map.doubleClickZoom.enable();
+      $("body").removeClass("frozen");
+      this.enableMapInteractions(true);
     } else {
-      $("#map").addClass("frozen");
-      $(".exit").hide();
-      $(".district-box").hide();
-      $(".location-box").show();
-      this.map.removeControl(this.control);
-      this.control = null;
+      $("body").addClass("frozen");
       this.map.setView([47.6097, -122.3331], 11);
-      this.map.dragging.disable();
-      this.map.boxZoom.disable();
-      this.map.touchZoom.disable();
-      this.map.doubleClickZoom.disable();
+      this.enableMapInteractions(false);
     }
+  },
+
+  enableMapInteractions: function(enabled) {
+    var map = this.map;
+    var state = enabled ? "enable" : "disable";
+    ["dragging", "boxZoom", "touchZoom", "doubleClickZoom", "scrollWheelZoom"].forEach(function(prop) {
+      map[prop][state]();
+    })
   }
 };
 

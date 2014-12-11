@@ -19,7 +19,7 @@ body {
 }
 
 .exit {
-  display: none;
+  display: inline-block;
   position: absolute;
   top: 10px;
   left: 48px;
@@ -39,10 +39,6 @@ body {
   width: 100%;
   height: 100%;
   float: left;
-
-  &.frozen {
-    cursor: default;
-  }
 
   .district-label {
     font-size: 20px;
@@ -69,6 +65,8 @@ body {
     padding: 12px;
 
     .location-box {
+      display: none;
+
       .result {
         text-align: center;
       }
@@ -123,11 +121,36 @@ body {
     }
 
     .district-box {
-      display: none;
+      display: inline-block;
     }
   }
 
   .spinner {
     display: none;
+  }
+}
+
+// Frozen is default
+.frozen {
+  #map {
+    cursor: default;
+  }
+
+  .leaflet-control-zoom {
+    display: none;
+  }
+
+  .exit {
+    display: none;
+  }
+
+  .info-box {
+    .district-box {
+      display: none;
+    }
+
+    .location-box {
+      display: inline-block;
+    }
   }
 }
