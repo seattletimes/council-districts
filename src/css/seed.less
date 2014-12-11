@@ -25,6 +25,7 @@ body {
   padding: 5px 8px;
   border-radius: 3px;
   cursor: pointer;
+
   &:hover {
     background: #ffcc00;
   }
@@ -61,14 +62,33 @@ body {
   .inner {
     border-radius: 5px;
     background-color: #EEE;
-    padding: 8px;
+    padding: 12px;
 
     .result {
       text-align: center;
     }
 
-    .find-by-address {
+    .search {
       display: none;
+
+      a {
+        text-decoration: none;
+        color: black;
+
+        &:hover {
+          color: #fe2954;
+        }
+      }
+    }
+
+    .find-by-address {
+      overflow: hidden;
+      height: 0px;
+      transition: height 0.5s linear;
+
+      &.show-find {
+        height: 82px;
+      }
 
       .address {
         border: 1px solid #CCC;
@@ -77,7 +97,7 @@ body {
         border-radius: 3px;
       }
 
-      .onward {
+      .onward-button {
         font-size: 15px;
         background: #fe2954;
         border: none;

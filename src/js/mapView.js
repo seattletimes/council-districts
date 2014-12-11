@@ -76,6 +76,8 @@ MapView.prototype = {
     if (this.selectedItem) {
       $("#map").removeClass("frozen");
       $(".exit").show();
+      $(".address-box").show();
+      $(".location-box").hide();
       this.control = new L.Control.Zoom();
       this.map.addControl(this.control);      
       this.map.dragging.enable();
@@ -85,6 +87,8 @@ MapView.prototype = {
     } else {
       $("#map").addClass("frozen");
       $(".exit").hide();
+      $(".address-box").hide();
+      $(".location-box").show();
       this.map.removeControl(this.control);
       this.map.setView([47.6097, -122.3331], 11);
       this.map.dragging.disable();

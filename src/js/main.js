@@ -46,7 +46,7 @@ location.always(function() {
   $(".spinner").hide();
 });
 
-$(".onward").on("click", function(event) {
+$(".onward-button").on("click", function(event) {
   if ($('#address') !== null) {
     var address = $('#address').val().replace(/\s/g, '+');
     var bounds = "&bounds=47.4955511,-122.4359085|47.734145,-122.2359032";
@@ -62,15 +62,21 @@ $(".onward").on("click", function(event) {
       view.dropPin(position);
       var district = wolf.findDistrict(position);
       updateDistrict(district);
+      $(".find-by-address").removeClass("show-find")
     });
   }
 });
 
 var updateDistrict = function(district) {
   $(".result").html(district.name);
-  $(".find-by-address").show();
+  $(".search").show();
 };
+
+$(".search").on("click", function() {
+  $(".find-by-address").addClass("show-find");
+});
 
 $(".exit").on("click", function() {
   view.zoomOut();
+  $(".find-by-address").hide();
 });
