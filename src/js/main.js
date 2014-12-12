@@ -37,7 +37,7 @@ $.when(location, request).then(function(position) {
   view.dropPin(position);
   var district = wolf.findDistrict(position);
   updateDistrict(district);
-  view.colorMyDistrict(district);
+  view.updateView();
 }, function(err) {
   console.error(err);
 });
@@ -46,7 +46,7 @@ location.always(function() {
   $(".spinner").hide();
 });
 
-$(".onward-button").on("click", function(event) {
+var onward = function() {
   if ($('#address') !== null) {
     var address = $('#address').val().replace(/\s/g, '+');
     var bounds = "&bounds=47.4955511,-122.4359085|47.734145,-122.2359032";
@@ -62,15 +62,21 @@ $(".onward-button").on("click", function(event) {
       view.dropPin(position);
       var district = wolf.findDistrict(position);
       updateDistrict(district);
-      view.colorMyDistrict(district);
+      view.updateView();
       $(".find-by-address").removeClass("show-find")
     });
   }
+}
+
+$(".onward-button").on("click", onward);
+$("#address").on("keydown", function(e) {
+  if (e.keyCode == 13) onward();
 });
 
 var updateDistrict = function(district) {
   $(".result").html("District " + district.name);
   $(".search").show();
+  view.myDistrict = district.name;
 };
 
 $(".inner").on("click", ".search", function() {
