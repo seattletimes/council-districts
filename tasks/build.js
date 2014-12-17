@@ -8,7 +8,7 @@ and loadSheets, which import data in a compatible way.
 var path = require("path");
 
 module.exports = function(grunt) {
-
+  
   grunt.template.formatNumber = function(s) {
     s = s + "";
     var start = s.indexOf(".");

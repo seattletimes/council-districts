@@ -26,7 +26,6 @@ var request = $.ajax({
   dataType: "json"
 }).then(function(data) {
   wolf.init(data);
-
   view.addLayer(data);
 });
 
@@ -36,7 +35,7 @@ var location = locate();
 $.when(location, request).then(function(position) {
   view.dropPin(position);
   var district = wolf.findDistrict(position);
-  updateDistrict(district);
+  updateMyDistrictInfo(district);
   view.updateView();
 }, function(err) {
   console.error(err);
@@ -61,9 +60,8 @@ var onward = function() {
 
       view.dropPin(position);
       var district = wolf.findDistrict(position);
-      updateDistrict(district);
+      updateMyDistrictInfo(district);
       view.updateView();
-      $(".find-by-address").removeClass("show-find")
     });
   }
 }
@@ -73,7 +71,7 @@ $("#address").on("keydown", function(e) {
   if (e.keyCode == 13) onward();
 });
 
-var updateDistrict = function(district) {
+var updateMyDistrictInfo = function(district) {
   $(".result").html("District " + district.name);
   $(".search").show();
   view.myDistrict = district.name;

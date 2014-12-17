@@ -33,16 +33,44 @@
           </div>
         </div>
         <div class="district-box">
-          Information about this district
+          <h3><span class="name"></span></h3>
+          <% var columns = [
+            ["Population", "population"],
+            ["Households", "households"],
+            ["White", "white"],
+            ["Hispanic/Latino", "hispanic"],
+            ["Black/African American", "black"], 
+            ["American Indian/Alaska Native", "native"],
+            ["Asian", "asian"], 
+            ["Native Hawaiian/Pacific Islander", "pacific"],
+            ["Other race", "other"], 
+            ["More than one race", "multi"],
+            ["Families below poverty", "poverty"], 
+            ["College degree or higher", "college"], 
+            ["Age 65+", "seniors"], 
+            ["Age &lt;18", "minors"], 
+            ["Speak only English at home", "english"], 
+            ["Never married", "single"], 
+            ["Married", "married"], 
+            ["Widowed", "widowed"], 
+            ["Divorced", "divorced"],
+            ["Renters", "renters"], 
+            ["Owners", "owners"] ]; %>
+          <% columns.forEach(function(col) { %>
+            <p><%= col[0] %>: <span class="<%=col[1]%>"></span> (<%= csv.demo_data["avg"][col[1]] %>)</p>
+          <% }) %>
         </div>
       </div>
       <div class="spinner">
-        <i class="fa fa-spinner fa-spin"></i> Finding your district...
+        <i class="fa fa-spinner fa-spin"></i> Loading...
       </div>
     </div>
 
     <script>
-      var districtData = <%= JSON.stringify(json.district_data) %>
+      var districtData = <%= JSON.stringify(json.district_data) %>;
+      var demoData = <%= JSON.stringify(csv.demo_data) %>;
+      window.formatNumber = <%= t.formatNumber.toString() %>
+      // x.toFixed(2), x.formatNumber...
     </script>
 
     <script src="app.js"></script>

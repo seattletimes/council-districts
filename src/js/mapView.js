@@ -41,7 +41,6 @@ MapView.prototype = {
                 self.selectedDistrict = e.target.feature.properties.dist_name;
               }
             });
-            self.districts.setStyle(self.restyle);
             self.updateView();
           },
           mouseover: function(e) {
@@ -93,11 +92,25 @@ MapView.prototype = {
     if (this.selectedDistrict) {
       $("body").removeClass("frozen");
       this.enableMapInteractions(true);
+      this.updateSelectedDistrictInfo(this.selectedDistrict);
     } else {
       $("body").addClass("frozen");
       this.map.setView([47.6097, -122.3331], 11);
       this.enableMapInteractions(false);
     }
+  },
+
+  updateSelectedDistrictInfo: function(district) {
+    var columns = ["population", "households", "white", "hispanic", "black",  "native", "asian", "pacific", "other", "multi", "poverty", "college", "seniors", "minors", "english", "single", "married", "widowed", "divorced", "renters", "owners" ];
+
+    var data = demoData[district];
+
+    $(".district-box .name").html("District " + district);
+
+    columns.forEach(function(col) {
+      console.log(col)
+      $(".district-box ." + col).html(data[col]);
+    });
   },
 
   enableMapInteractions: function(enabled) {
