@@ -87,6 +87,8 @@ $(".exit").on("click", function() {
 });
 
 $(".data-box").on("click", "li", function(e) {
-  view.selectedDemo = e.target.id;
+  $("li.active").removeClass("active");
+  $(this).addClass("active");
+  view.selectedDemo = this.id;
   view.updateView();
 })
