@@ -21,9 +21,9 @@ var restyle = function(feature) {
   }
   return { 
     color: "black",
-    fillColor: "gray",
+    fillColor: "#DEDEDE",
     weight: 2,
-    fillOpacity: 0.5 
+    fillOpacity: 0.7 
   };
 };
 
@@ -59,7 +59,7 @@ MapView.prototype = {
             self.updateView();
           },
           mouseover: function(e) {
-            layer.setStyle({fillColor: "#B2DAB8"});
+            layer.setStyle({fillColor: "honeydew"});
           },
           mouseout: function(e) {
             geojson.resetStyle(layer);
