@@ -6,7 +6,7 @@ for (var num in demoData) {
     values[key].push(district[key]);
   }
 }
-
+// find min and max values for each demographic
 var bounds = {};
 for (var key in values) {
   bounds[key] = {
@@ -15,9 +15,10 @@ for (var key in values) {
   }
 }
 
+// generate color for heat map
 module.exports = function(demographic, district) {
   var minHue = [222, 222, 222];
-  var maxHue = [0, 0, 255];
+  var maxHue = [91, 85, 214];
 
   var max = bounds[demographic].max;
   var value = demoData[district.name][demographic];

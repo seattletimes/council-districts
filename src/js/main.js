@@ -61,6 +61,7 @@ var onward = function() {
       view.dropPin(position);
       var district = wolf.findDistrict(position);
       updateMyDistrictInfo(district);
+      view.selectedDemo = null;
       view.updateView();
     });
   }

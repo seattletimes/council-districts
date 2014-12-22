@@ -10,13 +10,13 @@ var restyle = function(feature) {
 
   if (this.selectedDistrict) {
     if (feature.properties.dist_name == this.selectedDistrict) {
-      return { fillColor: "#00FF00" };
+      return { fillColor: "#4cda64" };
     }
   } else if (this.selectedDemo) {
     return heatStyle(this.selectedDemo, district);
   } else if (this.myDistrict) {
     if (feature.properties.dist_name == this.myDistrict) {
-      return { fillColor: "#00FF00" };
+      return { fillColor: "#4cda64" };
     }
   }
   return { 
@@ -59,7 +59,7 @@ MapView.prototype = {
             self.updateView();
           },
           mouseover: function(e) {
-            layer.setStyle({fillColor: "#C8FFC8"});
+            layer.setStyle({fillColor: "#B2DAB8"});
           },
           mouseout: function(e) {
             geojson.resetStyle(layer);
