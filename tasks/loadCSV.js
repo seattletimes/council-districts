@@ -25,7 +25,8 @@ module.exports = function(grunt) {
       var isKeyed = !!(file.split("\n").shift().match(/(^|,)key(,|$)/));
       var parsed = isKeyed ? {} : [];
       var parser = csv.parse({
-        columns: true
+        columns: true,
+        auto_parse: true
       });
       parser.on("data", function(line) {
         //if "key" is a column, make this an object hash

@@ -84,3 +84,8 @@ $(".inner").on("click", ".search", function() {
 $(".exit").on("click", function() {
   view.zoomOut();
 });
+
+$(".data-box").on("click", "li", function(e) {
+  view.selectedDemo = e.target.id;
+  view.updateView();
+})

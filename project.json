@@ -1,15 +1,15 @@
 {
   "s3": {
     "stage": {
-      "bucket": "",
-      "path": ""
+      "bucket": "apps-stage.seattletimesdata.com",
+      "path": "geographic-heirloom"
     },
     "live": {
       "bucket": "",
       "path": ""
     }
   },
-  "title": "",
+  "title": "City Council Districts",
   "description": "",
   "url": "",
   "slug": "",

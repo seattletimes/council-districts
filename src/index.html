@@ -32,34 +32,32 @@
             </p>
           </div>
         </div>
-        <div class="district-box">
-          <h3><span class="name"></span></h3>
-          <% var columns = [
-            ["Population", "population"],
-            ["Households", "households"],
-            ["White", "white"],
-            ["Hispanic/Latino", "hispanic"],
-            ["Black/African American", "black"], 
-            ["American Indian/Alaska Native", "native"],
-            ["Asian", "asian"], 
-            ["Native Hawaiian/Pacific Islander", "pacific"],
-            ["Other race", "other"], 
-            ["More than one race", "multi"],
-            ["Families below poverty", "poverty"], 
-            ["College degree or higher", "college"], 
-            ["Age 65+", "seniors"], 
-            ["Age &lt;18", "minors"], 
-            ["Speak only English at home", "english"], 
-            ["Never married", "single"], 
-            ["Married", "married"], 
-            ["Widowed", "widowed"], 
-            ["Divorced", "divorced"],
-            ["Renters", "renters"], 
-            ["Owners", "owners"] ]; %>
-          <% columns.forEach(function(col) { %>
-            <p><%= col[0] %>: <span class="<%=col[1]%>"></span> (<%= csv.demo_data["avg"][col[1]] %>)</p>
-          <% }) %>
+        <div class="data-box">
+          <ul>
+            <li id="population">Population</li>
+            <li id="households">Households</li>
+            <li id="white">White</li>
+            <li id="hispanic">Hispanic/Latino</li>
+            <li id="black">Black/African American</li>
+            <li id="native">American Indian/Alaska Native</li>
+            <li id="asian">Asian</li>
+            <li id="native">Native Hawaiian/Pacific Islander</li>
+            <li id="other">Other race</li>
+            <li id="multi">More than one race</li>
+            <li id="poverty">Families below poverty</li>
+            <li id="college">College degree or higher</li>
+            <li id="seniors">Age 65+</li>
+            <li id="minors">Age &lt;18</li>
+            <li id="english">Speak only English at home</li>
+            <li id="single">Never married</li>
+            <li id="married">Married</li>
+            <li id="widowed">Widowed</li>
+            <li id="divorced">Divorced</li>
+            <li id="renters">Renters</li>
+            <li id="owners">Owners</li>
+          </ul>
         </div>
+        <div class="district-box"></div>
       </div>
       <div class="spinner">
         <i class="fa fa-spinner fa-spin"></i> Loading...
@@ -70,7 +68,6 @@
       var districtData = <%= JSON.stringify(json.district_data) %>;
       var demoData = <%= JSON.stringify(csv.demo_data) %>;
       window.formatNumber = <%= t.formatNumber.toString() %>
-      // x.toFixed(2), x.formatNumber...
     </script>
 
     <script src="app.js"></script>

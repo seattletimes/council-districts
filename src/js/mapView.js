@@ -1,24 +1,39 @@
 var L = require("leaflet");
 var $ = require("jquery");
+var ich = require("icanhaz");
+var heatStyle = require("./heatStyle");
+var districtTemplate = require("./_districtInfo.html");
+ich.addTemplate("districtInfo", districtTemplate);
 
 var restyle = function(feature) {
   var district = districtData[feature.properties.dist_name];
 
   if (this.selectedDistrict) {
     if (feature.properties.dist_name == this.selectedDistrict) {
-      return { color: district.color };
+      return { fillColor: "#00FF00" };
     }
+  } else if (this.selectedDemo) {
+    return heatStyle(this.selectedDemo, district);
   } else if (this.myDistrict) {
     if (feature.properties.dist_name == this.myDistrict) {
-      return {color: district.color};
+      return { fillColor: "#00FF00" };
     }
   }
-  return { color: "gray" };
-}
+  return { 
+    color: "black",
+    fillColor: "gray",
+    weight: 2,
+    fillOpacity: 0.5 
+  };
+};
+
+// var percentages = ["white", "hispanic", "black", "native", "asian", "pacific","other", "multi"];
+var averageData = {};
 
 var MapView = function(map) {
   this.map = map;
   this.selectedDistrict = null;
+  this.selectedDemo = null;
   this.myDistrict = null;
   this.restyle = restyle.bind(this);
 };
@@ -44,7 +59,7 @@ MapView.prototype = {
             self.updateView();
           },
           mouseover: function(e) {
-            layer.setStyle({color: district.color});
+            layer.setStyle({fillColor: "#C8FFC8"});
           },
           mouseout: function(e) {
             geojson.resetStyle(layer);
@@ -101,16 +116,40 @@ MapView.prototype = {
   },
 
   updateSelectedDistrictInfo: function(district) {
-    var columns = ["population", "households", "white", "hispanic", "black",  "native", "asian", "pacific", "other", "multi", "poverty", "college", "seniors", "minors", "english", "single", "married", "widowed", "divorced", "renters", "owners" ];
+    var demo = demoData[district];
+    var districtData = { name: district };
 
-    var data = demoData[district];
+    for (var key in demo) {
+      var value = demo[key];
+      // if (typeof value == "number") {
+      //   if (percentages.indexOf(key) > -1) {
+      //     districtData[key] = formatNumber((value * 100).toFixed(2));
+      //   } else {
+          districtData[key] = formatNumber(value);
+      //   }
+      // } else {
+      //   districtData[key] = value;
+      // }
+    }    
 
-    $(".district-box .name").html("District " + district);
+    if (Object.keys(averageData).length == 0) {
+      var avg  = demoData["avg"];
+      for (var key in avg) {
+        var value = avg[key];
+      //   if (typeof value == "number") {
+      //     if (percentages.indexOf(key) > -1) {
+      //       averageData[key] = formatNumber((value * 100).toFixed(2));
+      //     } else {
+            averageData[key] = formatNumber(value);
+      //     }
+      //   } else {
+      //     averageData[key] = value;
+      //   }
+      }    
+    }
 
-    columns.forEach(function(col) {
-      console.log(col)
-      $(".district-box ." + col).html(data[col]);
-    });
+    var data = { district: districtData, average: averageData };
+    $(".district-box").html(ich.districtInfo(data));
   },
 
   enableMapInteractions: function(enabled) {
