@@ -6,6 +6,7 @@ for (var num in demoData) {
     values[key].push(district[key]);
   }
 }
+
 // find min and max values for each demographic
 var bounds = {};
 for (var key in values) {
@@ -21,8 +22,9 @@ module.exports = function(demographic, district) {
 
   var max = bounds[demographic].max;
   var min = bounds[demographic].min;
+
   var value = demoData[district.name][demographic];
-  var scaler = value / (max - min);
+  var scaler = (value - min) / (max - min);
   var values = maxHue.map(function(c) {
     return Math.round(255 - (255 - c) * scaler);
   });

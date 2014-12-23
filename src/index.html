@@ -45,7 +45,7 @@
             <li id="black">Black/African American</li>
             <li id="native">American Indian/Alaska Native</li>
             <li id="asian">Asian</li>
-            <li id="native">Native Hawaiian/Pacific Islander</li>
+            <li id="pacific">Native Hawaiian/Pacific Islander</li>
             <li id="other">Other race</li>
             <li id="multi">More than one race</li>
             <li id="poverty">Families below poverty</li>
@@ -72,7 +72,7 @@
 
     <script>
       var districtData = <%= JSON.stringify(json.district_data) %>;
-      var demoData = <%= JSON.stringify(csv.demo_data) %>;
+      var demoData = window.demoData = <%= JSON.stringify(csv.demo_data) %>;
       window.formatNumber = <%= t.formatNumber.toString() %>
     </script>
 
