@@ -12,7 +12,7 @@ var bounds = {};
 for (var key in values) {
   bounds[key] = {
     max: Math.max.apply(null, values[key]),
-    min: Math.min.apply(null, values[key])
+    min: (Math.min.apply(null, values[key]) / 2 )
   }
 }
 

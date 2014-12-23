@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <%= t.include("partials/_adHead.html") %>
   </head>
   <body class="frozen">
@@ -22,6 +22,9 @@
         
         <div class="location-box">
           You are in:
+          <div class="spinner">
+            <i class="fa fa-spinner fa-spin"></i> Loading...
+          </div>
           <h2 class="result"></h2>
           <div class="search">
             <a href="#"><i class="fa fa-search"></i> <em>Use another address</em></a>
@@ -43,10 +46,7 @@
             <li id="white">White</li>
             <li id="hispanic">Hispanic/Latino</li>
             <li id="black">Black/African American</li>
-            <li id="native">American Indian/Alaska Native</li>
             <li id="asian">Asian</li>
-            <li id="pacific">Native Hawaiian/Pacific Islander</li>
-            <li id="other">Other race</li>
             <li id="multi">More than one race</li>
             <li id="poverty">Families below poverty</li>
             <li id="college">College degree or higher</li>
@@ -60,13 +60,11 @@
             <li id="renters">Renters</li>
             <li id="owners">Owners</li>
           </ul>
+          <em>*Native American, Pacific Islander, and Other Race omitted</em>
         </div>
 
         <div class="district-box"></div>
 
-      </div>
-      <div class="spinner">
-        <i class="fa fa-spinner fa-spin"></i> Loading...
       </div>
     </div>
 
