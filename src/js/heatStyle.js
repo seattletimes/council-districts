@@ -20,8 +20,9 @@ module.exports = function(demographic, district) {
   var maxHue = [91, 85, 214];
 
   var max = bounds[demographic].max;
+  var min = bounds[demographic].min;
   var value = demoData[district.name][demographic];
-  var scaler = value / max;
+  var scaler = value / (max - min);
   var values = maxHue.map(function(c) {
     return Math.round(255 - (255 - c) * scaler);
   });
