@@ -125,7 +125,8 @@ MapView.prototype = {
       //   if (percentages.indexOf(key) > -1) {
       //     districtData[key] = formatNumber((value * 100).toFixed(2));
       //   } else {
-          districtData[key] = formatNumber(value);
+          // districtData[key] = formatNumber(value);
+          districtData[key] = value;
       //   }
       // } else {
       //   districtData[key] = value;
@@ -140,7 +141,7 @@ MapView.prototype = {
       //     if (percentages.indexOf(key) > -1) {
       //       averageData[key] = formatNumber((value * 100).toFixed(2));
       //     } else {
-            averageData[key] = formatNumber(value);
+            averageData[key] = value;
       //     }
       //   } else {
       //     averageData[key] = value;
@@ -150,6 +151,13 @@ MapView.prototype = {
 
     var data = { district: districtData, average: averageData };
     $(".district-box").html(ich.districtInfo(data));
+
+    for (var key in demo) {
+      this.drawGraph(key, demo[key], "district");
+    }
+    for (var key in averageData) {
+      this.drawGraph(key, averageData[key], "average");
+    }
   },
 
   enableMapInteractions: function(enabled) {
@@ -158,6 +166,12 @@ MapView.prototype = {
     ["dragging", "boxZoom", "touchZoom", "doubleClickZoom", "scrollWheelZoom"].forEach(function(prop) {
       map[prop][state]();
     })
+  },
+
+  drawGraph: function(name, number, type) {
+    var pixels = parseInt(number) / 1000;
+    var selector = '#' + name + '-' + type;
+    $(selector).width(pixels);
   }
 };
 
