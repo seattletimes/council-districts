@@ -1,37 +1,32 @@
 <h3>District {{district.name}}</h3>
 
 <div class="charts">
-  <div id="population-district" class="district bar"></div>
+<!--   <div id="population-district" class="district bar"></div>
   <div id="population-average" class="average bar"></div>
 
   <div id="households-district" class="district bar"></div>
-  <div id="households-average" class="average bar"></div>
+  <div id="households-average" class="average bar"></div> -->
 
-  <div id="white-district" class="district bar"></div>
-  <div id="white-average" class="average bar"></div>
+  <br>District:<br>
+  <div class="white district bar"></div>
+  <div class="hispanic district bar"></div>
+  <div class="black district bar"></div>
+  <div class="asian district bar"></div>
+  <div class="multi district bar"></div>
+  <div class="other district bar"></div>
 
-  <div id="hispanic-district" class="district bar"></div>
-  <div id="hispanic-average" class="average bar"></div>
+  <br>
+  Average:
+  <br>
 
-  <div id="black-district" class="district bar"></div>
-  <div id="black-average" class="average bar"></div>
+  <div class="white average bar"></div>
+  <div class="hispanic average bar"></div>
+  <div class="black average bar"></div>
+  <div class="asian average bar"></div>
+  <div class="multi average bar"></div>
+  <div class="other average bar"></div>
 
-  <div id="native-district" class="district bar"></div>
-  <div id="native-average" class="average bar"></div>
-
-  <div id="asian-district" class="district bar"></div>
-  <div id="asian-average" class="average bar"></div>
-
-  <div id="pacific-district" class="district bar"></div>
-  <div id="pacific-average" class="average bar"></div>
-
-  <div id="other-district" class="district bar"></div>
-  <div id="other-average" class="average bar"></div>
-
-  <div id="multi-district" class="district bar"></div>
-  <div id="multi-average" class="average bar"></div>
-
-  <div id="poverty-district" class="district bar"></div>
+<!--   <div id="poverty-district" class="district bar"></div>
   <div id="poverty-average" class="average bar"></div>
 
   <div id="college-district" class="district bar"></div>
@@ -62,7 +57,7 @@
   <div id="renters-average" class="average bar"></div>
 
   <div id="owners-district" class="district bar"></div>
-  <div id="owners-average" class="average bar"></div>
+  <div id="owners-average" class="average bar"></div> -->
 </div>
 
 <div class="table">
@@ -98,29 +93,19 @@
       <td>{{average.black}}</td>
     </tr>
     <tr>
-      <td>American Indian/Alaska Native</td>
-      <td>{{district.native}}</td>
-      <td>{{average.native}}</td>
-    </tr>
-    <tr>
       <td>Asian</td>
       <td>{{district.asian}}</td>
       <td>{{average.asian}}</td>
     </tr>
     <tr>
-      <td>Native Hawaiian/Pacific Islander</td>
-      <td>{{district.pacific}}</td>
-      <td>{{average.pacific}}</td>
+      <td>More than one race</td>
+      <td>{{district.multi}}</td>
+      <td>{{average.multi}}</td>
     </tr>
     <tr>
       <td>Other race</td>
       <td>{{district.other}}</td>
       <td>{{average.other}}</td>
-    </tr>
-    <tr>
-      <td>More than one race</td>
-      <td>{{district.multi}}</td>
-      <td>{{average.multi}}</td>
     </tr>
     <tr>
       <td>Families below poverty</td>

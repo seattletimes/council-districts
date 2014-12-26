@@ -48,6 +48,7 @@
             <li id="black">Black/African American</li>
             <li id="asian">Asian</li>
             <li id="multi">More than one race</li>
+            <li id="other">Other race*</li>
             <li id="poverty">Families below poverty</li>
             <li id="college">College degree or higher</li>
             <li id="seniors">Age 65+</li>
@@ -60,7 +61,7 @@
             <li id="renters">Renters</li>
             <li id="owners">Owners</li>
           </ul>
-          <em>*Native American, Pacific Islander, and Other Race omitted</em>
+          <em>*Includes Native American and Pacific Islander</em>
         </div>
 
         <div class="district-box"></div>
@@ -70,7 +71,7 @@
 
     <script>
       var districtData = <%= JSON.stringify(json.district_data) %>;
-      var demoData = window.demoData = <%= JSON.stringify(csv.demo_data) %>;
+      var demoData = window.demoData = <%= JSON.stringify(csv.demo_data_other) %>;
       window.formatNumber = <%= t.formatNumber.toString() %>
     </script>
 
