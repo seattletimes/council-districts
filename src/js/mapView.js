@@ -36,6 +36,7 @@ var MapView = function(map) {
   this.selectedDemo = null;
   this.myDistrict = null;
   this.restyle = restyle.bind(this);
+  this.districtBounds = null;
 };
 
 MapView.prototype = {
@@ -74,7 +75,8 @@ MapView.prototype = {
     });
 
     geojson.addTo(this.map);
-    map.fitBounds(geojson.getBounds());
+    self.districtBounds = geojson.getBounds();
+    map.fitBounds(self.districtBounds);
 
     // Hack attack!!
     setTimeout(function() {
@@ -112,7 +114,7 @@ MapView.prototype = {
       this.updateSelectedDistrictInfo(this.selectedDistrict);
     } else {
       $("body").addClass("frozen");
-      map.fitBounds(geojson.getBounds());
+      map.fitBounds(this.districtBounds);
       this.enableMapInteractions(false);
     }
   },
