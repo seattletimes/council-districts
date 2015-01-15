@@ -72,7 +72,9 @@ MapView.prototype = {
         markers.push(marker);
       }
     });
+
     geojson.addTo(this.map);
+    map.fitBounds(geojson.getBounds());
 
     // Hack attack!!
     setTimeout(function() {
@@ -110,7 +112,7 @@ MapView.prototype = {
       this.updateSelectedDistrictInfo(this.selectedDistrict);
     } else {
       $("body").addClass("frozen");
-      this.map.setView([47.6097, -122.3331], 11);
+      map.fitBounds(geojson.getBounds());
       this.enableMapInteractions(false);
     }
   },
@@ -150,6 +152,7 @@ MapView.prototype = {
     }
 
     var data = { district: districtData, average: averageData };
+    
     $(".district-box").html(ich.districtInfo(data));
 
     for (var key in demo) {

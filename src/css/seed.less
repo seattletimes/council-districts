@@ -1,8 +1,11 @@
 @import (inline) "src/js/lib/leaflet/dist/leaflet.css";
 @import "template";
+@import "page";
 
 @pink: #fe2954;
 @gold: #ff9500;
+@top-height: 44px;
+@mobile: ~"(max-width: 480px)";
 
 * {
   -webkit-box-sizing: border-box;
@@ -30,7 +33,7 @@ h4 {
 .exit {
   display: inline-block;
   position: absolute;
-  top: 10px;
+  top: calc(@top-height + 10px);
   left: 48px;
   background: @pink;
   color: white;
@@ -45,9 +48,10 @@ h4 {
 }
 
 #map { 
-  width: 100%;
+  width: calc(~"100% - 289px");
   height: 100%;
-  float: left;
+  position: fixed;
+  top: @top-height;
 
   .district-label {
     font-size: 20px;
@@ -65,13 +69,15 @@ h4 {
 
 .info-box {
   position: absolute;
-  right: 15px;
-  top: 15px;
+  right: 0px;
+  top: @top-height;
+  height: 100%;
 
   .inner {
     border-radius: 5px;
-    background-color: #EEE;
+    background-color: #eef5ff;
     padding: 12px;
+    height: 100%;
 
     .location-box {
       display: none;

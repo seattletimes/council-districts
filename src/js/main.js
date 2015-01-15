@@ -12,11 +12,11 @@ var map = window.map =  L.map('map', {
   touchZoom:       false,
   scrollWheelZoom: false,
   doubleClickZoom: false
-}).setView([47.6097, -122.3331], 11);
+});
 
 var view = new MapView(map);
 
-L.tileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
+var layer = L.tileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
   maxZoom: 15,
   minZoom: 11
 }).addTo(map);
