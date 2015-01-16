@@ -96,10 +96,12 @@ $(".exit").on("click", function() {
 $(".data-box").on("click", ".demo-tile", function(e) {
   var demoBox = this.querySelector(".demo-box");
   var bounds = demoBox.getBoundingClientRect();
+  var open = document.querySelector(".demo-tile.open .demo-box");
   if (bounds.height == 0) {
-    var open = document.querySelector(".demo-box.open");
     if (open !== null) { closeBox(open) }
     openBox(demoBox);
+  } else {
+    closeBox(open)
   }
 });
 
@@ -116,7 +118,7 @@ var openBox = function(box) {
     $box.removeClass("transition-in");
     box.style.height = "auto";
   }, 500);
-  $box.addClass("open");
+  $box.closest(".demo-tile").addClass("open");
 };
 
 var closeBox = function(box) {
@@ -130,7 +132,7 @@ var closeBox = function(box) {
   setTimeout(function() {
     $box.removeClass("transition-out");
   }, 500)
-  $box.removeClass("open");
+  $box.closest(".demo-tile").removeClass("open");
 };
 
 $(".demo").click(function(e) {

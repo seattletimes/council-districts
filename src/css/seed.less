@@ -163,6 +163,25 @@ h4 {
         border-top: 1px solid #EEE;
         padding: 5px 10px;
         cursor: pointer;
+
+        .demo-name {
+          padding-left: 2px;
+          transition: padding-left 0.1s ease-in;
+        }
+
+        .fa-caret-right {
+          transition: transform 0.1s ease-in;
+        }
+
+        &.open {
+          .fa-caret-right {
+            transform: rotate(90deg);
+          }
+
+          .demo-name {
+            padding-left: 6px;
+          }
+        }
       }
 
       .demo-box {
@@ -175,6 +194,11 @@ h4 {
 
         &.transition-out {
           transition: height 0.5s ease-out;
+        }
+
+        ul {
+          padding: 0 0 0 14px;
+          list-style: none;
         }
 
         .demo {
