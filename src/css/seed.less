@@ -91,11 +91,12 @@ h4 {
   .inner {
     border-radius: 5px;
     background-color: #EEE;
-    padding: 20px;
     height: 100%;
 
     .location-box {
       display: none;
+      padding: 10px;
+      border-bottom: 1px solid black;
 
       .spinner {
         display: none;
@@ -157,11 +158,26 @@ h4 {
     .data-box {
       display: none; 
 
-      ul {
-        padding: 0;
-        list-style-type: none;
+      .demo-tile {
+        background: white;
+        border-top: 1px solid #EEE;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
 
-        li {
+      .demo-box {
+        height: 0;
+        overflow: hidden;
+
+        &.transition-in {
+          transition: height 0.5s ease-in;
+        }
+
+        &.transition-out {
+          transition: height 0.5s ease-out;
+        }
+
+        .demo {
           cursor: pointer;
 
           &:hover {

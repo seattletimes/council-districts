@@ -93,8 +93,48 @@ $(".exit").on("click", function() {
   view.zoomOut();
 });
 
-$(".data-box").on("click", "li", function(e) {
-  $("li.active").removeClass("active");
+$(".data-box").on("click", ".demo-tile", function(e) {
+  var demoBox = this.querySelector(".demo-box");
+  var bounds = demoBox.getBoundingClientRect();
+  if (bounds.height == 0) {
+    var open = document.querySelector(".demo-box.open");
+    if (open !== null) { closeBox(open) }
+    openBox(demoBox);
+  }
+});
+
+var openBox = function(box) {
+  var $box = $(box);
+  box.style.height = "auto";
+  var bounds = box.getBoundingClientRect();
+  box.style.height = "0";
+  $box.addClass("transition-in");
+  setTimeout(function() {
+    box.style.height = bounds.height + "px";
+  });
+  setTimeout(function(){
+    $box.removeClass("transition-in");
+    box.style.height = "auto";
+  }, 500);
+  $box.addClass("open");
+};
+
+var closeBox = function(box) {
+  var $box = $(box);
+  var bounds = box.getBoundingClientRect();
+  box.style.height = bounds.height + "px";
+  $box.addClass("transition-out");
+  setTimeout(function() {
+    box.style.height = "0";
+  });
+  setTimeout(function() {
+    $box.removeClass("transition-out");
+  }, 500)
+  $box.removeClass("open");
+};
+
+$(".demo").click(function(e) {
+  $(".demo.active").removeClass("active");
   $(this).addClass("active");
   view.selectedDemo = this.id;
   view.updateView();
