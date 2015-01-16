@@ -5,6 +5,13 @@ var $       = require("jquery");
 var wolf    = require("./wolf");
 var locate  = require("./geolocation");
 var MapView = require("./mapView");
+var Share   = require("share");
+
+new Share(".share", {
+  ui: {
+    flyout: "bottom left"
+  },
+});
 
 var map = window.map =  L.map('map', {
   dragging:        false,
