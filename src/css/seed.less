@@ -5,6 +5,8 @@
 @pink: #fe2954;
 @gold: #ff9500;
 @top-height: 44px;
+@box-width: 300px;
+@box-height: 80px;
 @mobile: ~"(max-width: 480px)";
 
 * {
@@ -48,10 +50,15 @@ h4 {
 }
 
 #map { 
-  width: calc(~"100% - 289px");
+  width: calc(~"100% - @{box-width}");
   height: 100%;
   position: fixed;
   top: @top-height;
+
+  @media @mobile {
+    width: 100%;
+    height: calc(~"100% - @{box-height}");
+  }
 
   .district-label {
     font-size: 20px;
@@ -72,6 +79,14 @@ h4 {
   right: 0px;
   top: @top-height;
   height: 100%;
+  width: @box-width;
+
+  @media @mobile {
+    width: 100%;
+    height: @box-height;
+    bottom: 0;
+    top: inherit;
+  }
 
   .inner {
     border-radius: 5px;
