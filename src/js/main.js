@@ -100,9 +100,7 @@ $(".data-box").on("click", ".demo-tile", function(e) {
   if (bounds.height == 0) {
     if (open !== null) { closeBox(open) }
     openBox(demoBox);
-  } else {
-    closeBox(open)
-  }
+  } 
 });
 
 var openBox = function(box) {
