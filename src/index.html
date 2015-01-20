@@ -45,88 +45,12 @@
           </div>
         </div>
 
-        <!-- Template this at some point -->
-
         <div class="data-box">
           <h4>Compare districts by:</h4>
 
-          <div class="demo-tile">
-            <div><i class="fa fa-caret-right"></i> <span class="demo-name">Race/Ethnicity</div>
-            <div class="demo-box">
-              <ul>
-                <li class="demo" id="white">White</li>
-                <li class="demo" id="black">Black</li>
-                <li class="demo" id="asian">Asian</li>
-                <li class="demo" id="hispanic">Hispanic</li>
-                <li class="demo" id="other">Two or more races/other</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="demo-tile">
-            <div><i class="fa fa-caret-right"></i> <span class="demo-name">Marital Status</div>
-            <div class="demo-box">
-              <ul>
-                <li class="demo" id="single">Single</li>
-                <li class="demo" id="married">Married</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="demo-tile">
-            <div><i class="fa fa-caret-right"></i> <span class="demo-name">Rent/Own</div>
-            <div class="demo-box">
-              <ul>
-                <li class="demo" id="renters">Renters</li>
-                <li class="demo" id="owners">Owners</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="demo-tile">
-            <div><i class="fa fa-caret-right"></i> <span class="demo-name">Age</div>
-            <div class="demo-box">
-              <ul>
-                <li class="demo" id="minors">Under 18</li>
-                <li class="demo" id="seniors">Over 65</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="demo-tile">
-            <div><i class="fa fa-caret-right"></i> <span class="demo-name">Income</div>
-            <div class="demo-box">
-              <ul>
-                <li class="demo" id="25k">In poverty</li>
-                <li class="demo" id="250k">Over $100,000 per year</li>
-                <li class="demo" id="100k">Over $200,000 per year</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="demo-tile">
-            <div><i class="fa fa-caret-right"></i> <span class="demo-name">Commute Mode</div>
-            <div class="demo-box">
-              <ul>
-                <li class="demo" id="drive">Drive alone</li>
-                <li class="demo" id="carpool">Carpool</li>
-                <li class="demo" id="transit">Transit</li>
-                <li class="demo" id="bike">Bike</li>
-                <li class="demo" id="walk">Walk</li>
-                <li class="demo" id="home">Work from home</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="demo-tile">
-            <div><i class="fa fa-caret-right"></i> <span class="demo-name">Language</div>
-            <div class="demo-box">
-              <ul>
-                <li class="demo" id="nonenglish">Don't speak English at home</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+          <% for (var name in json.demo_options) { %>
+            <%= t.include("partials/_compareTemplate.html", { name: name, options: json.demo_options[name] }) %>
+          <% } %>
 
         <div class="district-box"></div>
 

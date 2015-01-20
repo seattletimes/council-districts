@@ -1,0 +1,100 @@
+{
+  "Race/Ethnicity": [
+    {
+      "id": "white",
+      "label": "White"
+    },
+    {
+      "id": "black",
+      "label": "Black"
+    },
+    {
+      "id": "asian",
+      "label": "Asian"
+    },
+    {
+      "id": "hispanic",
+      "label": "Hispanic"
+    },
+    {
+      "id": "other",
+      "label": "Two or more races/other"
+    }
+  ],
+  "Marital Status": [
+    {
+      "id": "single",
+      "label": "Single"
+    },
+    {
+      "id": "married",
+      "label": "Married"
+    }
+  ],
+  "Rent/Own": [
+    {
+      "id": "renters",
+      "label": "Renters"
+    },
+    {
+      "id": "owners",
+      "label": "Owners"
+    }
+  ],
+  "Age": [
+    {
+      "id": "minors",
+      "label": "Under 18"
+    },
+    {
+      "id": "seniors",
+      "label": "Over 65"
+    }
+  ],
+  "Income": [
+    {
+      "id": "25k",
+      "label": "In poverty"
+    },
+    {
+      "id": "100k",
+      "label": "Over $100,000 per year"
+    },
+    {
+      "id": "250k",
+      "label": "Over $250,000 per year"
+    }
+  ],
+  "Commute Mode": [
+    {
+      "id": "drive",
+      "label": "Drive alone"
+    },
+    {
+      "id": "carpool",
+      "label": "Carpool"
+    },
+    {
+      "id": "transit",
+      "label": "Transit"
+    },
+    {
+      "id": "bike",
+      "label": "Bike"
+    },
+    {
+      "id": "walk",
+      "label": "Walk"
+    },
+    {
+      "id": "home",
+      "label": "Home"
+    }
+  ],
+  "Language": [
+    {
+      "id": "nonenglish",
+      "label": "Don't speak English at home"
+    }
+  ]
+}
