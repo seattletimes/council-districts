@@ -23,9 +23,11 @@ var map = window.map =  L.map('map', {
 
 var view = new MapView(map);
 
-var layer = L.tileLayer('http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.png', {
+var layer = L.tileLayer('//{s}.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
   maxZoom: 15,
-  minZoom: 11
+  minZoom: 11,
+  subdomains: ["server", "services"],
+  attribution: "Esri, NAVTEQ, DeLorme" 
 }).addTo(map);
 
 var request = $.ajax({
