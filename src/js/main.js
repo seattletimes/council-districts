@@ -25,7 +25,7 @@ var view = new MapView(map);
 
 var layer = L.tileLayer('//{s}.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
   maxZoom: 15,
-  minZoom: 11,
+  minZoom: 10,
   subdomains: ["server", "services"],
   attribution: "Esri, NAVTEQ, DeLorme" 
 }).addTo(map);

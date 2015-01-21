@@ -158,10 +158,12 @@ MapView.prototype = {
     $(".district-box").html(ich.districtInfo(data));
 
     for (var key in demo) {
-      this.drawGraph(key, demo[key], "district");
+      var percent = demo[key] / demo.population * 100;
+      this.drawGraph(key, percent, "district");
     }
     for (var key in averageData) {
-      this.drawGraph(key, averageData[key], "average");
+      var percent = averageData[key] / averageData.population * 100;
+      this.drawGraph(key, percent, "average");
     }
   },
 
@@ -174,9 +176,9 @@ MapView.prototype = {
   },
 
   drawGraph: function(name, number, type) {
-    var pixels = parseInt(number) / 300;
+    var percent = number + "%";
     var selector = '.' + name + '.' + type;
-    $(selector).width(pixels);
+    $(selector).width(percent);
   }
 };
 
