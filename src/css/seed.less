@@ -5,7 +5,7 @@
 @pink: #fe2954;
 @gold: #ff9500;
 @top-height: 44px;
-@box-width: 300px;
+@box-width: 350px;
 @box-height: 66px;
 @mobile: ~"(max-width: 480px)";
 
@@ -183,11 +183,17 @@ h4 {
     }
 
     .data-box {
+      display: none;
+
       @media @mobile {
         height: 0;
 
-        &.show {
-          height: auto;
+        &.transition-in {
+          transition: height 0.5s ease-in;
+        }
+
+        &.transition-out {
+          transition: height 0.5s ease-out;
         }
       }
 

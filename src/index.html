@@ -56,10 +56,9 @@
           <% for (var name in json.demo_options) { %>
             <%= t.include("partials/_compareTemplate.html", { name: name, options: json.demo_options[name] }) %>
           <% } %>
+        </div>
 
         <div class="district-box"></div>
-
-      </div>
     </div>
 
     <script>

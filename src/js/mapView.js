@@ -174,7 +174,7 @@ MapView.prototype = {
   },
 
   drawGraph: function(name, number, type) {
-    var pixels = parseInt(number) / 250;
+    var pixels = parseInt(number) / 300;
     var selector = '.' + name + '.' + type;
     $(selector).width(pixels);
   }

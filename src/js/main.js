@@ -23,7 +23,7 @@ var map = window.map =  L.map('map', {
 
 var view = new MapView(map);
 
-var layer = L.tileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
+var layer = L.tileLayer('http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.png', {
   maxZoom: 15,
   minZoom: 11
 }).addTo(map);
