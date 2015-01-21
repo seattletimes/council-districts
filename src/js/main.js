@@ -138,4 +138,9 @@ $(".demo").click(function(e) {
   $(this).addClass("active");
   view.selectedDemo = this.id;
   view.updateView();
-})
+});
+
+// on mobile, brings up screen for heat maps
+$(".compare-button").click(function(e) {
+  $(".data-box").toggleClass("show");
+});

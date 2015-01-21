@@ -54,7 +54,7 @@
   "Income": [
     {
       "id": "25k",
-      "label": "In poverty"
+      "label": "Less than $25,000 per year"
     },
     {
       "id": "100k",
