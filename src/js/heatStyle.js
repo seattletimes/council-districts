@@ -18,7 +18,7 @@ for (var key in values) {
 
 // generate color for heat map
 module.exports = function(demographic, district) {
-  var maxHue = [91, 85, 214];
+  var maxHue = [123, 90, 166];
 
   var max = bounds[demographic].max;
   var min = bounds[demographic].min;
