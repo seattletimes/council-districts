@@ -21,7 +21,7 @@ var map = window.map =  L.map('map', {
   doubleClickZoom: false
 });
 
-var view = new MapView(map);
+var view = window.view = new MapView(map);
 
 var layer = L.tileLayer('//{s}.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
   maxZoom: 15,
@@ -141,6 +141,11 @@ $(".demo").click(function(e) {
   view.selectedDemo = this.id;
   view.updateView();
 });
+
+// changes view based on which district is selected from dropdown
+$("select").change(function(e) {
+  view.zoomToDistrict(e.target.value);
+})
 
 // on mobile, brings up screen for heat maps
 $(".compare-button").click(function(e) {

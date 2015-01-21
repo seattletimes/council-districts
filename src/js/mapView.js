@@ -21,13 +21,12 @@ var restyle = function(feature) {
   }
   return { 
     color: "black",
-    fillColor: "#DEDEDE",
+    fillColor: "#c0ccbf",
     weight: 2,
     fillOpacity: 0.7 
   };
 };
 
-// var percentages = ["white", "hispanic", "black", "native", "asian", "pacific","other", "multi"];
 var averageData = {};
 
 var MapView = function(map) {
@@ -36,7 +35,7 @@ var MapView = function(map) {
   this.selectedDemo = null;
   this.myDistrict = null;
   this.restyle = restyle.bind(this);
-  this.districtBounds = null;
+  this.cityBounds = null;
 };
 
 MapView.prototype = {
@@ -50,17 +49,10 @@ MapView.prototype = {
 
         layer.on({
           click: function(e) {
-            var bounds = layer.getBounds();
-            self.map.fitBounds(bounds);
-            self.map.eachLayer(function(layer) {
-              if (layer.feature && layer.feature.properties.dist_name == e.target.feature.properties.dist_name) {
-                self.selectedDistrict = e.target.feature.properties.dist_name;
-              }
-            });
-            self.updateView();
+            self.zoomToDistrict(e.target.feature.properties.dist_name);
           },
           mouseover: function(e) {
-            layer.setStyle({fillColor: "#c0ccbf"});
+            layer.setStyle({fillColor: "#dedede"});
           },
           mouseout: function(e) {
             geojson.resetStyle(layer);
@@ -75,13 +67,29 @@ MapView.prototype = {
     });
 
     geojson.addTo(this.map);
-    self.districtBounds = geojson.getBounds();
-    map.fitBounds(self.districtBounds);
+    self.cityBounds = geojson.getBounds();
+    map.fitBounds(self.cityBounds);
 
     // Hack attack!!
     setTimeout(function() {
       markers.forEach(function(m) { m.addTo(self.map) });
     });
+  },
+
+  findLayer: function(f) {
+    var found = [];
+    this.map.eachLayer(function(layer) {
+      if (f(layer)) {
+        found.push(layer);
+      }
+    });
+    return found;
+  },
+
+  findDistrictLayer: function(num) {
+    return this.findLayer(function(l) {
+      return l.feature && l.feature.properties && l.feature.properties.dist_name == num;
+    }).pop();
   },
 
   dropPin: function(position) {
@@ -106,15 +114,24 @@ MapView.prototype = {
     this.updateView();
   },
 
+  zoomToDistrict: function(name) {
+    var layer = this.findDistrictLayer(name);
+    var bounds = layer.getBounds();
+    this.map.fitBounds(bounds);
+    this.selectedDistrict = layer.feature.properties.dist_name;
+    this.updateView();
+  },
+
   updateView: function() {
     this.districts.setStyle(this.restyle);
     if (this.selectedDistrict) {
       $("body").removeClass("frozen");
       this.enableMapInteractions(true);
       this.updateSelectedDistrictInfo(this.selectedDistrict);
+      $("select").val(this.selectedDistrict);
     } else {
       $("body").addClass("frozen");
-      map.fitBounds(this.districtBounds);
+      map.fitBounds(this.cityBounds);
       this.enableMapInteractions(false);
     }
   },
@@ -123,33 +140,18 @@ MapView.prototype = {
     var demo = demoData[district];
     var districtData = { name: district };
 
+    // CLEANUP
+
     for (var key in demo) {
       var value = demo[key];
-      // if (typeof value == "number") {
-      //   if (percentages.indexOf(key) > -1) {
-      //     districtData[key] = formatNumber((value * 100).toFixed(2));
-      //   } else {
-          // districtData[key] = formatNumber(value);
           districtData[key] = value;
-      //   }
-      // } else {
-      //   districtData[key] = value;
-      // }
     }    
 
     if (Object.keys(averageData).length == 0) {
       var avg  = demoData["avg"];
       for (var key in avg) {
         var value = avg[key];
-      //   if (typeof value == "number") {
-      //     if (percentages.indexOf(key) > -1) {
-      //       averageData[key] = formatNumber((value * 100).toFixed(2));
-      //     } else {
             averageData[key] = value;
-      //     }
-      //   } else {
-      //     averageData[key] = value;
-      //   }
       }    
     }
 
