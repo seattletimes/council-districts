@@ -45,6 +45,19 @@ h4 {
   }
 }
 
+.select {
+  cursor: pointer;
+  background: transparent;
+  width: 108px;
+  padding: 5px;
+  font-weight:bold;
+  font-size: 16px;
+  border: 0;
+  height: 35px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
 #map { 
   width: calc(~"100% - @{box-width}");
   height: 100%;
@@ -244,7 +257,7 @@ h4 {
     }
 
     .district-box {
-      padding: 10px;
+      padding: 0 20px;
     }
   }
 }
@@ -255,11 +268,7 @@ h4 {
     cursor: default;
   }
 
-  .leaflet-control-zoom {
-    display: none;
-  }
-
-  .exit {
+  .leaflet-control-zoom, .exit, .select {
     display: none;
   }
 
