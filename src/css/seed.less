@@ -89,6 +89,7 @@ h4 {
   top: @top-height;
   height: 100%;
   width: @box-width;
+  overflow: scroll;
 
   @media @mobile {
     width: 100%;
@@ -112,8 +113,14 @@ h4 {
 
     .location-box {
       display: none;
-      padding: 10px;
-      border-bottom: 1px solid black;
+      padding-top: 15px;
+      padding-bottom: 8px;
+      width: 60%;
+      background: #EEE;
+      margin: auto;
+      text-align: center;
+      margin-top: 20px;
+      border-radius: 3px;
 
       .compare-button {
         display: none;
@@ -136,18 +143,21 @@ h4 {
 
       .spinner {
         display: none;
+        padding: 5px;
       }
 
       .result {
-        text-align: center;
+        margin: 0;
       }
 
       .search {
         display: none;
+        padding-top: 5px;
+        padding-bottom: 7px;
 
         a {
           text-decoration: none;
-          color: black;
+          color: #333;
 
           &:hover {
             color: @pink;
@@ -159,27 +169,30 @@ h4 {
         overflow: hidden;
         height: 0px;
         transition: height 0.5s linear;
+        margin: auto;
+        width: 80%;
 
         &.show-find {
-          height: 82px;
+          height: 37px;
         }
 
         .address {
+          display: inline-block;
+          width: 76%;
           border: 1px solid #CCC;
-          width: 100%;
           padding: 0.5em;
           border-radius: 3px;
         }
 
         .onward-button {
-          font-size: 15px;
           background: @pink;
           border: none;
-          padding: 10px;
-          width: 100%;
-          margin-top: 4px;
+          padding: 6px;
+          margin-left: 3px;
+          width: 22%;
+
           color: white;
-          font-weight: bold;
+
           cursor: pointer;
           border-radius: 3px;
 

@@ -30,19 +30,16 @@
         
         <div class="location-box">
           <div>
-            You are in:
-            <div class="spinner">
-              <i class="fa fa-spinner fa-spin"></i> Loading...
-            </div>
+            You are in
             <h2 class="result"></h2>
             <div class="search">
               <a href="#"><i class="fa fa-search"></i> <em>Use a different address</em></a>
             </div>
             <div class="find-by-address">
-              <p>
-                <input id="address" class="address"><br>
-                <button class="onward-button">Onward!</button>
-              </p>
+              <input id="address" class="address"><button class="onward-button">GO</button>
+            </div>
+            <div class="spinner">
+              <i class="fa fa-spinner fa-spin"></i> Loading...
             </div>
           </div>
           <div class="compare-button">
@@ -75,6 +72,7 @@
 
     <script>
       var districtData = <%= JSON.stringify(json.district_data) %>;
+      var demoOptions = <%= JSON.stringify(json.demo_options) %>;
       var demoData = window.demoData = <%= JSON.stringify(csv.demo_data_short) %>;
       window.formatNumber = <%= t.formatNumber.toString() %>
     </script>

@@ -5,6 +5,31 @@ var heatStyle = require("./heatStyle");
 var districtTemplate = require("./_districtInfo.html");
 ich.addTemplate("districtInfo", districtTemplate);
 
+var demoLabels = {
+  "population": "Population",
+  "white": "White",
+  "black": "Black",
+  "asian": "Asian",
+  "hispanic": "Hispanic",
+  "other": "Two or more races/other",
+  "single": "Single",
+  "married": "Married",
+  "renters": "Renters",
+  "owners": "Owners",
+  "minors": "Under 18",
+  "seniors": "Over 65",
+  "25k": "Less than $25,000 per year",
+  "100k": "Over $100,000 per year",
+  "250k": "Over $250,000 per year",
+  "drive": "Drive alone",
+  "carpool": "Carpool",
+  "transit": "Transit",
+  "bike": "Bike",
+  "walk": "Walk",
+  "home": "Home",
+  "nonenglish": "Don't speak English at home"
+};
+
 var restyle = function(feature) {
   var district = districtData[feature.properties.dist_name];
 
@@ -137,15 +162,7 @@ MapView.prototype = {
   },
 
   updateSelectedDistrictInfo: function(district) {
-    var demo = demoData[district];
-    var districtData = { name: district };
-
-    // CLEANUP
-
-    for (var key in demo) {
-      var value = demo[key];
-          districtData[key] = value;
-    }    
+    var districtData = demoData[district];
 
     if (Object.keys(averageData).length == 0) {
       var avg  = demoData["avg"];
@@ -155,12 +172,19 @@ MapView.prototype = {
       }    
     }
 
-    var data = { district: districtData, average: averageData };
+    var tableData = [];
+    for (var key in districtData) {
+      tableData.push({ 
+        "district": districtData[key],
+        "average": averageData[key],
+        "name": demoLabels[key]
+      });
+    }
     
-    $(".district-box").html(ich.districtInfo(data));
+    $(".district-box").html(ich.districtInfo({data: tableData}));
 
-    for (var key in demo) {
-      var percent = demo[key] / demo.population * 100;
+    for (var key in districtData) {
+      var percent = districtData[key] / districtData.population * 100;
       this.drawGraph(key, percent, "district");
     }
     for (var key in averageData) {
