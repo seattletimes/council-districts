@@ -5,7 +5,7 @@
 @pink: #ca6951;
 @gold: #fcbb75;
 @top-height: 44px;
-@box-width: 350px;
+@box-width: 300px;
 @box-height: 66px;
 @mobile: ~"(max-width: 480px)";
 
@@ -19,9 +19,10 @@
 body {
   height: 800px;
   width: 100%;
-  font-family: "Source Sans Pro";
+  font-family: "PT Sans";
   font-size: 14px;
   margin: 0;
+  overflow: hidden;
 }
 
 h4 {
@@ -89,7 +90,6 @@ h4 {
   top: @top-height;
   height: 100%;
   width: @box-width;
-  overflow: scroll;
 
   @media @mobile {
     width: 100%;
@@ -115,7 +115,7 @@ h4 {
       display: none;
       padding-top: 15px;
       padding-bottom: 8px;
-      width: 60%;
+      width: 70%;
       background: #EEE;
       margin: auto;
       text-align: center;
@@ -178,7 +178,7 @@ h4 {
 
         .address {
           display: inline-block;
-          width: 76%;
+          width: 75%;
           border: 1px solid #CCC;
           padding: 0.5em;
           border-radius: 3px;
@@ -214,23 +214,36 @@ h4 {
         }
       }
 
+      h4 {
+        padding-top: 10px;
+        padding-left: 10px;
+        font-size: 16px;
+      }
+
       .demo-tile {
         background: white;
-        border-top: 1px solid #EEE;
-        padding: 5px 10px;
+        border-bottom: 1px solid #EEE;
+        padding: 8px 15px;
         cursor: pointer;
 
-        .demo-name {
-          padding-left: 2px;
-          transition: padding-left 0.1s ease-in;
+        &:first-of-type {
+          border-top: 1px solid #EEE;
         }
 
-        .fa-angle-right {
+        .demo-name {
+          padding-left: 4px;
+          transition: padding-left 0.1s ease-in;
+          font-size: 15px;
+        }
+
+        .fa-chevron-right {
+          color: @pink;
+          font-size: 12px;
           transition: transform 0.1s ease-in;
         }
 
         &.open {
-          .fa-angle-right {
+          .fa-chevron-right {
             transform: rotate(90deg);
           }
         }
@@ -249,20 +262,30 @@ h4 {
         }
 
         ul {
-          padding: 0 0 0 14px;
+          padding: 0 0 0 20px;
+          margin: 5px;
+          margin-top: 0;
           list-style: none;
         }
 
         .demo {
           cursor: pointer;
+          padding-top: 5px;
 
           &:hover {
             color: @pink;
           }
 
           &.active {
-            font-style: italic;
             font-weight: bold;
+
+            .fa-check {
+              display: inline-block;
+            }
+          }
+
+          .fa-check {
+            display: none;
           }
         }
       }

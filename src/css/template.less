@@ -11,29 +11,34 @@
       opacity: 0.5;
     }
 
-    &.white {
+    &.white, &.single, &.renters, &.minors, &.low-income, &.drive {
       // blue
       background: #4d9fd7;
     }
 
-    &.hispanic {
-      // orange
-      background: #fcbb75;
-    }
-
-    &.black {
+    &.black, &.carpool {
       // green
       background: #c1ceaf;
     }
 
-    &.asian {
+    &.asian, &.married, &.owners, &.seniors, &.med-income, &.transit {
       // red
       background: #ca6951;
     }
 
-    &.other {
+    &.hispanic, &.high-income, &.bike {
+      // orange
+      background: #fcbb75;
+    }
+
+    &.other, &.walk {
       // purple
       background: #c7bbdc;
+    }
+
+    &.home {
+      // yellow
+      background: #fedbbd;
     }
   }
 }

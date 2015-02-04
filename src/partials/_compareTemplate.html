@@ -1,9 +1,9 @@
 <div class="demo-tile">
-  <div><i class="fa fa-angle-right"></i> <span class="demo-name"><%= name %></div>
+  <div><i class="fa fa-chevron-right"></i> <span class="demo-name"><%= name %></div>
   <div class="demo-box">
     <ul>
       <% options.forEach(function(demo) { %>
-        <li class="demo" id="<%= demo.id %>"><%= demo.label %></li>
+        <li class="demo" id="<%= demo.id %>"><%= demo.label %> <i class="fa fa-check"></i></li>
       <% }) %>
     </ul>
   </div>
