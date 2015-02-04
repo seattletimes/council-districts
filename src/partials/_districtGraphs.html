@@ -1,0 +1,19 @@
+<div class="charts">
+  <% for (var name in json.demo_options) { %>
+    <div>
+      <%= name %>:
+
+      <div class="average-graph">
+        <% json.demo_options[name].forEach(function(demo) { %>
+          <div class="<%= demo.id %> average bar"></div>
+        <% }) %>
+      </div>
+
+      <div class="district-graph">
+        <% json.demo_options[name].forEach(function(demo) { %>
+          <div class="<%= demo.id %> district bar"></div>
+        <% }) %>
+      </div>
+    </div>
+  <% } %>
+</div>

@@ -1,9 +1,6 @@
 var L = require("leaflet");
 var $ = require("jquery");
-var ich = require("icanhaz");
 var heatStyle = require("./heatStyle");
-var districtTemplate = require("./_districtInfo.html");
-ich.addTemplate("districtInfo", districtTemplate);
 
 var demoLabels = {
   "population": "Population",
@@ -181,7 +178,8 @@ MapView.prototype = {
       });
     }
     
-    $(".district-box").html(ich.districtInfo({data: tableData}));
+    console.log(districtData)
+    // $(".district-box").html(ich.districtInfo({data: tableData}));
 
     for (var key in districtData) {
       var percent = districtData[key] / districtData.population * 100;
