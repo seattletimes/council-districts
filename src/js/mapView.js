@@ -137,14 +137,19 @@ MapView.prototype = {
   },
 
   updateSelectedDistrictInfo: function(district) {
+    // Convert numbers to formatted strings
     var districtData = demoData[district];
+    for (var index in districtData) {
+      districtData[index] = formatNumber(districtData[index]);
+    }
+
     var percentData = demoPercents[district];
 
     if (Object.keys(averageData).length == 0) {
       var avg  = demoPercents["avg"];
       for (var key in avg) {
         var value = avg[key];
-            averageData[key] = value;
+        averageData[key] = value;
       }    
     }
 
@@ -159,7 +164,7 @@ MapView.prototype = {
       optionsArray.push(obj);
     }
 
-    $(".district-box").html(ich.districtTemplate({graphs: optionsArray})); 
+    $(".district-box").html(ich.districtTemplate({graphs: optionsArray, data: districtData})); 
   },
 
   enableMapInteractions: function(enabled) {
