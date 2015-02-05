@@ -138,9 +138,9 @@ MapView.prototype = {
 
   updateSelectedDistrictInfo: function(district) {
     // Convert numbers to formatted strings
-    var districtData = demoData[district];
-    for (var index in districtData) {
-      districtData[index] = formatNumber(districtData[index]);
+    var districtData = {};
+    for (var index in demoData[district]) {
+      districtData[index] = formatNumber(demoData[district][index]).toString();
     }
 
     var percentData = demoPercents[district];
