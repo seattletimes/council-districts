@@ -148,25 +148,18 @@ MapView.prototype = {
       }    
     }
 
-    var arr = [];
-
+    // Turn options hash into array for templating
+    var optionsArray = [];
     for (var name in demoOptions) {
+      demoOptions[name].forEach(function(option) {
+        option.dist_percent = percentData[option.id] + "%";
+        option.avg_percent = averageData[option.id] + "%";
+      })
       var obj = {"name": name, "options": demoOptions[name]};
-      arr.push(obj);
+      optionsArray.push(obj);
     }
 
-    console.log(arr)
-
-    $(".district-box").html(ich.districtTemplate({graphs: arr}));
-
-    for (var key in percentData) {
-      var percent = percentData[key];
-      this.drawGraph(key, percent, "district");
-    }
-    for (var key in averageData) {
-      var percent = averageData[key];
-      this.drawGraph(key, percent, "average");
-    }
+    $(".district-box").html(ich.districtTemplate({graphs: optionsArray})); 
   },
 
   enableMapInteractions: function(enabled) {
@@ -175,12 +168,6 @@ MapView.prototype = {
     ["dragging", "boxZoom", "touchZoom", "doubleClickZoom", "scrollWheelZoom"].forEach(function(prop) {
       map[prop][state]();
     })
-  },
-
-  drawGraph: function(name, number, type) {
-    var percent = number + "%";
-    var selector = '.' + name + '.' + type;
-    $(selector).width(percent);
   }
 };
 

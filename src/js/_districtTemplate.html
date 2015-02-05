@@ -4,13 +4,13 @@
       {{name}}:
       <div class="average-graph">
         {{#options}}
-          <div class="{{id}} average bar"></div>
+          <div class="{{id}} average bar" style="width: {{avg_percent}}"></div>
         {{/options}}
       </div>
 
       <div class="district-graph">
         {{#options}}
-          <div class="{{id}} district bar"></div>
+          <div class="{{id}} district bar" style="width: {{dist_percent}}"></div>
         {{/options}}
       </div>
     </div>
