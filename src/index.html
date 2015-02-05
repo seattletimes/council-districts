@@ -74,6 +74,7 @@
       var districtData = <%= JSON.stringify(json.district_data) %>;
       var demoOptions = <%= JSON.stringify(json.demo_options) %>;
       var demoData = window.demoData = <%= JSON.stringify(csv.demo_data_short) %>;
+      var demoPercents = <%= JSON.stringify(csv.demo_data_percentages) %>;
       window.formatNumber = <%= t.formatNumber.toString() %>
     </script>
 

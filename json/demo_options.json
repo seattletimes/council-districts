@@ -53,15 +53,15 @@
   ],
   "Income": [
     {
-      "id": "25k",
+      "id": "low-income",
       "label": "Less than $25,000 per year"
     },
     {
-      "id": "100k",
+      "id": "med-income",
       "label": "Over $100,000 per year"
     },
     {
-      "id": "250k",
+      "id": "high-income",
       "label": "Over $250,000 per year"
     }
   ],

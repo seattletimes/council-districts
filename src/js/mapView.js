@@ -2,31 +2,6 @@ var L = require("leaflet");
 var $ = require("jquery");
 var heatStyle = require("./heatStyle");
 
-var demoLabels = {
-  "population": "Population",
-  "white": "White",
-  "black": "Black",
-  "asian": "Asian",
-  "hispanic": "Hispanic",
-  "other": "Two or more races/other",
-  "single": "Single",
-  "married": "Married",
-  "renters": "Renters",
-  "owners": "Owners",
-  "minors": "Under 18",
-  "seniors": "Over 65",
-  "25k": "Less than $25,000 per year",
-  "100k": "Over $100,000 per year",
-  "250k": "Over $250,000 per year",
-  "drive": "Drive alone",
-  "carpool": "Carpool",
-  "transit": "Transit",
-  "bike": "Bike",
-  "walk": "Walk",
-  "home": "Home",
-  "nonenglish": "Don't speak English at home"
-};
-
 var restyle = function(feature) {
   var district = districtData[feature.properties.dist_name];
 
@@ -160,33 +135,22 @@ MapView.prototype = {
 
   updateSelectedDistrictInfo: function(district) {
     var districtData = demoData[district];
+    var percentData = demoPercents[district];
 
     if (Object.keys(averageData).length == 0) {
-      var avg  = demoData["avg"];
+      var avg  = demoPercents["avg"];
       for (var key in avg) {
         var value = avg[key];
             averageData[key] = value;
       }    
     }
 
-    var tableData = [];
-    for (var key in districtData) {
-      tableData.push({ 
-        "district": districtData[key],
-        "average": averageData[key],
-        "name": demoLabels[key]
-      });
-    }
-    
-    console.log(districtData)
-    // $(".district-box").html(ich.districtInfo({data: tableData}));
-
-    for (var key in districtData) {
-      var percent = districtData[key] / districtData.population * 100;
+    for (var key in percentData) {
+      var percent = percentData[key];
       this.drawGraph(key, percent, "district");
     }
     for (var key in averageData) {
-      var percent = averageData[key] / averageData.population * 100;
+      var percent = averageData[key];
       this.drawGraph(key, percent, "average");
     }
   },
