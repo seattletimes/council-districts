@@ -1,6 +1,9 @@
 var L = require("leaflet");
 var $ = require("jquery");
 var heatStyle = require("./heatStyle");
+var ich = require("icanhaz");
+var districtTemplate = require("./_districtTemplate.html");
+ich.addTemplate("districtTemplate", districtTemplate);
 
 var restyle = function(feature) {
   var district = districtData[feature.properties.dist_name];
@@ -144,6 +147,17 @@ MapView.prototype = {
             averageData[key] = value;
       }    
     }
+
+    var arr = [];
+
+    for (var name in demoOptions) {
+      var obj = {"name": name, "options": demoOptions[name]};
+      arr.push(obj);
+    }
+
+    console.log(arr)
+
+    $(".district-box").html(ich.districtTemplate({graphs: arr}));
 
     for (var key in percentData) {
       var percent = percentData[key];

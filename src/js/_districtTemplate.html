@@ -1,0 +1,18 @@
+<div class="charts">
+  {{#graphs}}
+    <div>
+      {{name}}:
+      <div class="average-graph">
+        {{#options}}
+          <div class="{{id}} average bar"></div>
+        {{/options}}
+      </div>
+
+      <div class="district-graph">
+        {{#options}}
+          <div class="{{id}} district bar"></div>
+        {{/options}}
+      </div>
+    </div>
+  {{/graphs}}
+</div>
