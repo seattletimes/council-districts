@@ -1,5 +1,23 @@
-.charts {
+.white, .single, .renters, .minors, .low-income, .drive {
+  background: @blue;
+}
+.black, .carpool {
+  background: @green;
+}
+.asian, .married, .owners, .seniors, .med-income, .transit {
+  background: @red;
+}
+.hispanic, .high-income, .bike {
+  background: @orange;
+}
+.other, .walk {
+  background: @purple;
+}
+.home {
+  background: @yellow;
+}
 
+.charts {
   .population { 
     padding-bottom: 8px;
   }
@@ -15,56 +33,22 @@
       height: 6px;
       opacity: 0.5;
     }
-
-    &.white, &.single, &.renters, &.minors, &.low-income, &.drive {
-      // blue
-      background: #4d9fd7;
-    }
-
-    &.black, &.carpool {
-      // green
-      background: #c1ceaf;
-    }
-
-    &.asian, &.married, &.owners, &.seniors, &.med-income, &.transit {
-      // red
-      background: #ca6951;
-    }
-
-    &.hispanic, &.high-income, &.bike {
-      // orange
-      background: #fcbb75;
-    }
-
-    &.other, &.walk {
-      // purple
-      background: #c7bbdc;
-    }
-
-    &.home {
-      // yellow
-      background: #fedbbd;
-    }
   }
 }
 
-.table {
-  width: 100%;
-
-  td {
-    border-bottom: 1px solid #EEE;
-  }
-}
-
-.numbers {
-  text-align: center;
-}
-
-.district-number {
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.average-number {
+.key {
   font-size: 12px;
+  padding-top: 30px;
+
+  .swatch {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+  }
+
+  .key-value {
+    padding-right: 4px;
+    display: inline-block;
+    padding-bottom: 3px;
+  }
 }

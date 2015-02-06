@@ -16,6 +16,12 @@
           <div class="{{id}} district bar" style="width: {{dist_percent}}"></div>
         {{/options}}
       </div>
+
+      <div class="key">
+        {{#options}}
+          <div class="key-value"><div class="{{id}} swatch"></div> = {{label}}</div>
+        {{/options}}
+      </div>
     </div>
   {{/graphs}}
 
