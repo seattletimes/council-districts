@@ -48,34 +48,32 @@
     },
     {
       "id": "other-age",
-      "label": "18 to 65",
+      "label": "18 to 64",
       "chartOnly": true
     },
     {
       "id": "seniors",
-      "label": "Over 65"
+      "label": "65 and over"
     }
   ],
   "Income": [
     {
       "id": "low-income",
-      "label": "Less than $25,000",
-      "altLabel": "Less than $25k"
+      "label": "Under $25K"
     },
     {
       "id": "other-income",
-      "label": "$25k to $100k",
+      "label": "$25K - $100K",
       "chartOnly": true
     },
     {
       "id": "med-income",
-      "label": "Over $100,000",
-      "altLabel": "Over $100k"
+      "label": "Over $100K",
+      "altLabel": "$100K - $250K"
     },
     {
       "id": "high-income",
-      "label": "Over $250,000",
-      "altLabel": "Over $250k"
+      "label": "Over $250K"
     }
   ],
   "Commute Mode": [
@@ -89,11 +87,11 @@
     },
     {
       "id": "transit",
-      "label": "Transit"
+      "label": "Public transit"
     },
     {
       "id": "bike",
-      "label": "Bike"
+      "label": "Bicycle"
     },
     {
       "id": "walk",
@@ -101,19 +99,19 @@
     },
     {
       "id": "home",
-      "label": "Work from home"
+      "label": "Work at home"
     }
   ],
   "Language": [
     {
       "id": "english",
-      "label": "",
-      "chartOnly": true,
-      "noKey": true
+      "label": "Speak English at home",
+      "chartOnly": true
     },
     {
       "id": "nonenglish",
-      "label": "Don't speak English at home"
+      "label": "Don't speak English at home",
+      "altLabel": "Other language"
     }
   ]
 }

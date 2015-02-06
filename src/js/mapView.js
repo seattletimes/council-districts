@@ -158,13 +158,15 @@ MapView.prototype = {
     for (var name in demoOptions) {
       demoOptions[name].forEach(function(option) {
         option.dist_percent = percentData[option.id] + "%";
+        option.dist_val = parseFloat(percentData[option.id]).toFixed(0);
         option.avg_percent = averageData[option.id] + "%";
+        option.avg_val = parseFloat(averageData[option.id]).toFixed(0);
       })
       var obj = {"name": name, "options": demoOptions[name]};
       optionsArray.push(obj);
     }
 
-    $(".district-box").html(ich.districtTemplate({graphs: optionsArray, data: districtData})); 
+    $(".district-box").html(ich.districtTemplate({graphs: optionsArray, district: district, pop: districtData.population})); 
   },
 
   enableMapInteractions: function(enabled) {
