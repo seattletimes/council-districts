@@ -47,6 +47,11 @@
       "label": "Under 18"
     },
     {
+      "id": "other-age",
+      "label": "18 to 65",
+      "chart-only": true
+    },
+    {
       "id": "seniors",
       "label": "Over 65"
     }
@@ -54,15 +59,23 @@
   "Income": [
     {
       "id": "low-income",
-      "label": "Less than $25,000 per year"
+      "label": "Less than $25,000",
+      "alt-label": "Less than $25k"
+    },
+    {
+      "id": "other-income",
+      "label": "$25k to $100k",
+      "chart-only": true
     },
     {
       "id": "med-income",
-      "label": "Over $100,000 per year"
+      "label": "Over $100,000",
+      "alt-label": "Over $100k"
     },
     {
       "id": "high-income",
-      "label": "Over $250,000 per year"
+      "label": "Over $250,000",
+      "alt-label": "Over $250k"
     }
   ],
   "Commute Mode": [
@@ -92,6 +105,11 @@
     }
   ],
   "Language": [
+    {
+      "id": "english",
+      "label": "",
+      "chart-only": true
+    },
     {
       "id": "nonenglish",
       "label": "Don't speak English at home"

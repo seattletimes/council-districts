@@ -19,7 +19,11 @@
 
       <div class="key">
         {{#options}}
-          <div class="key-value"><div class="{{id}} swatch"></div> = {{label}}</div>
+          <div class="key-value">
+            <div class="{{id}} swatch"></div> 
+            = {{#alt-label}}{{alt-label}}{{/alt-label}} 
+              {{^alt-label}}{{label}}{{/alt-label}}
+          </div>
         {{/options}}
       </div>
     </div>
