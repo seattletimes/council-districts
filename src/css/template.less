@@ -1,20 +1,26 @@
 .white, .other-age, .other-income, .single, .renters, .drive, .english {
   background: @blue;
+  &.average { background: lighten(@blue, 25%); }
 }
 .black, .carpool, .minors, .low-income {
   background: @green;
+  &.average { background: lighten(@green, 10%); }
 }
 .asian, .married, .owners, .seniors, .med-income, .transit, .nonenglish {
   background: @red;
+  &.average { background: lighten(@red, 25%); }
 }
 .hispanic, .high-income, .bike {
   background: @orange;
+  &.average { background: lighten(@orange, 15%); }
 }
 .other, .walk {
   background: @purple;
+  &.average { background: lighten(@purple, 10%); }
 }
 .home {
   background: @yellow;
+  &.average { background: lighten(@yellow, 5%); }
 }
 
 .charts {
@@ -38,10 +44,43 @@
   .bar {
     height: 20px;
     float: left;
+    position: relative;
+    cursor: pointer;
+
+    .tooltip {
+      display: none;
+      position: absolute;
+      top: 100%; 
+      right: 50%;
+      background: #EEE;
+      padding: 3px 5px;
+      font-size: 12px;
+      z-index: 999;
+      cursor: default;
+    }
+
+    &:hover {
+      .tooltip {
+        display: block;
+      }
+    }
 
     &.average {
       height: 6px;
-      opacity: 0.5;
+
+      .tooltip {
+        top: 0;
+        bottom: 100%;
+      }
+    }
+  }
+}
+
+.average.bar, .district.bar {
+  &:first-child {
+    .tooltip {
+      left: 50%;
+      right: auto;
     }
   }
 }
@@ -61,4 +100,5 @@
     display: inline-block;
     padding-bottom: 2px;
   }
-}
+}    
+

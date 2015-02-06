@@ -108,7 +108,8 @@
     {
       "id": "english",
       "label": "",
-      "chart-only": true
+      "chart-only": true,
+      "no-key": true
     },
     {
       "id": "nonenglish",

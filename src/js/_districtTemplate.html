@@ -7,23 +7,29 @@
       <div class="name">{{name}}:</div>
       <div class="average-chart">
         {{#options}}
-          <div class="{{id}} average bar" style="width: {{avg_percent}}"></div>
+          <div class="{{id}} average bar" style="width: {{avg_percent}}">
+            <div class="tooltip">Chatter</div>
+          </div>
         {{/options}}
       </div>
 
       <div class="district-chart">
         {{#options}}
-          <div class="{{id}} district bar" style="width: {{dist_percent}}"></div>
+          <div class="{{id}} district bar" style="width: {{dist_percent}}">
+            <div class="tooltip">Chatter</div>
+          </div>
         {{/options}}
       </div>
 
       <div class="key">
         {{#options}}
-          <div class="key-value">
-            <div class="{{id}} swatch"></div> 
-            = {{#alt-label}}{{alt-label}}{{/alt-label}} 
-              {{^alt-label}}{{label}}{{/alt-label}}
-          </div>
+          {{^no-key}}
+            <div class="key-value">
+              <div class="{{id}} swatch"></div> 
+              = {{#alt-label}}{{alt-label}}{{/alt-label}} 
+                {{^alt-label}}{{label}}{{/alt-label}}
+            </div>
+          {{/no-key}}
         {{/options}}
       </div>
     </div>
