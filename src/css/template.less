@@ -1,10 +1,10 @@
-.white, .single, .renters, .minors, .low-income, .drive {
+.white, .single, .renters, .minors, .low-income, .drive, .english {
   background: @blue;
 }
 .black, .carpool {
   background: @green;
 }
-.asian, .married, .owners, .seniors, .med-income, .transit {
+.asian, .married, .owners, .seniors, .med-income, .transit, .nonenglish {
   background: @red;
 }
 .hispanic, .high-income, .bike {
@@ -18,13 +18,23 @@
 }
 
 .charts {
+  .chart-group {
+    padding-bottom: 4px;
+  }
+
   .population { 
     padding-bottom: 8px;
   }
 
-  .average-graph {
+  .name {
+    padding-bottom: 4px;
+    font-weight: bold;
+  }
+
+  .average-chart {
     padding-bottom: 10px;
   }
+
   .bar {
     height: 20px;
     float: left;
@@ -49,6 +59,6 @@
   .key-value {
     padding-right: 4px;
     display: inline-block;
-    padding-bottom: 3px;
+    padding-bottom: 2px;
   }
 }

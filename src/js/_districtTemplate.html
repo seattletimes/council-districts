@@ -3,15 +3,15 @@
   <div class="population">Population: {{data.population}}</div>
 
   {{#graphs}}
-    <div>
-      {{name}}:
-      <div class="average-graph">
+    <div class="chart-group">
+      <div class="name">{{name}}:</div>
+      <div class="average-chart">
         {{#options}}
           <div class="{{id}} average bar" style="width: {{avg_percent}}"></div>
         {{/options}}
       </div>
 
-      <div class="district-graph">
+      <div class="district-chart">
         {{#options}}
           <div class="{{id}} district bar" style="width: {{dist_percent}}"></div>
         {{/options}}
