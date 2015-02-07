@@ -1,5 +1,5 @@
 {
-  "Race/Ethnicity": [
+  "Race & Ethnicity": [
     {
       "id": "white",
       "label": "White"
@@ -21,7 +21,7 @@
       "label": "Two or more races/other"
     }
   ],
-  "Marital Status": [
+  "Marital status": [
     {
       "id": "single",
       "label": "Single"
@@ -31,7 +31,7 @@
       "label": "Married"
     }
   ],
-  "Rent/Own": [
+  "Housing": [
     {
       "id": "renters",
       "label": "Renters"
@@ -76,7 +76,7 @@
       "label": "Over $250K"
     }
   ],
-  "Commute Mode": [
+  "Transportation to work": [
     {
       "id": "drive",
       "label": "Drive alone"

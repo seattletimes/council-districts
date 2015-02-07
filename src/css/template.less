@@ -24,10 +24,6 @@
 }
 
 .charts {
-  .chart-group {
-    padding-bottom: 28px;
-  }
-
   .population { 
     padding-bottom: 8px;
   }
@@ -39,11 +35,28 @@
 
   .average-chart {
     padding-bottom: 10px;
-    padding-top: 5px;
   }
 
-  .district-chart {
-    padding-bottom: 5px;
+  .label {
+    display:none;
+    font-size: 10px;
+    text-transform: uppercase;
+
+    &.district {
+      margin-top: 22px;
+    }
+  }
+
+  .chart-group {
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 10px;
+  }
+
+  .chart-group:first-child {
+    .label {
+      display: block;
+    }
   }
 
   .bar {
@@ -97,6 +110,7 @@
 
 .key {
   font-size: 12px;
+  padding-bottom: 5px;
 
   .swatch {
     width: 10px;
