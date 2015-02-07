@@ -1,4 +1,19 @@
 {
+  "Age": [
+    {
+      "id": "minors",
+      "label": "Under 18"
+    },
+    {
+      "id": "other-age",
+      "label": "18 to 64",
+      "chartOnly": true
+    },
+    {
+      "id": "seniors",
+      "label": "65 and over"
+    }
+  ],
   "Race & Ethnicity": [
     {
       "id": "white",
@@ -19,41 +34,6 @@
     {
       "id": "other",
       "label": "Two or more races/other"
-    }
-  ],
-  "Marital status": [
-    {
-      "id": "single",
-      "label": "Single"
-    },
-    {
-      "id": "married",
-      "label": "Married"
-    }
-  ],
-  "Housing": [
-    {
-      "id": "renters",
-      "label": "Renters"
-    },
-    {
-      "id": "owners",
-      "label": "Owners"
-    }
-  ],
-  "Age": [
-    {
-      "id": "minors",
-      "label": "Under 18"
-    },
-    {
-      "id": "other-age",
-      "label": "18 to 64",
-      "chartOnly": true
-    },
-    {
-      "id": "seniors",
-      "label": "65 and over"
     }
   ],
   "Income": [
@@ -100,6 +80,26 @@
     {
       "id": "home",
       "label": "Work at home"
+    }
+  ],
+  "Marital status": [
+    {
+      "id": "single",
+      "label": "Single"
+    },
+    {
+      "id": "married",
+      "label": "Married"
+    }
+  ],
+  "Housing": [
+    {
+      "id": "renters",
+      "label": "Renters"
+    },
+    {
+      "id": "owners",
+      "label": "Owners"
     }
   ],
   "Language": [
