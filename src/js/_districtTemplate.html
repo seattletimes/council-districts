@@ -8,42 +8,46 @@
       
       <div class="name">{{name}}</div>
       
-      <div class="key">
-        {{#options}}
-          {{^noKey}}
-            <div class="key-value">
-              <div class="{{id}} swatch"></div> 
-              = {{#altLabel}}{{altLabel}}{{/altLabel}} 
-                {{^altLabel}}{{label}}{{/altLabel}}
-            </div>
-          {{/noKey}}
-        {{/options}}
-      </div>
+      <div class="inner">
 
-      <div class="average label">Average</div>
-      <div class="average-chart">
-        {{#options}}
-          <div class="{{id}} average bar" style="width: {{avg_percent}}">
-            <div class="tooltip">
-              Average
-              <div class="percent">{{avg_val}}%</div>
-            </div>
-          </div>
-        {{/options}}
-      </div>
+        <div class="key">
+          {{#options}}
+            {{^noKey}}
+              <div class="key-value">
+                <div class="{{id}} swatch"></div> 
+                = {{#altLabel}}{{altLabel}}{{/altLabel}} 
+                  {{^altLabel}}{{label}}{{/altLabel}}
+              </div>
+            {{/noKey}}
+          {{/options}}
+        </div>
 
-      <div class="district-chart">
-        {{#options}}
-          <div class="{{id}} district bar" style="width: {{dist_percent}}">
-            <div class="tooltip">
-              District {{district}}
-              <div class="percent">{{dist_val}}%</div>
-            </div>
-          </div>
-        {{/options}}
-      </div>
-      <div class="district label">District</div>
 
+ <div class="district label">District</div>
+        <div class="district-chart">
+          {{#options}}
+            <div class="{{id}} district bar" style="width: {{dist_percent}}">
+              <div class="tooltip">
+                District {{district}}
+                <div class="percent">{{dist_val}}%</div>
+              </div>
+            </div>
+          {{/options}}
+        </div>
+       
+
+        <div class="average-chart">
+          {{#options}}
+            <div class="{{id}} average bar" style="width: {{avg_percent}}">
+              <div class="tooltip">
+                Average
+                <div class="percent">{{avg_val}}%</div>
+              </div>
+            </div>
+          {{/options}}
+        </div>
+                        <div class="average label">Average</div>
+      </div>
     </div>
 
   {{/graphs}}

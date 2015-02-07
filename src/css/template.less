@@ -33,31 +33,36 @@
     font-weight: bold;
   }
 
-  .average-chart {
-    padding-bottom: 10px;
+  .district-chart {
+    display: inline-block;
+    width: 100%;
   }
 
   .label {
-    display:none;
+    // display:none;
     font-size: 10px;
     text-transform: uppercase;
 
     &.district {
-      margin-top: 22px;
+      padding-bottom: 2px;
+    }
+
+    &.average {
+      padding-top: 11px;
     }
   }
 
   .chart-group {
+    padding-bottom: 20px;
     display: inline-block;
     width: 100%;
-    padding-bottom: 10px;
   }
 
-  .chart-group:first-child {
-    .label {
-      display: block;
-    }
-  }
+  // .chart-group:first-child {
+  //   .label {
+  //     display: block;
+  //   }
+  // }
 
   .bar {
     height: 20px;
