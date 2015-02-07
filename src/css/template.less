@@ -2,7 +2,7 @@
   background: @blue;
   &.average { background: lighten(@blue, 25%); }
 }
-.black, .carpool, .minors, .low-income {
+.black, .carpool, .divorced, .minors, .low-income {
   background: @green;
   &.average { background: lighten(@green, 10%); }
 }
@@ -10,7 +10,7 @@
   background: @red;
   &.average { background: lighten(@red, 25%); }
 }
-.hispanic, .high-income, .bike {
+.hispanic, .widowed, .high-income, .bike {
   background: @orange;
   &.average { background: lighten(@orange, 15%); }
 }
@@ -53,7 +53,7 @@
   }
 
   .chart-group {
-    padding-bottom: 20px;
+    padding-bottom: 5px;
     display: inline-block;
     width: 100%;
   }
@@ -130,4 +130,10 @@
     padding-bottom: 2px;
   }
 }    
+
+.divider {
+  border-top: 1px solid #EEE;
+  margin-bottom: 10px;
+  margin-top: 6px;
+}
 
