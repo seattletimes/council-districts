@@ -62,14 +62,18 @@ var onward = function() {
     $.ajax({
       url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + bounds
     }).then(function(data) {
-      $(".spinner").hide();
-      var lat = data.results[0].geometry.location.lat;
-      var lng = data.results[0].geometry.location.lng;
-      var position = {lat: lat, lng: lng};
+      if (data.status == "ZERO_RESULTS") {
+        $(".validation").html("Zero results.");
+      } else {
+        var lat = data.results[0].geometry.location.lat;
+        var lng = data.results[0].geometry.location.lng;
+        var position = {lat: lat, lng: lng};
 
-      view.dropPin(position);
-      var district = wolf.findDistrict(position);
-      updateMyDistrictInfo(district);
+        view.dropPin(position);
+        var district = wolf.findDistrict(position);
+        updateMyDistrictInfo(district);
+      }
+      $(".spinner").hide();
     });
   }
 }

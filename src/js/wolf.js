@@ -12,8 +12,6 @@ module.exports = {
     var results = wolf.find(position, { layer: districtTag });
     if (results) {
       return districtData[results.dist_name]
-    } else {
-      return {name: "N/A"}
     }
   }
 }
