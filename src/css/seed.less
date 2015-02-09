@@ -34,23 +34,6 @@ h4 {
   margin: 5px 0;
 }
 
-.exit {
-  display: inline-block;
-  position: absolute;
-  top: calc(@top-height + 10px);
-  left: 48px;
-  background: @red;
-  color: white;
-  z-index: 999;
-  padding: 5px 8px;
-  border-radius: 3px;
-  cursor: pointer;
-
-  &:hover {
-    background: @orange;
-  }
-}
-
 .select {
   cursor: pointer;
   background: transparent;
@@ -114,7 +97,7 @@ h4 {
 
   .inner {
     border-radius: 5px;
-    height: 100%;
+    height: calc(~"100% - @{top-height}");;
     overflow: scroll;
 
     .location-box {
@@ -308,7 +291,7 @@ h4 {
     cursor: default;
   }
 
-  .leaflet-control-zoom, .exit, .select {
+  .leaflet-control-zoom, .select {
     display: none;
   }
 

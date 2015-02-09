@@ -89,7 +89,7 @@ $(".inner").on("click", ".search", function() {
   $(".find-by-address").toggleClass("show-find");
 });
 
-$(".exit").on("click", function() {
+$(".info-box").on("click", ".back", function() {
   view.zoomOut();
 });
 

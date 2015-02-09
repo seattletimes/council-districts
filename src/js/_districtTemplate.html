@@ -1,9 +1,14 @@
 <div class="charts">
 
+  <div class="back">Close <i class="fa fa-times"></i></div>
+
   <div class="population">Population: {{pop}}</div>
   
   <div class='container'>
-    {{#graphs}}
+
+    {{#graphs}}      
+
+      <div class="divider"></div>
 
       <div class="chart-group">
         
@@ -29,7 +34,8 @@
             {{#options}}
               <div class="{{id}} district bar" style="width: {{dist_percent}}">
                 <div class="tooltip">
-                  <div class="demo-label {{id}} lighter">{{label}}</div>
+                  <div class="demo-label {{id}} lighter">{{#altLabel}}{{altLabel}}{{/altLabel}} 
+                    {{^altLabel}}{{label}}{{/altLabel}}</div>
                   <div class="demo-details">
                     District {{district}}: <span class="percent">{{dist_val}}%</span>
                     <br>
@@ -45,7 +51,8 @@
             {{#options}}
               <div class="{{id}} average bar" style="width: {{avg_percent}}">
                 <div class="tooltip">
-                  <div class="demo-label {{id}} lighter">{{label}}</div>
+                  <div class="demo-label {{id}} lighter">{{#altLabel}}{{altLabel}}{{/altLabel}} 
+                    {{^altLabel}}{{label}}{{/altLabel}}</div>
                   <div class="demo-details">
                     District {{district}}: <span class="percent">{{dist_val}}%</span>
                     <br>
@@ -60,9 +67,9 @@
         </div>
 
       </div>
-      
-      <div class="divider"></div>
 
     {{/graphs}}
+
+    <div class="divider"></div>
   </div>
 </div>

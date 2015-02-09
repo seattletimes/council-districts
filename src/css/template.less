@@ -24,6 +24,22 @@
 }
 
 .charts {
+
+  .back {
+    position: absolute;
+    right: 14px;
+    top: 11px;
+    font-size: 12px;
+    color: #666;
+    cursor: pointer;
+    transition: color 0.1s linear;
+    padding: 5px 10px;
+
+    &:hover {
+      color: @red;
+    }
+  }
+
   .population { 
     padding-bottom: 8px;
   }
@@ -93,10 +109,12 @@
       }
 
       .demo-label {
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
         text-align: center;
         font-weight: bold;
         font-size: 13px;
-        padding: 2px;
+        padding: 3px;
       }
     }
 
@@ -148,3 +166,6 @@
   margin-top: 6px;
 }
 
+.container:last-child {
+  margin-bottom: 80px;
+}
