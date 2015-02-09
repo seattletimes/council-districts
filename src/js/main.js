@@ -85,9 +85,9 @@ var updateMyDistrictInfo = function(district) {
   view.myDistrict = district.name;
 };
 
-$(".inner").on("click", ".search", function() {
-  $(".find-by-address").toggleClass("show-find");
-});
+// $(".inner").on("click", ".search", function() {
+//   $(".find-by-address").toggleClass("show-find");
+// });
 
 $(".info-box").on("click", ".back", function() {
   view.zoomOut();
