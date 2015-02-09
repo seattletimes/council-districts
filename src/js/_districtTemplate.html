@@ -29,11 +29,12 @@
             {{#options}}
               <div class="{{id}} district bar" style="width: {{dist_percent}}">
                 <div class="tooltip">
-                  {{label}}
-                  <br>
-                  District {{district}}: <span class="percent">{{dist_val}}%</span>
-                  <br>
-                  Average: <span class="percent">{{avg_val}}%</span>
+                  <div class="demo-label {{id}} lighter">{{label}}</div>
+                  <div class="demo-details">
+                    District {{district}}: <span class="percent">{{dist_val}}%</span>
+                    <br>
+                    Average: <span class="percent">{{avg_val}}%</span>
+                  </div>
                 </div>
               </div>
             {{/options}}
@@ -44,11 +45,12 @@
             {{#options}}
               <div class="{{id}} average bar" style="width: {{avg_percent}}">
                 <div class="tooltip">
-                  {{label}}
-                  <br>
-                  District {{district}}: <span class="percent">{{dist_val}}%</span>
-                  <br>
-                  Average: <span class="percent">{{avg_val}}%</span>
+                  <div class="demo-label {{id}} lighter">{{label}}</div>
+                  <div class="demo-details">
+                    District {{district}}: <span class="percent">{{dist_val}}%</span>
+                    <br>
+                    Average: <span class="percent">{{avg_val}}%</span>
+                  </div>
                 </div>
               </div>
             {{/options}}

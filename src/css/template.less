@@ -1,26 +1,26 @@
 .white, .other-age, .other-income, .single, .renters, .drive, .english {
   background: @blue;
-  &.average { background: lighten(@blue, 25%); }
+  &.average, &.lighter { background: lighten(@blue, 25%); }
 }
 .black, .carpool, .divorced, .minors, .low-income {
   background: @green;
-  &.average { background: lighten(@green, 10%); }
+  &.average, &.lighter { background: lighten(@green, 10%); }
 }
 .asian, .married, .owners, .seniors, .med-income, .transit, .nonenglish {
   background: @red;
-  &.average { background: lighten(@red, 25%); }
+  &.average, &.lighter { background: lighten(@red, 25%); }
 }
 .hispanic, .widowed, .high-income, .bike {
   background: @orange;
-  &.average { background: lighten(@orange, 15%); }
+  &.average, &.lighter { background: lighten(@orange, 15%); }
 }
 .other, .walk {
   background: @purple;
-  &.average { background: lighten(@purple, 10%); }
+  &.average, &.lighter { background: lighten(@purple, 10%); }
 }
 .home {
   background: @yellow;
-  &.average { background: lighten(@yellow, 5%); }
+  &.average, &.lighter { background: lighten(@yellow, 5%); }
 }
 
 .charts {
@@ -73,18 +73,29 @@
     .tooltip {
       display: none;
       position: absolute;
-      bottom: 125%; 
+      bottom: 25px; 
       right: 50%;
       background: #EEE;
-      padding: 5px 8px;
-      font-size: 12px;
+      font-size: 11px;
       z-index: 999;
       cursor: default;
       min-width: 91px;
 
       .percent {
         font-weight: bold;
-        font-size: 14px;
+        font-size: 13px;
+      }
+
+      .demo-details {
+        padding: 5px 8px;
+        text-align: center;
+      }
+
+      .demo-label {
+        text-align: center;
+        font-weight: bold;
+        font-size: 13px;
+        padding: 2px;
       }
     }
 
@@ -98,8 +109,7 @@
       height: 6px;
 
       .tooltip {
-        top: 100%;
-        bottom: 0;
+        bottom: -73px;
       }
     }
   }
