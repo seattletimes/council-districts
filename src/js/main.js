@@ -145,6 +145,10 @@ $("select").change(function(e) {
   view.zoomToDistrict(e.target.value);
 })
 
+$("#map").on("click", ".district-label", function(e) {
+  view.zoomToDistrict($(e.target).html());
+})
+
 // on mobile, brings up screen for heat maps
 $(".compare-button").click(function(e) {
   $(".data-box").toggleClass("show");
