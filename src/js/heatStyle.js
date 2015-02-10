@@ -45,5 +45,9 @@ module.exports = function(demographic, district) {
     $(".min.val").html(percent.toFixed(0));
   }
 
+  var data = $("#" + demographic).data();
+  $(".legend-name").html(data.name + ":");
+  $(".legend-label").html(data.label);
+
   return {fillColor: fillColor};
 };

@@ -4,7 +4,7 @@
     <ul>
       <% options.forEach(function(demo) { %>
         <% if (!demo["chartOnly"]) { %>
-          <li class="demo" id="<%= demo.id %>"><%= demo.label %> <i class="fa fa-check"></i></li>
+          <li class="demo" id="<%= demo.id %>" data-name="<%= name %>" data-label="<%= demo.label %>"><%= demo.label %> <i class="fa fa-check"></i></li>
         <% } %>
       <% }) %>
     </ul>
