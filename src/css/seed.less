@@ -48,6 +48,7 @@ h4 {
 }
 
 .legend {
+  display: none;
   position: absolute;
   bottom: 20px;
   left: 20px;
@@ -312,6 +313,10 @@ h4 {
 .frozen {
   #map {
     cursor: default;
+  }
+
+  .legend.show {
+    display: block;
   }
 
   .leaflet-control-zoom, .select {

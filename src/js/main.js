@@ -142,6 +142,7 @@ $(".demo").click(function(e) {
   $(this).addClass("active");
   view.selectedDemo = this.id;
   view.updateView();
+  $(".legend").addClass("show");
 });
 
 // changes view based on which district is selected from dropdown
