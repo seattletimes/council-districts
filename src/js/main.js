@@ -155,6 +155,6 @@ $("#map").on("click", ".district-label", function(e) {
 })
 
 // on mobile, brings up screen for heat maps
-$(".compare-button").click(function(e) {
+$(".explore").click(function(e) {
   $(".data-box").toggleClass("show");
 });

@@ -10,7 +10,8 @@
 @yellow: #fedbbd;
 
 @top-height: 44px;
-@box-height: 66px;
+@box-height: 150px;
+@box-width: 350px;
 @tablet: ~"(max-width: 700px)";
 @mobile: ~"(max-width: 525px)";
 
@@ -79,7 +80,7 @@ h4 {
 }
 
 #map { 
-  width: calc(~"100% - 350px");
+  width: calc(~"100% - @{box-width}");
   height: 100%;
   position: fixed;
   top: @top-height;
@@ -113,7 +114,7 @@ h4 {
   right: 0px;
   top: @top-height;
   height: 100%;
-  width: 350px;
+  width: @box-width;
 
   @media @tablet {
     width: 220px;
@@ -129,7 +130,7 @@ h4 {
       display: inline;
     }
 
-    .data-box {
+    .data-box, .chatter {
       height: 0;
       overflow: hidden;
     }
@@ -139,7 +140,7 @@ h4 {
     border-radius: 5px;
     height: calc(~"100% - @{top-height}");;
     overflow: scroll;
-
+    
     .location-box {
       display: none;
       padding-top: 15px;
@@ -154,22 +155,33 @@ h4 {
         width: 81%;
       }
 
-      .compare-button {
+      @media @mobile {
+        padding-bottom: 58px;
+      }
+
+      .button {
         display: none;
+        position: absolute;
         background: @red;
         border: none;
-        padding: 10px;
+        padding: 10px 20px;
         margin-top: 4px;
         color: white;
-        font-weight: bold;
         cursor: pointer;
         border-radius: 3px;
+        bottom: 15px;
+        letter-spacing: 1px;
+
+        &.explore {
+          left: 20%;
+        }
+
+        &.about {
+          right: 20%;
+        }
 
         @media @mobile {
           display: block;
-          position: absolute;
-          bottom: 15px;
-          right: 10px;
         }
       }
 
@@ -180,6 +192,10 @@ h4 {
 
       .result {
         margin: 0;
+
+        @media @mobile {
+          font-size: 14px;
+        }
       }
 
       .search {
@@ -218,14 +234,16 @@ h4 {
           padding: 6px;
           margin-left: 3px;
           width: 22%;
-
           color: white;
-
           cursor: pointer;
           border-radius: 3px;
 
           &:hover {
             background: @orange;
+          }
+
+          @media @mobile {
+            background: @blue;
           }
         }
       }
