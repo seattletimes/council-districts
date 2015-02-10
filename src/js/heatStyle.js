@@ -49,5 +49,5 @@ module.exports = function(demographic, district) {
   $(".legend-name").html(data.name + ":");
   $(".legend-label").html(data.label);
 
-  return {fillColor: fillColor};
+  return fillColor;
 };

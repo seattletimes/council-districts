@@ -10,20 +10,20 @@ var restyle = function(feature) {
 
   if (this.selectedDistrict) {
     if (feature.properties.dist_name == this.selectedDistrict) {
-      return { fillColor: "#528965" };
+      return { fillColor: "#528965", fillOpacity: 0.7 };
     }
   } else if (this.selectedDemo) {
-    return heatStyle(this.selectedDemo, district);
+    return { fillColor: heatStyle(this.selectedDemo, district), fillOpacity: 0.8 };
   } else if (this.myDistrict) {
     if (feature.properties.dist_name == this.myDistrict) {
-      return { fillColor: "#528965" };
+      return { fillColor: "#528965", fillOpacity: 0.7 };
     }
   }
   return { 
     color: "black",
-    fillColor: "#c0ccbf",
+    fillColor: "#EEE",
     weight: 2,
-    fillOpacity: 0.7 
+    fillOpacity: 0.3
   };
 };
 
@@ -52,7 +52,7 @@ MapView.prototype = {
             self.zoomToDistrict(e.target.feature.properties.dist_name);
           },
           mouseover: function(e) {
-            layer.setStyle({fillColor: "#dedede"});
+            layer.setStyle({ fillColor: "#dedede", fillOpacity: 0.7 });
           },
           mouseout: function(e) {
             geojson.resetStyle(layer);
