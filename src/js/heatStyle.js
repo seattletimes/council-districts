@@ -1,3 +1,5 @@
+var $ = require("jquery");
+
 var values = {};
 for (var num in demoData) {
   var district = demoData[num]
@@ -24,10 +26,24 @@ module.exports = function(demographic, district) {
   var min = bounds[demographic].min;
 
   var value = demoData[district.name][demographic];
+
   var scaler = (value - min) / (max - min);
   var values = maxHue.map(function(c) {
     return Math.round(255 - (255 - c) * scaler);
   });
- 
-  return {fillColor: "rgb(" + values.join(",") + ")"};
-}
+
+  var fillColor = "rgb(" + values.join(",") + ")";
+  var percent = demoPercents[district.name][demographic];
+
+  if (value == max) {
+    $(".max.swatch").css("background-color", fillColor);
+    $(".max.val").html(percent.toFixed(0));
+  }
+
+  if (value == min * 2) {
+    $(".min.swatch").css("background-color", fillColor);
+    $(".min.val").html(percent.toFixed(0));
+  }
+
+  return {fillColor: fillColor};
+};
