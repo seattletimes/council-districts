@@ -10,9 +10,9 @@
 @yellow: #fedbbd;
 
 @top-height: 44px;
-@box-width: 350px;
 @box-height: 66px;
-@mobile: ~"(max-width: 480px)";
+@tablet: ~"(max-width: 700px)";
+@mobile: ~"(max-width: 525px)";
 
 * {
   -webkit-box-sizing: border-box;
@@ -79,10 +79,14 @@ h4 {
 }
 
 #map { 
-  width: calc(~"100% - @{box-width}");
+  width: calc(~"100% - 350px");
   height: 100%;
   position: fixed;
   top: @top-height;
+
+  @media @tablet {
+    width: calc(~"100% - 220px");
+  }
 
   @media @mobile {
     width: 100%;
@@ -109,7 +113,11 @@ h4 {
   right: 0px;
   top: @top-height;
   height: 100%;
-  width: @box-width;
+  width: 350px;
+
+  @media @tablet {
+    width: 220px;
+  }
 
   @media @mobile {
     width: 100%;
@@ -141,6 +149,10 @@ h4 {
       margin: auto;
       text-align: center;
       border-radius: 3px;
+
+      @media @tablet {
+        width: 81%;
+      }
 
       .compare-button {
         display: none;
@@ -174,6 +186,10 @@ h4 {
         padding: 9px 0 2px 29px;
         font-size: 10px;
         text-align: left;
+
+        @media @tablet {
+          padding-left: 18px;
+        }
       }
 
       .find-by-address {
@@ -230,6 +246,10 @@ h4 {
         padding-top: 18px;
         padding-left: 27px;
         font-size: 16px;
+
+        @media @tablet {
+          padding-left: 21px;
+        }
       }
 
       .demo-tile {
@@ -237,6 +257,10 @@ h4 {
         border-bottom: 1px solid #EEE;
         padding: 8px 27px;
         cursor: pointer;
+
+        @media @tablet {
+          padding: 8px 21px;
+        }
 
         // &:first-of-type {
         //   border-top: 1px solid #EEE;
