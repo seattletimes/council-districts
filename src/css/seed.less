@@ -116,6 +116,7 @@ h4 {
   height: 100%;
   width: @box-width;
   background: white;
+  overflow: scroll;
 
   @media @tablet {
     width: 220px;
@@ -126,6 +127,11 @@ h4 {
     height: auto;
     bottom: 0;
     top: inherit;
+    background: #EEE;
+
+    &.full-height {
+      height: calc(~"100% - @{top-height}");
+    }
 
     h2 {
       display: inline;
@@ -146,15 +152,29 @@ h4 {
       padding-bottom: 23px;
       display: none;
 
+      .close-chatter {
+        display: none;
+        position: absolute;
+        right: 18px;
+        top: 18px;
+        font-size: 18px;
+        color: #555;
+      }
+
       @media @tablet {
         padding: 21px;
       }
 
       @media @mobile {
         display: none !important;
+        padding-right: 40px;
 
         &.show {
           display: block !important;
+        }
+
+        .close-chatter {
+          display: block;
         }
       }
 
@@ -190,7 +210,7 @@ h4 {
       }
 
       @media @mobile {
-        padding-bottom: 58px;
+        // padding-bottom: 58px;
         width: 100%;
       }
 
@@ -287,18 +307,35 @@ h4 {
     .data-box {
       display: none;
 
+      .close-compare {
+        display: none;
+        position: absolute;
+        bottom: 17px;
+        right: 20px;
+        background: @blue;
+        padding: 10px 20px;
+        border-radius: 3px;
+        color: white;
+        font-weight: bold;
+        font-size: 15px;
+      }
+
       @media @mobile {
-        height: 0;
+        display: none !important;
 
         &.show {
-          height: auto;
+          display: block !important;
+        }
+
+        .close-compare {
+          display: block;
         }
       }
 
       h4 {
         padding-top: 18px;
         padding-left: 27px;
-        font-size: 16px;
+        font-size: 15px;
 
         @media @tablet {
           padding-left: 21px;
@@ -314,6 +351,10 @@ h4 {
           padding: 8px 21px;
         }
 
+        @media @mobile {
+          border-bottom: 1px solid #CCC;
+        }
+
         // &:first-of-type {
         //   border-top: 1px solid #EEE;
         // }
@@ -321,7 +362,7 @@ h4 {
         .demo-name {
           padding-left: 4px;
           transition: padding-left 0.1s ease-in;
-          font-size: 15px;
+          font-size: 14.5px;
         }
 
         .fa-chevron-right {
@@ -404,7 +445,7 @@ h4 {
       display: none;
     }
 
-    .data-box, .location-box, .chatter {
+    .data-box, .location-box, .chatter, .button {
       display: block;
     }
   }

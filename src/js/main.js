@@ -156,6 +156,7 @@ $("#map").on("click", ".district-label", function(e) {
 
 // on mobile, brings up screen for heat maps
 $(".explore").click(function(e) {
+  $(".info-box").toggleClass("full-height");
   $(".data-box").toggleClass("show");
   $(".location-box").hide();
 });
@@ -163,4 +164,15 @@ $(".explore").click(function(e) {
 $(".about").click(function(e) {
   $(".chatter").toggleClass("show");
   $(".location-box").hide();
+});
+
+$(".close-chatter").click(function(e) {
+  $(".chatter").toggleClass("show");
+  $(".location-box").show();
+});
+
+$(".close-compare").click(function(e) {
+  $(".info-box").toggleClass("full-height");
+  $(".data-box").toggleClass("show");
+  $(".location-box").show();
 });
