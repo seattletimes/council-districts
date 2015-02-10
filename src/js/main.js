@@ -157,4 +157,10 @@ $("#map").on("click", ".district-label", function(e) {
 // on mobile, brings up screen for heat maps
 $(".explore").click(function(e) {
   $(".data-box").toggleClass("show");
+  $(".location-box").hide();
+});
+
+$(".about").click(function(e) {
+  $(".chatter").toggleClass("show");
+  $(".location-box").hide();
 });
