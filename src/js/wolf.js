@@ -11,7 +11,7 @@ module.exports = {
   findDistrict: function(position) {
     var results = wolf.find(position, { layer: districtTag });
     if (results) {
-      return districtData[results.dist_name]
+      return results.dist_name;
     }
   }
 }

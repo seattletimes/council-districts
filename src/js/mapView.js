@@ -45,8 +45,6 @@ MapView.prototype = {
     var geojson = this.districts = L.geoJson(data, {
       style: self.restyle,
       onEachFeature: function (feature, layer) {
-        var district = districtData[feature.properties.dist_name];
-
         layer.on({
           click: function(e) {
             $(".location-box").removeClass("show");
