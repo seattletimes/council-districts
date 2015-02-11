@@ -64,6 +64,8 @@ var onward = function() {
     }).then(function(data) {
       if (data.status == "ZERO_RESULTS") {
         $(".validation").html("Zero results.");
+      } else if (data.results[0].formatted_address.indexOf("Seattle") < 0) {
+        $(".validation").html("Outside of bounds.");
       } else {
         var lat = data.results[0].geometry.location.lat;
         var lng = data.results[0].geometry.location.lng;
