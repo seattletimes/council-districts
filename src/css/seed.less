@@ -113,6 +113,10 @@ h4 {
   @media @mobile {
     width: 100%;
     height: calc(~"100% - @{top-height} - @{box-height}");
+
+    &.bump-height {
+      height: calc(~"100% - @{top-height} - 62px");
+    }
   }
 
   .district-label {
@@ -165,6 +169,10 @@ h4 {
 
     @media @mobile {
       height: auto;
+
+      &.bump-height {
+        margin-bottom: 11px;
+      }
     }
 
     .chatter {

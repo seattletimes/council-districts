@@ -47,9 +47,13 @@ MapView.prototype = {
       onEachFeature: function (feature, layer) {
         layer.on({
           click: function(e) {
+            self.zoomToDistrict(e.target.feature.properties.dist_name);
+
+            // Mobile view hacks
             $(".location-box").hide();
             $(".view-data").addClass("show");
-            self.zoomToDistrict(e.target.feature.properties.dist_name);
+            $(".inner").addClass("bump-height");
+            $("#map").addClass("bump-height");
           },
           mouseover: function(e) {
             layer.setStyle({ fillColor: "#c1ceaf", fillOpacity: 0.7 });
@@ -112,7 +116,11 @@ MapView.prototype = {
   zoomOut: function() {
     this.selectedDistrict = null;
     this.updateView();
+
+    // Mobile view hacks
     $(".view-data").removeClass("show");
+    $(".inner").removeClass("bump-height");
+    $("#map").removeClass("bump-height");
   },
 
   zoomToDistrict: function(name) {
