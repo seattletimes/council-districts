@@ -3,7 +3,17 @@
   <div class="back">Close <i class="fa fa-times"></i></div>
 
   <div class="population">Population: {{pop}}</div>
+
+  <div class="divider"></div>
   
+  City Council Position {{district}}:
+
+  <ul>
+    {{#candidates}}
+      <li>{{.}}
+    {{/candidates}}
+  </ul>
+    
   <div class='container'>
 
     {{#graphs}}      

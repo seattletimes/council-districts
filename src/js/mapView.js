@@ -167,7 +167,12 @@ MapView.prototype = {
       optionsArray.push(obj);
     }
 
-    $(".district-box").html(ich.districtTemplate({graphs: optionsArray, pop: districtData.population})); 
+    $(".district-box").html(ich.districtTemplate({
+      graphs: optionsArray, 
+      pop: districtData.population, 
+      district: district,
+      candidates: candidateData[district]
+    })); 
   },
 
   enableMapInteractions: function(enabled) {

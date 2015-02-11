@@ -92,7 +92,16 @@
     </div>
 
     <script>
-      var districtData = <%= JSON.stringify(json.district_data) %>;
+      <% 
+        var candidateData = {};
+        json.CityCouncilCandidates_Sheet1.forEach(function(c) {
+          var district = c.district;
+          var name = c.name;
+          if (!candidateData[district]) { candidateData[district] = [] }
+          candidateData[district].push(name);
+        });
+      %>
+      var candidateData = window.candidateData = <%= JSON.stringify(candidateData) %>
       var demoOptions = <%= JSON.stringify(json.demo_options) %>;
       var demoData = window.demoData = <%= JSON.stringify(csv.demo_data_short) %>;
       var demoPercents = <%= JSON.stringify(csv.demo_data_percentages) %>;
