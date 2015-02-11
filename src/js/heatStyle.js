@@ -25,7 +25,7 @@ module.exports = function(demographic, district) {
   var max = bounds[demographic].max;
   var min = bounds[demographic].min;
 
-  var value = demoData[district.name][demographic];
+  var value = demoData[district][demographic];
 
   var scaler = (value - min) / (max - min);
   var values = maxHue.map(function(c) {
@@ -33,7 +33,7 @@ module.exports = function(demographic, district) {
   });
 
   var fillColor = "rgb(" + values.join(",") + ")";
-  var percent = demoPercents[district.name][demographic];
+  var percent = demoPercents[district][demographic];
 
   if (value == max) {
     $(".max.swatch").css("background-color", fillColor);

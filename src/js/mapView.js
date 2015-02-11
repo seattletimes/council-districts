@@ -6,14 +6,14 @@ var districtTemplate = require("./_districtTemplate.html");
 ich.addTemplate("districtTemplate", districtTemplate);
 
 var restyle = function(feature) {
-  var district = districtData[feature.properties.dist_name];
+  var districtName = feature.properties.dist_name;
 
   if (this.selectedDistrict) {
     if (feature.properties.dist_name == this.selectedDistrict) {
       return { fillColor: "#528965", fillOpacity: 0.7 };
     }
   } else if (this.selectedDemo) {
-    return { fillColor: heatStyle(this.selectedDemo, district), fillOpacity: 0.8 };
+    return { fillColor: heatStyle(this.selectedDemo, districtName), fillOpacity: 0.8 };
   } else if (this.myDistrict) {
     if (feature.properties.dist_name == this.myDistrict) {
       return { fillColor: "#528965", fillOpacity: 0.7 };
