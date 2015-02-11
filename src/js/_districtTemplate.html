@@ -4,16 +4,16 @@
 
   <div class="population">Population: {{pop}}</div>
 
-  <div class="divider"></div>
-  
-  City Council Position {{district}}:
+  <div class="candidates">
+    Candidates for City Council Position {{district}}:
 
-  <ul>
-    {{#candidates}}
-      <li>{{.}}
-    {{/candidates}}
-  </ul>
-    
+    <ul>
+      {{#candidates}}
+        <li>{{.}}
+      {{/candidates}}
+    </ul>
+  </div>
+      
   <div class='container'>
 
     {{#graphs}}      
