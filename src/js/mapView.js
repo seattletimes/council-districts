@@ -49,6 +49,8 @@ MapView.prototype = {
 
         layer.on({
           click: function(e) {
+            $(".location-box").removeClass("show");
+            $(".view-data").addClass("show");
             self.zoomToDistrict(e.target.feature.properties.dist_name);
           },
           mouseover: function(e) {
@@ -112,6 +114,7 @@ MapView.prototype = {
   zoomOut: function() {
     this.selectedDistrict = null;
     this.updateView();
+    $(".view-data").removeClass("show");
   },
 
   zoomToDistrict: function(name) {

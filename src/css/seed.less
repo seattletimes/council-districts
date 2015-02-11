@@ -48,6 +48,25 @@ h4 {
   margin-left: 10px;
 }
 
+.view-data {
+  display: none;
+  position: absolute;
+  background: @red;
+  border: none;
+  padding: 7px 15px;
+  margin-top: 4px;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  bottom: 15px;
+  right: 15px;
+  letter-spacing: 1px;
+
+  &.show {
+    display: block;
+  }
+}
+
 .legend {
   display: none;
   position: absolute;
@@ -129,18 +148,18 @@ h4 {
     top: inherit;
     background: #EEE;
 
-    &.full-height {
-      height: calc(~"100% - @{top-height}");
-    }
-
     h2 {
       display: inline;
+    }
+
+    &.full-height {
+      height: calc(~"100% - @{top-height}");
     }
   }
 
   .inner {
     border-radius: 5px;
-    height: calc(~"100% - @{top-height}");;
+    height: calc(~"100% - @{top-height}");
     overflow: scroll;
 
     @media @mobile {
@@ -210,8 +229,13 @@ h4 {
       }
 
       @media @mobile {
-        // padding-bottom: 58px;
+        padding-bottom: 56px;
         width: 100%;
+        display: none;
+
+        &.show {
+          display: block;
+        }
       }
 
       .button {
@@ -219,7 +243,7 @@ h4 {
         position: absolute;
         background: @red;
         border: none;
-        padding: 10px 20px;
+        padding: 7px 15px;
         margin-top: 4px;
         color: white;
         cursor: pointer;
@@ -418,6 +442,10 @@ h4 {
 
     .district-box {
       padding: 0 20px;
+
+      @media @mobile {
+        display: none;
+      }
     }
   }
 }

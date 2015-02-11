@@ -156,23 +156,26 @@ $("#map").on("click", ".district-label", function(e) {
 
 // on mobile, brings up screen for heat maps
 $(".explore").click(function(e) {
-  $(".info-box").toggleClass("full-height");
   $(".data-box").toggleClass("show");
-  $(".location-box").hide();
+  $(".location-box").removeClass("show");
 });
 
 $(".about").click(function(e) {
   $(".chatter").toggleClass("show");
-  $(".location-box").hide();
+  $(".location-box").removeClass("show");
 });
 
 $(".close-chatter").click(function(e) {
   $(".chatter").toggleClass("show");
-  $(".location-box").show();
+  $(".location-box").addClass("show");
 });
 
 $(".close-compare").click(function(e) {
-  $(".info-box").toggleClass("full-height");
   $(".data-box").toggleClass("show");
-  $(".location-box").show();
+  $(".location-box").addClass("show");
+});
+
+$(".view-data").click(function(e) {
+  $(".district-box").show();
+  $(".info-box").addClass("full-height");
 });
