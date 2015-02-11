@@ -234,10 +234,6 @@ h4 {
         &.about {
           right: calc(~"50% - 105px");
         }
-
-        @media @mobile {
-          display: block;
-        }
       }
 
       .spinner {
@@ -445,8 +441,14 @@ h4 {
       display: none;
     }
 
-    .data-box, .location-box, .chatter, .button {
+    .data-box, .location-box, .chatter {
       display: block;
+    }
+
+    @media @mobile {
+      .button {
+        display: block !important;
+      }
     }
   }
 }
