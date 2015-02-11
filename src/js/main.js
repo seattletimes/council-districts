@@ -58,6 +58,7 @@ var onward = function() {
   if ($('#address') !== null) {
     var address = $('#address').val().replace(/\s/g, '+');
     var bounds = "&bounds=47.4955511,-122.4359085|47.734145,-122.2359032";
+    $(".validation").html("");
     $(".spinner").show();
     $.ajax({
       url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + bounds
