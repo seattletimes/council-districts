@@ -10,7 +10,7 @@
 @yellow: #fedbbd;
 
 @top-height: 44px;
-@box-height: 105px;
+@box-height: 106px;
 @box-width: 350px;
 @tablet: ~"(max-width: 700px)";
 @mobile: ~"(max-width: 525px)";
@@ -148,7 +148,6 @@ h4 {
     height: auto;
     bottom: 0;
     top: inherit;
-    background: #EEE;
 
     h2 {
       display: inline;
@@ -231,39 +230,46 @@ h4 {
       }
 
       @media @mobile {
-        padding-bottom: 56px;
         width: 100%;
         display: none;
+        background: white;
 
-        &.show {
-          display: block;
+        .inner-location-box {
+          float: right;
+          width: 70%;
         }
       }
 
       .button {
         display: none;
         position: absolute;
-        background: @red;
+        background: @orange;
         border: none;
         padding: 7px 15px;
         margin-top: 4px;
         color: white;
         cursor: pointer;
         border-radius: 3px;
-        bottom: 15px;
-        letter-spacing: 1px;
+        letter-spacing: 0.5px;
+        left: 6%;
+        font-size: 12px;
 
         &.explore {
-          left: calc(~"50% - 105px");
+          bottom: 60px;
         }
 
         &.about {
-          right: calc(~"50% - 105px");
+          bottom: 22px;
+          width: 82px;
         }
       }
 
       .validation {
         padding-bottom: 5px;
+
+        @media @mobile {
+          padding-bottom: 12px;
+        }
       }
 
       .spinner {
@@ -271,11 +277,17 @@ h4 {
         padding: 5px;
       }
 
+      .result-box {
+        @media @mobile {
+          font-size: 15px;
+        }
+      }
+
       .result {
         margin: 0;
 
         @media @mobile {
-          font-size: 14px;
+          font-size: 15px;
         }
       }
 
@@ -285,7 +297,9 @@ h4 {
         text-align: left;
 
         @media @tablet {
-          padding-left: 18px;
+          width: 200px;
+          margin: auto;
+          padding-left: 14px;
         }
       }
 
@@ -307,6 +321,10 @@ h4 {
           border: 1px solid #CCC;
           padding: 0.5em;
           border-radius: 3px;
+
+          @media @mobile {
+            max-width: 150px;
+          }
         }
 
         .onward-button {
@@ -324,7 +342,7 @@ h4 {
           }
 
           @media @mobile {
-            background: @blue;
+            width: 40px;
           }
         }
       }
@@ -365,6 +383,7 @@ h4 {
 
         @media @tablet {
           padding-left: 21px;
+          padding-top: 8px;
         }
       }
 
@@ -375,10 +394,6 @@ h4 {
 
         @media @tablet {
           padding: 8px 21px;
-        }
-
-        @media @mobile {
-          border-bottom: 1px solid #CCC;
         }
 
         // &:first-of-type {

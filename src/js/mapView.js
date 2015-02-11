@@ -47,7 +47,7 @@ MapView.prototype = {
       onEachFeature: function (feature, layer) {
         layer.on({
           click: function(e) {
-            $(".location-box").removeClass("show");
+            $(".location-box").hide();
             $(".view-data").addClass("show");
             self.zoomToDistrict(e.target.feature.properties.dist_name);
           },

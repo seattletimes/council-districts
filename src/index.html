@@ -44,9 +44,14 @@
         </div>
         
         <div class="location-box">
-          <div>
-            You are in
-            <h2 class="result"></h2>
+          <div class="inner-location-box">
+            <div class="result-box">
+              You are in:
+              <h2 class="result"></h2>
+            </div>
+            <div class="spinner">
+              <i class="fa fa-spinner fa-spin"></i> <em>Loading...</em>
+            </div>
             <div class="search">
               <i class="fa fa-search"></i> Use a different address:
             </div>
@@ -54,15 +59,14 @@
               <input id="address" class="address"><button class="onward-button">GO</button>
             </div>
             <div class="validation"></div>
-            <div class="spinner">
-              <i class="fa fa-spinner fa-spin"></i> Loading...
+          </div>
+          <div>
+            <div class="explore button">
+              EXPLORE
             </div>
-          </div>
-          <div class="explore button">
-            EXPLORE
-          </div>
-          <div class="about button">
-            ABOUT
+            <div class="about button">
+              ABOUT
+            </div>
           </div>
         </div>
 
