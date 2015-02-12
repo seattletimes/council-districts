@@ -31,6 +31,18 @@
     .frozen & {
       display: none;
     }
+
+    .show-chatter & {
+      display: block;
+    }
+  }
+}
+
+.close-chatter {
+  display: none;
+
+  .show-chatter & {
+    display: block;
   }
 }
 
@@ -39,6 +51,10 @@
 
   .frozen & {
     display: block;
+  }
+
+  .show-chatter &, .show-data & {
+    display: none;
   }
 }
 
@@ -62,6 +78,10 @@
   @media @mobile {
     .frozen & {
       display: none;
+    }
+
+    .show-data & {
+      display: block;
     }
   }
 }

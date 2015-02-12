@@ -157,21 +157,19 @@ $("#map").on("click", ".district-label", function(e) {
   view.zoomToDistrict($(e.target).html());
 })
 
-// on mobile, brings up screen for heat maps
-// $(".explore").click(function(e) {
-//   $(".data-box").toggleClass("show");
-//   $(".location-box").removeClass("show");
-// });
-
-// $(".about").click(function(e) {
-//   $(".location-box").addClass("hide");
-//   $(".chatter").addClass("show");
-// });
-
-// $(".close-chatter").click(function(e) {
-//   $(".chatter").toggleClass("show");
-//   $(".location-box").addClass("show");
-// });
+// on mobile
+$(".explore").click(function(e) {
+  $(".info-box").addClass("show-data");
+});
+$(".close-data").click(function(e) {
+  $(".info-box").removeClass("show-data");
+});
+$(".about").click(function(e) {
+  $(".info-box").addClass("show-chatter");
+});
+$(".close-chatter").click(function(e) {
+  $(".info-box").removeClass("show-chatter");
+});
 
 // $(".close-compare").click(function(e) {
 //   $(".data-box").toggleClass("show");
