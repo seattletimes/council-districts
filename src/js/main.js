@@ -51,21 +51,24 @@ $.when(location, request).then(function(position) {
 });
 
 location.always(function() { 
-  $(".spinner").hide();
+  $(".location-box").removeClass("loading");
 });
 
 var onward = function() {
   if ($('#address') !== null) {
     var address = $('#address').val().replace(/\s/g, '+');
     var bounds = "&bounds=47.4955511,-122.4359085|47.734145,-122.2359032";
-    $(".validation").html("");
-    $(".spinner").show();
+    $(".location-box").removeClass("showing-validation");
+    $(".location-box").removeClass("showing-search");
+    $(".location-box").addClass("loading");
     $.ajax({
       url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + bounds
     }).then(function(data) {
       if (data.status == "ZERO_RESULTS") {
+        $(".location-box").addClass("showing-validation");
         $(".validation").html("Zero results.");
       } else if (data.results[0].formatted_address.indexOf("Seattle") < 0) {
+        $(".location-box").addClass("showing-validation");
         $(".validation").html("Outside of bounds.");
       } else {
         var lat = data.results[0].geometry.location.lat;
@@ -76,7 +79,7 @@ var onward = function() {
         var district = wolf.findDistrict(position);
         updateMyDistrictInfo(district);
       }
-      $(".spinner").hide();
+      $(".location-box").removeClass("loading");
     });
   }
 }
@@ -88,8 +91,8 @@ $("#address").on("keydown", function(e) {
 
 var updateMyDistrictInfo = function(district) {
   $(".result").html("District " + district);
-  $(".search").show();
   view.myDistrict = district;
+  $(".location-box").addClass("showing-result");
 };
 
 $(".data-box").on("click", ".demo-tile", function(e) {
@@ -153,29 +156,34 @@ $("#map").on("click", ".district-label", function(e) {
 });
 
 // on mobile
-$(".explore").click(function(e) {
+$(".explore").click(function() {
   $(".info-box").addClass("show-data");
 });
-$(".close-data").click(function(e) {
+$(".close-data").click(function() {
   $(".info-box").removeClass("show-data");
 });
-$(".about").click(function(e) {
+$(".about").click(function() {
   $(".info-box").addClass("show-chatter");
 });
-$(".close-chatter").click(function(e) {
+$(".close-chatter").click(function() {
   $(".info-box").removeClass("show-chatter");
 });
 $("body").on("click", ".back", function() {
   view.zoomOut();
   $("body").removeClass("show-back");
 });
-$(".view-data").click(function(e) {
+$(".view-data").click(function() {
   $("body").addClass("show-district");
   $(".info-box").addClass("full-height");
 });
-$(".close-district").click(function(e) {
+$(".close-district").click(function() {
   $("body").removeClass("show-district");
   $(".info-box").removeClass("full-height");
+});
+$(".search-icon").click(function() {
+  $(".location-box").addClass("showing-search");
+  $(".location-box").removeClass("showing-validation");
+  $(".location-box").removeClass("showing-result");
 });
 
 // $(".bar").on("touchstart", function(e) {

@@ -111,11 +111,6 @@ MapView.prototype = {
   zoomOut: function() {
     this.selectedDistrict = null;
     this.updateView();
-
-    // // Mobile view hacks
-    // $(".view-data").removeClass("show");
-    // $(".inner").removeClass("bump-height");
-    // $("#map").removeClass("bump-height");
   },
 
   zoomToDistrict: function(name) {

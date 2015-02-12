@@ -2,6 +2,11 @@
   {
     "title": "1",
     "district": "1",
+    "name": "Shannon Braddock"
+  },
+  {
+    "title": "1",
+    "district": "1",
     "name": "George Capestany"
   },
   {
@@ -17,12 +22,17 @@
   {
     "title": "1",
     "district": "1",
-    "name": "Charles R. Redmond III"
+    "name": "Charles Redmond"
   },
   {
     "title": "1",
     "district": "1",
     "name": "Phillip Tavel"
+  },
+  {
+    "title": "1",
+    "district": "1",
+    "name": "Brianna Thomas"
   },
   {
     "title": "2",
@@ -92,7 +102,7 @@
   {
     "title": "6",
     "district": "6",
-    "name": "Michael J. O'Brien"
+    "name": "Mike O'Brien"
   },
   {
     "title": "6",
@@ -147,6 +157,6 @@
   {
     "title": "Undesignated",
     "district": "Undesignated",
-    "name": "Jonathan A. Grant"
+    "name": "Jonathan Grant"
   }
 ]

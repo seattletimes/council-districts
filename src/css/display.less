@@ -58,6 +58,58 @@
   }
 }
 
+.spinner {
+  display: none;
+
+  .loading & {
+    display: block;
+  }
+}
+
+.result-box {
+  @media @mobile {
+    display: none;
+
+    .showing-result & {
+      display: block;
+    }
+  }
+}
+
+.search-icon {
+  display: none;
+
+  @media @mobile {
+    display: inline-block;
+  }
+}
+
+.validation-box {
+  @media @mobile {
+    display: none;
+
+    .showing-validation & {
+      display: block;
+    }
+  }
+}
+
+.search {
+  @media @mobile {
+    display: none;
+  }
+}
+
+.find-by-address {
+  @media @mobile {
+    display: none;
+
+    .showing-search & {
+      display: block;
+    }
+  }
+}
+
 .button {
   display: none;
 

@@ -1,7 +1,7 @@
 var $ = require("jquery");
 
 module.exports = function(debug) {
-  $(".spinner").show();
+  $(".location-box").addClass("loading");
 
   var deferred = $.Deferred();
 
