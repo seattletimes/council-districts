@@ -143,9 +143,8 @@ $(".demo").click(function(e) {
   view.updateView();
   $(".legend").addClass("show");
 
-    // mobile hack
-  // $(".data-box").toggleClass("show");
-  // $(".location-box").toggleClass("show");
+  // on mobile
+  $(".info-box").removeClass("show-data");
 });
 
 // changes view based on which district is selected from dropdown
