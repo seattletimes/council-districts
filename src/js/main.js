@@ -96,7 +96,7 @@ var updateMyDistrictInfo = function(district) {
 //   $(".find-by-address").toggleClass("show-find");
 // });
 
-$(".info-box").on("click", ".back", function() {
+$("body").on("click", "._back", function() {
   view.zoomOut();
 });
 
@@ -181,4 +181,18 @@ $(".close-compare").click(function(e) {
 $(".view-data").click(function(e) {
   $(".district-box").show();
   $(".info-box").addClass("full-height");
+  $(".view-data").hide();
 });
+
+$(".info-box").on("click", ".mobile-back", function() {
+  $(".district-box").hide();
+  $(".info-box").removeClass("full-height");
+  $(".view-data").show();
+});
+
+// $(".bar").on("touchstart", function(e) {
+//   console.log(e)
+//   // e.stopPropagation();
+//   // $(".click-tooltip").removeClass("click-tooltip");
+//   // $(e.target).next().addClass("click-tooltip");
+// });

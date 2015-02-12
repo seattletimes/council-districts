@@ -26,11 +26,9 @@
 .charts {
   position: relative;
 
-  .back {
+  .back, .mobile-back {
     position: absolute;
     right: -10px;
-    top: -31px;
-    font-size: 12px;
     color: #666;
     cursor: pointer;
     transition: color 0.1s linear;
@@ -38,6 +36,26 @@
 
     &:hover {
       color: @red;
+    }
+  }
+
+  .back {
+    top: -31px;
+    font-size: 12px;
+  }
+
+  .mobile-back {
+    display: none;
+    top: -33px;
+    font-size: 15px;
+  }
+
+  @media @mobile {
+    .back {
+      display: none;
+    }
+    .mobile-back {
+      display: block;
     }
   }
 
