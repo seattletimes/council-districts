@@ -1,0 +1,89 @@
+// Frozen is initial (zoomed out) map view
+
+.leaflet-control-zoom {
+  .frozen & {
+    display: none;
+  }
+}
+
+.legend {
+  display: none;
+
+  .frozen &.show {
+    display: block;
+  }
+}
+
+.select {
+  .frozen & {
+    display: none;
+  }
+}
+
+.chatter {
+  display: none;
+
+  .frozen & {
+    display: block;
+  }
+
+  @media @mobile {
+    .frozen & {
+      display: none;
+    }
+  }
+}
+
+.location-box {
+  display: none;
+
+  .frozen & {
+    display: block;
+  }
+}
+
+.button {
+  display: none;
+
+  @media @mobile {
+    .frozen & {
+      display: block;
+    }
+  }
+}
+
+.data-box {
+  display: none;
+
+  .frozen & {
+    display: block;
+  }
+
+  @media @mobile {
+    .frozen & {
+      display: none;
+    }
+  }
+}
+
+.view-data {
+  display: none;
+
+  @media @mobile {
+    display: block;
+
+    .frozen & {
+      display: none;
+    }
+  }
+}
+
+.district-box {
+  .frozen & {
+    display: none;
+  }
+
+  @media @mobile {
+    display: none;
+  }
+}

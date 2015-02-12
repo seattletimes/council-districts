@@ -32,64 +32,64 @@
     </div>
 
     <div class="info-box">
-      <div class="inner">
 
-        <div class="chatter">
-          <i class=" close-chatter fa fa-times"></i>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Check out more of our <a href="http://blogs.seattletimes.com/politicsnorthwest/topics/2015-seattle-city-council-elections/">local election coverage.</a>
+      <div class="chatter">
+        <i class=" close-chatter fa fa-times"></i>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Check out more of our <a href="http://blogs.seattletimes.com/politicsnorthwest/topics/2015-seattle-city-council-elections/">local election coverage.</a>
 
-          <div class="credit">Interactive by Audrey Carlsen</div>
+        <div class="credit">Interactive by Audrey Carlsen</div>
+      </div>
+      
+      <div class="location-box">
+        <div class="inner-location-box">
+          <div class="result-box">
+            You are in:
+            <h2 class="result"></h2>
+          </div>
+          <div class="spinner">
+            <i class="fa fa-spinner fa-spin"></i> <em>Loading...</em>
+          </div>
+          <div class="search">
+            <i class="fa fa-search"></i> Use a different address:
+          </div>
+          <div class="find-by-address">
+            <input id="address" class="address"><button class="onward-button">GO</button>
+          </div>
+          <div class="validation"></div>
         </div>
+        <div>
+          <div class="explore button">
+            EXPLORE
+          </div>
+          <div class="about button">
+            ABOUT
+          </div>
+        </div>
+      </div>
+
+      <div class="data-box">
+        <div class="close-compare">OK</div>
+        <h4>Compare districts by:</h4>
+
+        <% for (var name in json.demo_options) { %>
+          <%= t.include("partials/_compareTemplate.html", { name: name, options: json.demo_options[name] }) %>
+        <% } %>
+      </div>
+
+      <select class="select" name="select">
+        <option value="1">District 1</option> 
+        <option value="2">District 2</option>
+        <option value="3">District 3</option>
+        <option value="4">District 4</option>
+        <option value="5">District 5</option>
+        <option value="6">District 6</option>
+        <option value="7">District 7</option>
+      </select>
+      <div class="view-data">
+        VIEW DATA
+      </div>
         
-        <div class="location-box">
-          <div class="inner-location-box">
-            <div class="result-box">
-              You are in:
-              <h2 class="result"></h2>
-            </div>
-            <div class="spinner">
-              <i class="fa fa-spinner fa-spin"></i> <em>Loading...</em>
-            </div>
-            <div class="search">
-              <i class="fa fa-search"></i> Use a different address:
-            </div>
-            <div class="find-by-address">
-              <input id="address" class="address"><button class="onward-button">GO</button>
-            </div>
-            <div class="validation"></div>
-          </div>
-          <div>
-            <div class="explore button">
-              EXPLORE
-            </div>
-            <div class="about button">
-              ABOUT
-            </div>
-          </div>
-        </div>
-
-        <div class="data-box">
-          <h4>Compare districts by:</h4>
-
-          <% for (var name in json.demo_options) { %>
-            <%= t.include("partials/_compareTemplate.html", { name: name, options: json.demo_options[name] }) %>
-          <% } %>
-        </div>
-
-        <select class="select" name="select">
-          <option value="1">District 1</option> 
-          <option value="2">District 2</option>
-          <option value="3">District 3</option>
-          <option value="4">District 4</option>
-          <option value="5">District 5</option>
-          <option value="6">District 6</option>
-          <option value="7">District 7</option>
-        </select>
-        <div class="view-data">
-          VIEW DATA
-        </div>
-          
-        <div class="district-box"></div>
+      <div class="district-box"></div>
     </div>
 
     <script>

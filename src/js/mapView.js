@@ -50,10 +50,10 @@ MapView.prototype = {
             self.zoomToDistrict(e.target.feature.properties.dist_name);
 
             // Mobile view hacks
-            $(".location-box").hide();
-            $(".view-data").addClass("show");
-            $(".inner").addClass("bump-height");
-            $("#map").addClass("bump-height");
+            // $(".location-box").hide();
+            // $(".view-data").addClass("show");
+            // $(".inner").addClass("bump-height");
+            // $("#map").addClass("bump-height");
           },
           mouseover: function(e) {
             layer.setStyle({ fillColor: "#c1ceaf", fillOpacity: 0.7 });
@@ -117,10 +117,10 @@ MapView.prototype = {
     this.selectedDistrict = null;
     this.updateView();
 
-    // Mobile view hacks
-    $(".view-data").removeClass("show");
-    $(".inner").removeClass("bump-height");
-    $("#map").removeClass("bump-height");
+    // // Mobile view hacks
+    // $(".view-data").removeClass("show");
+    // $(".inner").removeClass("bump-height");
+    // $("#map").removeClass("bump-height");
   },
 
   zoomToDistrict: function(name) {

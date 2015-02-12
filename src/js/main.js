@@ -92,10 +92,6 @@ var updateMyDistrictInfo = function(district) {
   view.myDistrict = district;
 };
 
-// $(".inner").on("click", ".search", function() {
-//   $(".find-by-address").toggleClass("show-find");
-// });
-
 $("body").on("click", "._back", function() {
   view.zoomOut();
 });
@@ -146,10 +142,10 @@ $(".demo").click(function(e) {
   view.selectedDemo = this.id;
   view.updateView();
   $(".legend").addClass("show");
-  
+
     // mobile hack
-  $(".data-box").toggleClass("show");
-  $(".location-box").toggleClass("show");
+  // $(".data-box").toggleClass("show");
+  // $(".location-box").toggleClass("show");
 });
 
 // changes view based on which district is selected from dropdown
@@ -162,32 +158,37 @@ $("#map").on("click", ".district-label", function(e) {
 })
 
 // on mobile, brings up screen for heat maps
-$(".explore").click(function(e) {
-  $(".data-box").toggleClass("show");
-  $(".location-box").hide();
-});
+// $(".explore").click(function(e) {
+//   $(".data-box").toggleClass("show");
+//   $(".location-box").removeClass("show");
+// });
 
-$(".about").click(function(e) {
-  $(".chatter").toggleClass("show");
-  $(".location-box").hide();
-});
+// $(".about").click(function(e) {
+//   $(".location-box").addClass("hide");
+//   $(".chatter").addClass("show");
+// });
 
-$(".close-chatter").click(function(e) {
-  $(".chatter").toggleClass("show");
-  $(".location-box").toggleClass("show");
-});
+// $(".close-chatter").click(function(e) {
+//   $(".chatter").toggleClass("show");
+//   $(".location-box").addClass("show");
+// });
 
-$(".view-data").click(function(e) {
-  $(".district-box").show();
-  $(".info-box").addClass("full-height");
-  $(".view-data").hide();
-});
+// $(".close-compare").click(function(e) {
+//   $(".data-box").toggleClass("show");
+//   $(".location-box").addClass("show");
+// });
 
-$(".info-box").on("click", ".mobile-back", function() {
-  $(".district-box").hide();
-  $(".info-box").removeClass("full-height");
-  $(".view-data").show();
-});
+// $(".view-data").click(function(e) {
+//   $(".district-box").show();
+//   $(".info-box").addClass("full-height");
+//   $(".view-data").hide();
+// });
+
+// $(".info-box").on("click", ".mobile-back", function() {
+//   $(".district-box").hide();
+//   $(".info-box").removeClass("full-height");
+//   $(".view-data").show();
+// });
 
 // $(".bar").on("touchstart", function(e) {
 //   console.log(e)

@@ -1,6 +1,7 @@
 @import (inline) "src/js/lib/leaflet/dist/leaflet.css";
 @import "template";
 @import "page";
+@import "display";
 
 @blue: #4d9fd7;
 @green: #c1ceaf;
@@ -49,7 +50,6 @@ h4 {
 }
 
 .view-data {
-  display: none;
   position: absolute;
   background: @red;
   border: none;
@@ -61,16 +61,9 @@ h4 {
   bottom: 15px;
   right: 15px;
   letter-spacing: 1px;
-
-  @media @mobile {
-    &.show {
-      display: block;
-    }
-  }
 }
 
 .legend {
-  display: none;
   position: absolute;
   bottom: 20px;
   left: 20px;
@@ -126,6 +119,10 @@ h4 {
     }
   }
 
+  .frozen & {
+    cursor: default;
+  }
+
   .district-label {
     font-size: 20px;
     font-weight: bold;
@@ -169,354 +166,265 @@ h4 {
     }
   }
 
-  .inner {
-    border-radius: 5px;
-    height: calc(~"100% - @{top-height}");
-    overflow: scroll;
+  .chatter {
+    padding: 27px;
+    padding-bottom: 23px;
+
+    .close-chatter {
+      display: none;
+      position: absolute;
+      right: 18px;
+      top: 18px;
+      font-size: 18px;
+      color: #555;
+    }
+
+    @media @tablet {
+      padding: 21px;
+    }
 
     @media @mobile {
-      height: auto;
+      padding-right: 40px;
+    }
 
-      &.bump-height {
-        margin-bottom: 11px;
+    a {
+      text-decoration: none;
+      color: @red;
+      font-weight: bold;
+
+      &:hover {
+        text-decoration: underline;
       }
     }
 
-    .chatter {
-      padding: 27px;
-      padding-bottom: 23px;
-      display: none;
+    .credit {
+      font-size: 11px;
+      font-style: italic;
+      padding-top: 10px;
+    }
+  }
 
-      .close-chatter {
-        display: none;
-        position: absolute;
-        right: 18px;
-        top: 18px;
-        font-size: 18px;
-        color: #555;
+  .location-box {
+    padding-top: 15px;
+    padding-bottom: 8px;
+    width: 70%;
+    background: #EEE;
+    margin: auto;
+    text-align: center;
+    border-radius: 3px;
+
+    @media @tablet {
+      width: 81%;
+    }
+
+    @media @mobile {
+      width: 100%;
+      background: white;
+
+      .inner-location-box {
+        float: right;
+        width: 70%;
+      }
+    }
+
+    .button {
+      position: absolute;
+      background: @orange;
+      border: none;
+      padding: 7px 15px;
+      margin-top: 4px;
+      color: white;
+      cursor: pointer;
+      border-radius: 3px;
+      letter-spacing: 0.5px;
+      left: 6%;
+      font-size: 12px;
+
+      &.explore {
+        bottom: 60px;
       }
 
-      @media @tablet {
-        padding: 21px;
+      &.about {
+        bottom: 22px;
+        width: 82px;
       }
+    }
+
+    .validation {
+      padding-bottom: 5px;
 
       @media @mobile {
-        display: none !important;
-        padding-right: 40px;
+        padding-bottom: 12px;
+      }
+    }
 
-        &.show {
-          display: block !important;
-        }
+    .spinner {
+      display: none;
+      padding: 5px;
+    }
 
-        .close-chatter {
-          display: block;
+    .result-box {
+      @media @mobile {
+        font-size: 15px;
+      }
+    }
+
+    .result {
+      margin: 0;
+
+      @media @mobile {
+        font-size: 15px;
+      }
+    }
+
+    .search {
+      padding: 9px 0 2px 29px;
+      font-size: 10px;
+      text-align: left;
+
+      @media @tablet {
+        width: 200px;
+        margin: auto;
+        padding-left: 14px;
+      }
+    }
+
+    .find-by-address {
+      transition: height 0.5s linear;
+      margin: auto;
+      width: 80%;
+      padding-bottom: 10px;
+
+      .address {
+        display: inline-block;
+        width: 75%;
+        border: 1px solid #CCC;
+        padding: 0.5em;
+        border-radius: 3px;
+
+        @media @mobile {
+          max-width: 150px;
         }
       }
 
-      a {
-        text-decoration: none;
-        color: @red;
-        font-weight: bold;
+      .onward-button {
+        background: @red;
+        border: none;
+        padding: 6px;
+        margin-left: 3px;
+        width: 22%;
+        color: white;
+        cursor: pointer;
+        border-radius: 3px;
 
         &:hover {
-          text-decoration: underline;
+          background: @orange;
+        }
+
+        @media @mobile {
+          width: 40px;
         }
       }
+    }
+  }
 
-      .credit {
-        font-size: 11px;
-        font-style: italic;
-        padding-top: 10px;
-      }
+  .data-box {
+
+    .close-compare {
+      display: none;
+      position: absolute;
+      bottom: 17px;
+      right: 20px;
+      background: @blue;
+      padding: 10px 20px;
+      border-radius: 3px;
+      color: white;
+      font-weight: bold;
+      font-size: 15px;
     }
 
-    .location-box {
-      display: none;
-      padding-top: 15px;
-      padding-bottom: 8px;
-      width: 70%;
-      background: #EEE;
-      margin: auto;
-      text-align: center;
-      border-radius: 3px;
+    h4 {
+      padding-top: 18px;
+      padding-left: 27px;
+      font-size: 15px;
 
       @media @tablet {
-        width: 81%;
+        padding-left: 21px;
+        padding-top: 8px;
+      }
+    }
+
+    .demo-tile {
+      border-bottom: 1px solid #EEE;
+      padding: 8px 27px;
+      cursor: pointer;
+
+      @media @tablet {
+        padding: 8px 21px;
       }
 
-      @media @mobile {
-        width: 100%;
-        display: none;
-        background: white;
-
-        .inner-location-box {
-          float: right;
-          width: 70%;
-        }
-
-        &.show {
-          display: block;
-        }
+      .demo-name {
+        padding-left: 4px;
+        transition: padding-left 0.1s ease-in;
+        font-size: 14.5px;
       }
 
-      .button {
-        display: none;
-        position: absolute;
-        background: @orange;
-        border: none;
-        padding: 7px 15px;
-        margin-top: 4px;
-        color: white;
-        cursor: pointer;
-        border-radius: 3px;
-        letter-spacing: 0.5px;
-        left: 6%;
+      .fa-chevron-right {
+        color: @red;
         font-size: 12px;
-
-        &.explore {
-          bottom: 60px;
-        }
-
-        &.about {
-          bottom: 22px;
-          width: 82px;
-        }
+        transition: transform 0.1s ease-in;
       }
 
-      .validation {
-        padding-bottom: 5px;
-
-        @media @mobile {
-          padding-bottom: 12px;
-        }
-      }
-
-      .spinner {
-        display: none;
-        padding: 5px;
-      }
-
-      .result-box {
-        @media @mobile {
-          font-size: 15px;
-        }
-      }
-
-      .result {
-        margin: 0;
-
-        @media @mobile {
-          font-size: 15px;
-        }
-      }
-
-      .search {
-        padding: 9px 0 2px 29px;
-        font-size: 10px;
-        text-align: left;
-
-        @media @tablet {
-          width: 200px;
-          margin: auto;
-          padding-left: 14px;
-        }
-      }
-
-      .find-by-address {
-        // overflow: hidden;
-        // height: 0px;
-        transition: height 0.5s linear;
-        margin: auto;
-        width: 80%;
-        padding-bottom: 10px;
-
-        // &.show-find {
-        //   height: 37px;
-        // }
-
-        .address {
-          display: inline-block;
-          width: 75%;
-          border: 1px solid #CCC;
-          padding: 0.5em;
-          border-radius: 3px;
-
-          @media @mobile {
-            max-width: 150px;
-          }
-        }
-
-        .onward-button {
-          background: @red;
-          border: none;
-          padding: 6px;
-          margin-left: 3px;
-          width: 22%;
-          color: white;
-          cursor: pointer;
-          border-radius: 3px;
-
-          &:hover {
-            background: @orange;
-          }
-
-          @media @mobile {
-            width: 40px;
-          }
+      &.open {
+        .fa-chevron-right {
+          transform: rotate(90deg);
         }
       }
     }
 
-    .data-box {
-      display: none;
+    .demo-box {
+      height: 0;
+      overflow: hidden;
 
-      .close-compare {
-        display: none;
-        position: absolute;
-        bottom: 17px;
-        right: 20px;
-        background: @blue;
-        padding: 10px 20px;
-        border-radius: 3px;
-        color: white;
-        font-weight: bold;
-        font-size: 15px;
+      &.transition-in {
+        transition: height 0.5s ease-in;
       }
 
-      @media @mobile {
-        display: none !important;
-
-        &.show {
-          display: block !important;
-        }
-
-        .close-compare {
-          display: block;
-        }
+      &.transition-out {
+        transition: height 0.5s ease-out;
       }
 
-      h4 {
-        padding-top: 18px;
-        padding-left: 27px;
-        font-size: 15px;
-
-        @media @tablet {
-          padding-left: 21px;
-          padding-top: 8px;
-        }
+      ul {
+        padding: 0 0 0 20px;
+        margin: 5px;
+        margin-top: 0;
+        list-style: none;
       }
 
-      .demo-tile {
-        border-bottom: 1px solid #EEE;
-        padding: 8px 27px;
+      .demo {
         cursor: pointer;
+        padding-top: 5px;
 
-        @media @tablet {
-          padding: 8px 21px;
-        }
-
-        // &:first-of-type {
-        //   border-top: 1px solid #EEE;
-        // }
-
-        .demo-name {
-          padding-left: 4px;
-          transition: padding-left 0.1s ease-in;
-          font-size: 14.5px;
-        }
-
-        .fa-chevron-right {
+        &:hover {
           color: @red;
-          font-size: 12px;
-          transition: transform 0.1s ease-in;
         }
 
-        &.open {
-          .fa-chevron-right {
-            transform: rotate(90deg);
-          }
-        }
-      }
-
-      .demo-box {
-        height: 0;
-        overflow: hidden;
-
-        &.transition-in {
-          transition: height 0.5s ease-in;
-        }
-
-        &.transition-out {
-          transition: height 0.5s ease-out;
-        }
-
-        ul {
-          padding: 0 0 0 20px;
-          margin: 5px;
-          margin-top: 0;
-          list-style: none;
-        }
-
-        .demo {
-          cursor: pointer;
-          padding-top: 5px;
-
-          &:hover {
-            color: @red;
-          }
-
-          &.active {
-            font-weight: bold;
-
-            .fa-check {
-              display: inline-block;
-            }
-          }
+        &.active {
+          font-weight: bold;
 
           .fa-check {
-            display: none;
+            display: inline-block;
           }
+        }
+
+        .fa-check {
+          display: none;
         }
       }
     }
-
-    .district-box {
-      padding: 0 20px;
-
-      @media @mobile {
-        display: none;
-      }
-    }
-  }
-}
-
-// Frozen is default map view
-.frozen {
-  #map {
-    cursor: default;
   }
 
-  .legend.show {
-    display: block;
-  }
-
-  .leaflet-control-zoom, .select {
-    display: none;
-  }
-
-  .info-box {
-    .district-box {
-      display: none;
-    }
-
-    .data-box, .location-box, .chatter {
-      display: block;
-    }
-
-    @media @mobile {
-      .button {
-        display: block !important;
-      }
-    }
+  .district-box {
+    padding: 0 20px;
   }
 }
