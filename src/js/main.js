@@ -146,6 +146,10 @@ $(".demo").click(function(e) {
   view.selectedDemo = this.id;
   view.updateView();
   $(".legend").addClass("show");
+  
+    // mobile hack
+  $(".data-box").toggleClass("show");
+  $(".location-box").toggleClass("show");
 });
 
 // changes view based on which district is selected from dropdown
@@ -170,12 +174,7 @@ $(".about").click(function(e) {
 
 $(".close-chatter").click(function(e) {
   $(".chatter").toggleClass("show");
-  $(".location-box").show();
-});
-
-$(".close-compare").click(function(e) {
-  $(".data-box").toggleClass("show");
-  $(".location-box").show();
+  $(".location-box").toggleClass("show");
 });
 
 $(".view-data").click(function(e) {
