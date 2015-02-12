@@ -92,10 +92,6 @@ var updateMyDistrictInfo = function(district) {
   view.myDistrict = district;
 };
 
-$("body").on("click", "._back", function() {
-  view.zoomOut();
-});
-
 $(".data-box").on("click", ".demo-tile", function(e) {
   var demoBox = this.querySelector(".demo-box");
   var bounds = demoBox.getBoundingClientRect();
@@ -150,11 +146,11 @@ $(".demo").click(function(e) {
 // changes view based on which district is selected from dropdown
 $("select").change(function(e) {
   view.zoomToDistrict(e.target.value);
-})
+});
 
 $("#map").on("click", ".district-label", function(e) {
   view.zoomToDistrict($(e.target).html());
-})
+});
 
 // on mobile
 $(".explore").click(function(e) {
@@ -169,23 +165,18 @@ $(".about").click(function(e) {
 $(".close-chatter").click(function(e) {
   $(".info-box").removeClass("show-chatter");
 });
-
-// $(".close-compare").click(function(e) {
-//   $(".data-box").toggleClass("show");
-//   $(".location-box").addClass("show");
-// });
-
-// $(".view-data").click(function(e) {
-//   $(".district-box").show();
-//   $(".info-box").addClass("full-height");
-//   $(".view-data").hide();
-// });
-
-// $(".info-box").on("click", ".mobile-back", function() {
-//   $(".district-box").hide();
-//   $(".info-box").removeClass("full-height");
-//   $(".view-data").show();
-// });
+$("body").on("click", ".back", function() {
+  view.zoomOut();
+  $("body").removeClass("show-back");
+});
+$(".view-data").click(function(e) {
+  $("body").addClass("show-district");
+  $(".info-box").addClass("full-height");
+});
+$(".close-district").click(function(e) {
+  $("body").removeClass("show-district");
+  $(".info-box").removeClass("full-height");
+});
 
 // $(".bar").on("touchstart", function(e) {
 //   console.log(e)

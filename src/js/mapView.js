@@ -48,12 +48,7 @@ MapView.prototype = {
         layer.on({
           click: function(e) {
             self.zoomToDistrict(e.target.feature.properties.dist_name);
-
-            // Mobile view hacks
-            // $(".location-box").hide();
-            // $(".view-data").addClass("show");
-            // $(".inner").addClass("bump-height");
-            // $("#map").addClass("bump-height");
+            $("body").addClass("show-back");
           },
           mouseover: function(e) {
             layer.setStyle({ fillColor: "#c1ceaf", fillOpacity: 0.7 });

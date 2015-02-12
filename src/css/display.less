@@ -103,6 +103,10 @@
     .frozen & {
       display: none;
     }
+
+    .show-district & {
+      display: none;
+    }
   }
 }
 
@@ -112,6 +116,30 @@
   }
 
   @media @mobile {
+    display: none;
+
+    .show-district & {
+      display: block;
+    }
+  }
+}
+
+.close-district {
+  display: none;
+
+  .show-district & {
+    display: block;
+  }
+}
+
+.back {
+  display: none;
+
+  .show-back & {
+    display: block;
+  }
+
+  .show-district & {
     display: none;
   }
 }
