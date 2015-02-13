@@ -59,6 +59,7 @@ var onward = function() {
     var address = $('#address').val().replace(/\s/g, '+');
     var bounds = "&bounds=47.4955511,-122.4359085|47.734145,-122.2359032";
     $(".location-box").removeClass("showing-validation");
+    $(".location-box").removeClass("showing-result");
     $(".location-box").removeClass("showing-search");
     $(".location-box").addClass("loading");
     $.ajax({

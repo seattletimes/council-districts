@@ -104,14 +104,15 @@
 }
 
 .result-box {
+  display: none;
+  
+  .showing-result & {
+    display: block;
+  }
+
   @media @mobile {
-    display: none;
     height: @height;
     margin-bottom: @margin;
-
-    .showing-result & {
-      display: block;
-    }
   }
 }
 
@@ -124,14 +125,15 @@
 }
 
 .validation-box {
+  display: none;
+
   @media @mobile {
-    display: none;
     height: @height;
     margin-bottom: @margin;
+  }
 
-    .showing-validation & {
-      display: block;
-    }
+  .showing-validation & {
+    display: block;
   }
 }
 
