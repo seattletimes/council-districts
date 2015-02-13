@@ -120,6 +120,31 @@ h4 {
   }
 }
 
+.ghost-disclaimer {
+  display: none;
+  width: calc(~"100% - @{box-width}");
+  position: absolute;
+  text-align: center;
+  padding-top: 25%;
+
+  @media @tablet {
+    padding-top: 50%;
+  }
+
+  .inner {
+    background: #333;
+    color: white;
+    max-width: 250px;
+    margin: auto;
+    border-radius: 3px;
+    padding: 10px;
+  }
+
+  &.show-disclaimer {
+    display: block;
+  }
+}
+
 .back {
   position: absolute;
   right: 12px;

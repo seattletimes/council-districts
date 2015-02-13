@@ -137,7 +137,8 @@ MapView.prototype = {
       $("body").addClass("frozen");
       map.fitBounds(this.cityBounds);
       this.enableMapInteractions(false);
-      $("#map").fadeTo( 400, 1 );
+      $("#map").fadeTo( 300, 1 );
+      $(".ghost-disclaimer").removeClass("show-disclaimer");
     }
   },
 
@@ -147,7 +148,8 @@ MapView.prototype = {
 
     // Parse data for Districts 1-7:
     if (demoData[district]) {
-      $("#map").fadeTo( 400, 1 );
+      $("#map").fadeTo( 300, 1 );
+      $(".ghost-disclaimer").removeClass("show-disclaimer");
 
       // Convert numbers to formatted strings
       var districtData = {};
@@ -181,6 +183,7 @@ MapView.prototype = {
       population = "Population: " + districtData.population;
     } else {
       $("#map").fadeTo( 300, 0.5 );
+      $(".ghost-disclaimer").addClass("show-disclaimer");
     }
 
     $(".district-box").html(ich.districtTemplate({
