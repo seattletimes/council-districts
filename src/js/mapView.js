@@ -115,9 +115,14 @@ MapView.prototype = {
 
   zoomToDistrict: function(name) {
     var layer = this.findDistrictLayer(name);
-    var bounds = layer.getBounds();
-    this.map.fitBounds(bounds);
-    this.selectedDistrict = layer.feature.properties.dist_name;
+    if (layer) {
+      var bounds = layer.getBounds();
+      this.map.fitBounds(bounds);
+      this.selectedDistrict = layer.feature.properties.dist_name;
+    } else {
+      // nothing to update on map
+      this.selectedDistrict = name;
+    }
     this.updateView();
   },
 
@@ -132,45 +137,58 @@ MapView.prototype = {
       $("body").addClass("frozen");
       map.fitBounds(this.cityBounds);
       this.enableMapInteractions(false);
+      $("#map").fadeTo( 400, 1 );
     }
   },
 
   updateSelectedDistrictInfo: function(district) {
-    // Convert numbers to formatted strings
-    var districtData = {};
-    for (var index in demoData[district]) {
-      districtData[index] = formatNumber(demoData[district][index]).toString();
-    }
-
-    var percentData = demoPercents[district];
-
-    if (Object.keys(averageData).length == 0) {
-      var avg  = demoPercents["avg"];
-      for (var key in avg) {
-        var value = avg[key];
-        averageData[key] = value;
-      }    
-    }
-
-    // Turn options hash into array for templating
     var optionsArray = [];
-    for (var name in demoOptions) {
-      demoOptions[name].forEach(function(option) {
-        option.dist_percent = percentData[option.id] + "%";
-        option.dist_val = parseFloat(percentData[option.id]).toFixed(0);
-        option.avg_percent = averageData[option.id] + "%";
-        option.avg_val = parseFloat(averageData[option.id]).toFixed(0);
-      })
-      var obj = {"name": name, "options": demoOptions[name]};
-      optionsArray.push(obj);
+    var population;
+
+    // Parse data for Districts 1-7:
+    if (demoData[district]) {
+      $("#map").fadeTo( 400, 1 );
+
+      // Convert numbers to formatted strings
+      var districtData = {};
+      for (var index in demoData[district]) {
+        districtData[index] = formatNumber(demoData[district][index]).toString();
+      }
+
+      var percentData = demoPercents[district];
+
+      if (Object.keys(averageData).length == 0) {
+        var avg  = demoPercents["avg"];
+        for (var key in avg) {
+          var value = avg[key];
+          averageData[key] = value;
+        }    
+      }
+
+      // Turn options hash into array for templating
+     
+      for (var name in demoOptions) {
+        demoOptions[name].forEach(function(option) {
+          option.dist_percent = percentData[option.id] + "%";
+          option.dist_val = parseFloat(percentData[option.id]).toFixed(0);
+          option.avg_percent = averageData[option.id] + "%";
+          option.avg_val = parseFloat(averageData[option.id]).toFixed(0);
+        })
+        var obj = {"name": name, "options": demoOptions[name]};
+        optionsArray.push(obj);
+      }
+
+      population = "Population: " + districtData.population;
+    } else {
+      $("#map").fadeTo( 300, 0.5 );
     }
 
     $(".district-box").html(ich.districtTemplate({
       graphs: optionsArray, 
-      pop: districtData.population, 
+      pop: population, 
       district: district,
       candidates: candidateData[district]
-    })); 
+    }));  
   },
 
   enableMapInteractions: function(enabled) {
