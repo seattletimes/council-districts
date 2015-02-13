@@ -9,6 +9,20 @@
   }
 }
 
+.info-box {
+  padding-top: 0;
+
+  @media @mobile {
+    .frozen & {
+      padding-top: 37px;
+    }
+
+    .frozen.show-chatter &, .frozen.show-data &, .frozen.show-district & {
+      padding-top: 0;
+    }
+  }
+}
+
 .explore-this {
   display: none;
 
@@ -17,7 +31,7 @@
       display: block;
     }
 
-    .show-chatter &, .show-data &, .show-legend &{
+    .show-chatter &, .show-data &, .show-legend & {
       display: none;
     }
   }

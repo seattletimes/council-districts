@@ -49,6 +49,7 @@ MapView.prototype = {
           click: function(e) {
             self.zoomToDistrict(e.target.feature.properties.dist_name);
             $("body").addClass("show-back");
+            $("#map").addClass("bump-height");
           },
           mouseover: function(e) {
             layer.setStyle({ fillColor: "#c1ceaf", fillOpacity: 0.7 });
@@ -111,6 +112,7 @@ MapView.prototype = {
   zoomOut: function() {
     this.selectedDistrict = null;
     this.updateView();
+    $("#map").removeClass("bump-height");
   },
 
   zoomToDistrict: function(name) {
