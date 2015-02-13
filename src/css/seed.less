@@ -39,15 +39,7 @@ h4 {
 
 .select {
   cursor: pointer;
-  background: transparent;
-  width: 108px;
-  padding: 5px;
-  font-weight:bold;
-  font-size: 16px;
-  border: 0;
-  height: 35px;
-  margin-top: 10px;
-  margin-left: 10px;
+  margin: 20px 0 10px 20px
 }
 
 .view-data {
@@ -73,6 +65,24 @@ h4 {
   font-size: 18px;
 }
 
+.outer-legend {
+  width: 100%;
+}
+
+.explore-this {
+  display: none;
+  position: absolute;
+  right: 0px;
+  bottom: 46px;
+  width: 65%;
+  padding: 8px;
+  z-index: 99;
+
+  @media @mobile {
+    display: block;
+  }
+}
+
 .legend {
   position: absolute;
   bottom: 20px;
@@ -80,6 +90,14 @@ h4 {
   background: white;
   border-radius: 3px;
   padding: 15px;
+
+  @media @mobile {
+    right: 0px;
+    bottom: 46px;
+    left: inherit;
+    width: 65%;
+    padding: 0px;
+  }
 
   .legend-label {
     font-weight: bold;
@@ -106,6 +124,7 @@ h4 {
     font-size: 12px;
 
     @media @mobile {
+      font-size: 11px;
       display: none;
     }
   }
@@ -113,6 +132,11 @@ h4 {
   @media @mobile {
     font-size: 12px;
     z-index: 99;
+    text-align: center;
+
+    .legend-header {
+      padding-bottom: 3px;
+    }
 
     .legend-label, .legend-name {
       display: inline;
@@ -154,7 +178,7 @@ h4 {
   position: absolute;
   right: 12px;
   color: #555;
-  top: 56px;
+  top: 60px;
   font-size: 14px;
   cursor: pointer;
   transition: color 0.1s linear;
@@ -183,7 +207,7 @@ h4 {
 
   @media @mobile {
     width: 100%;
-    height: calc(~"100% - @{top-height} - @{box-height}");
+    height: calc(~"100% - @{top-height} - 91px");
 
     &.bump-height {
       height: calc(~"100% - @{top-height} - 62px");
@@ -227,6 +251,7 @@ h4 {
     height: auto;
     bottom: 0;
     top: inherit;
+    padding-top: 37px;
 
     h2 {
       display: inline;
@@ -293,7 +318,7 @@ h4 {
 
       .inner-location-box {
         float: right;
-        width: 70%;
+        width: 65%;
       }
     }
 
@@ -311,17 +336,18 @@ h4 {
       font-size: 12px;
 
       &.explore {
-        bottom: 60px;
+        bottom: 50px;
       }
 
       &.about {
-        bottom: 22px;
+        bottom: 12px;
         width: 82px;
       }
     }
 
     .validation {
       padding-bottom: 5px;
+      font-style: italic;
 
       @media @mobile {
         padding-bottom: 12px;
@@ -358,15 +384,28 @@ h4 {
       }
     }
 
+    .search-icon {
+      color: @blue;
+      padding: 3px 8px;
+      font-size: 15px;
+      background: #EEE;
+      border-radius: 3px;
+      margin-left: 3px;
+    }
+
     .find-by-address {
       transition: height 0.5s linear;
       margin: auto;
       width: 80%;
       padding-bottom: 10px;
 
+      @media @mobile {
+        margin-bottom: 3px;
+      }
+
       .address {
         display: inline-block;
-        width: 75%;
+        width: 74%;
         border: 1px solid #CCC;
         padding: 0.5em;
         border-radius: 3px;

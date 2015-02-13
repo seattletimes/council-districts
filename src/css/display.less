@@ -1,5 +1,8 @@
 // Frozen is initial (zoomed out) map view
 
+@height: 36px;
+@margin: 3px;
+
 .leaflet-control-zoom {
   .frozen & {
     display: none;
@@ -60,8 +63,8 @@
 
 .spinner {
   display: none;
-  height: 30px;
-  background: red;
+  height: @height;
+  margin-bottom: @margin;
 
   .loading & {
     display: block;
@@ -71,8 +74,8 @@
 .result-box {
   @media @mobile {
     display: none;
-    height: 30px;
-    background: red;
+    height: @height;
+    margin-bottom: @margin;
 
     .showing-result & {
       display: block;
@@ -91,8 +94,8 @@
 .validation-box {
   @media @mobile {
     display: none;
-    height: 30px;
-    background: red;
+    height: @height;
+    margin-bottom: @margin;
 
     .showing-validation & {
       display: block;
@@ -109,8 +112,8 @@
 .find-by-address {
   @media @mobile {
     display: none;
-    height: 30px;
-    background: red;
+    height: @height;
+    margin-bottom: @margin;
 
     .showing-search & {
       display: block;
