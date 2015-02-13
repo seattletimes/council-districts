@@ -14,7 +14,11 @@
 
   @media @mobile {
     .frozen & {
-      padding-top: 37px;
+      padding-top: 43px;
+    }
+
+    .frozen.show-legend & {
+      padding-top: 53px;
     }
 
     .frozen.show-chatter &, .frozen.show-data &, .frozen.show-district & {
@@ -40,7 +44,7 @@
 .legend {
   display: none;
 
-  .frozen .show-legend & {
+  .frozen.show-legend & {
     display: block;
   }
 

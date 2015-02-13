@@ -141,7 +141,7 @@ $(".demo").click(function(e) {
   $(this).addClass("active");
   view.selectedDemo = this.id;
   view.updateView();
-  $(".outer-legend").addClass("show-legend");
+  $("body").addClass("show-legend");
 
   // on mobile
   $("body").removeClass("show-data");
