@@ -21,7 +21,7 @@
       padding-top: 53px;
     }
 
-    .frozen.show-chatter &, .frozen.show-data &, .frozen.show-district & {
+    .frozen.show-district & {
       padding-top: 0;
     }
   }
@@ -35,7 +35,7 @@
       display: block;
     }
 
-    .show-chatter &, .show-data &, .show-legend & {
+    .show-legend & {
       display: none;
     }
   }
@@ -61,6 +61,7 @@
 
 .chatter {
   display: none;
+  transition: transform 0.3s ease-in;
 
   .frozen & {
     display: block;
@@ -68,11 +69,11 @@
 
   @media @mobile {
     .frozen & {
-      display: none;
+      transform: translateY(145px);
     }
 
     .show-chatter & {
-      display: block;
+      transform: translateY(-145px);
     }
   }
 }
@@ -92,9 +93,9 @@
     display: block;
   }
 
-  .show-chatter &, .show-data & {
-    display: none;
-  }
+  // .show-chatter &, .show-data & {
+  //   display: none;
+  // }
 }
 
 .spinner {
