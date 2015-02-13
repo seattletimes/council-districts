@@ -140,10 +140,10 @@ $(".demo").click(function(e) {
   $(this).addClass("active");
   view.selectedDemo = this.id;
   view.updateView();
-  $(".legend").addClass("show");
+  $(".outer-legend").addClass("show-legend");
 
   // on mobile
-  $(".info-box").removeClass("show-data");
+  $("body").removeClass("show-data");
 });
 
 // changes view based on which district is selected from dropdown
@@ -157,16 +157,16 @@ $("#map").on("click", ".district-label", function(e) {
 
 // on mobile
 $(".explore").click(function() {
-  $(".info-box").addClass("show-data");
+  $("body").addClass("show-data");
 });
 $(".close-data").click(function() {
-  $(".info-box").removeClass("show-data");
+  $("body").removeClass("show-data");
 });
 $(".about").click(function() {
-  $(".info-box").addClass("show-chatter");
+  $("body").addClass("show-chatter");
 });
 $(".close-chatter").click(function() {
-  $(".info-box").removeClass("show-chatter");
+  $("body").removeClass("show-chatter");
 });
 $("body").on("click", ".back", function() {
   view.zoomOut();

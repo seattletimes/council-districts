@@ -9,11 +9,29 @@
   }
 }
 
+.explore-this {
+  display: none;
+
+  @media @mobile {
+    .frozen & {
+      display: block;
+    }
+
+    .show-chatter &, .show-data &, .show-legend &{
+      display: none;
+    }
+  }
+}
+
 .legend {
   display: none;
 
-  .frozen &.show {
+  .frozen .show-legend & {
     display: block;
+  }
+
+  .frozen.show-chatter &, .frozen.show-data & {
+    display: none;
   }
 }
 
