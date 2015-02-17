@@ -20,6 +20,8 @@ module.exports = function(debug) {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       });
+    }, function() {
+      deferred.reject();
     });
   }
 

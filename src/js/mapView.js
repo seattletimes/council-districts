@@ -15,6 +15,7 @@ var restyle = function(feature) {
   } else if (this.selectedDemo) {
     return { fillColor: heatStyle(this.selectedDemo, districtName), fillOpacity: 0.8 };
   } else if (this.myDistrict) {
+    console.log(this.myDistrict)
     if (feature.properties.dist_name == this.myDistrict) {
       return { fillColor: "#528965", fillOpacity: 0.7 };
     }
@@ -107,6 +108,7 @@ MapView.prototype = {
     setTimeout(function() {
       marker._icon.style.transition = ""; // once pin is dropped, stop transitioning transform
     }, 600);
+    this.updateView();
   },
 
   zoomOut: function() {

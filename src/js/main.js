@@ -42,10 +42,9 @@ var request = $.ajax({
 var location = locate();
 
 $.when(location, request).then(function(position) {
-  view.dropPin(position);
   var district = wolf.findDistrict(position);
   updateMyDistrictInfo(district);
-  view.updateView();
+  view.dropPin(position);
 }, function(err) {
   console.error(err);
 });
@@ -76,9 +75,9 @@ var onward = function() {
         var lng = data.results[0].geometry.location.lng;
         var position = {lat: lat, lng: lng};
 
-        view.dropPin(position);
         var district = wolf.findDistrict(position);
         updateMyDistrictInfo(district);
+        view.dropPin(position);
       }
       $(".location-box").removeClass("loading");
     });
