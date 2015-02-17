@@ -21,7 +21,9 @@ module.exports = function(debug) {
         lng: position.coords.longitude
       });
     }, function() {
-      deferred.reject("");
+      deferred.reject();
+      $(".location-box").addClass("showing-validation");
+      $(".validation").html("Unable to find location.");
     });
   }
 
