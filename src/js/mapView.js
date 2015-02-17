@@ -5,6 +5,11 @@ var ich = require("icanhaz");
 var districtTemplate = require("./_districtTemplate.html");
 ich.addTemplate("districtTemplate", districtTemplate);
 
+var trans = 
+  "msTransform" in document.body.style ? "msTransform" :
+  "webkitTransform" in document.body.style ? "webkitTransform" :
+  "transform";
+
 var restyle = function(feature) {
   var districtName = feature.properties.dist_name;
 
@@ -97,13 +102,14 @@ MapView.prototype = {
     var icon = new L.divIcon({className: 'my-location'});
     var marker = L.marker([position.lat,position.lng], {icon: icon});
     marker.addTo(this.map);
-    var oldTransform = marker._icon.style.transform;
+    var oldTransform = marker._icon.style[trans];
     var newTransform = oldTransform.replace(/, \d+/, ", 0");
-    marker._icon.style.transform = newTransform;
+    marker._icon.style[trans] = newTransform;
     marker._icon.style.transition = "transform .5s ease-in";
-    setTimeout(function() {
-      marker._icon.style.transform = oldTransform;
-    }, 100);
+
+    //force layout
+    var _ = document.body.offsetTop;
+    marker._icon.style[trans] = oldTransform;
     setTimeout(function() {
       marker._icon.style.transition = ""; // once pin is dropped, stop transitioning transform
     }, 600);
