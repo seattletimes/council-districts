@@ -21,8 +21,18 @@
       padding-top: 53px;
     }
 
-    .frozen.show-district & {
+    .show-back & {
+      transform: translateY(92%);
+      height: calc(~"100% - @{top-height}");
+    }
+
+    .add-transition & {
+      transition: transform 0.5s ease-in;
+    }
+
+    .show-district & {
       padding-top: 0;
+      transform: translateY(0%);
     }
   }
 }
@@ -71,7 +81,7 @@
 
 .chatter {
   display: none;
-  transition: transform 0.4s ease-in;
+  transition: transform 0.5s ease-in;
 
   .frozen & {
     display: block;
@@ -79,11 +89,11 @@
 
   @media @mobile {
     .frozen & {
-      transform: translateY(145px);
+      transform: translateY(73%);
     }
 
     .show-chatter & {
-      transform: translateY(-145px);
+      transform: translateY(-73%);
     }
   }
 }
@@ -231,7 +241,7 @@
   @media @mobile {
     display: none;
 
-    .show-district & {
+    .show-back & {
       display: block;
     }
   }

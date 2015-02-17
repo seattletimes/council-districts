@@ -174,12 +174,14 @@ $("body").on("click", ".back", function() {
   $("body").removeClass("show-back");
 });
 $(".view-data").click(function() {
+  $("body").addClass("add-transition");
   $("body").addClass("show-district");
-  $(".info-box").addClass("full-height");
 });
 $(".close-district").click(function() {
   $("body").removeClass("show-district");
-  $(".info-box").removeClass("full-height");
+  setTimeout(function() {
+    $("body").removeClass("add-transition");
+  }, 500);
 });
 $(".search-icon").click(function() {
   $(".location-box").addClass("showing-search");
