@@ -41,15 +41,25 @@
   }
 }
 
-.legend {
+.legend.desktop {
   display: none;
 
   .frozen.show-legend & {
     display: block;
-  }
 
-  .frozen.show-chatter &, .frozen.show-data & {
-    display: none;
+    @media @mobile {
+      display: none;
+    }
+  }
+}
+
+.legend.mobile{
+  display: none;
+
+  @media @mobile {
+    .frozen.show-legend & {
+      display: block;
+    }
   }
 }
 
@@ -61,7 +71,7 @@
 
 .chatter {
   display: none;
-  transition: transform 0.3s ease-in;
+  transition: transform 0.4s ease-in;
 
   .frozen & {
     display: block;
@@ -172,6 +182,7 @@
 
 .data-box {
   display: none;
+  transition: transform 0.5s ease-in;
 
   .frozen & {
     display: block;
@@ -179,11 +190,11 @@
 
   @media @mobile {
     .frozen & {
-      display: none;
+      transform: translateY(90%);
     }
 
     .show-data & {
-      display: block;
+      transform: translateY(-90%);
     }
   }
 }
