@@ -21,7 +21,7 @@ module.exports = function(debug) {
         lng: position.coords.longitude
       });
     }, function() {
-      deferred.reject();
+      deferred.reject("");
     });
   }
 

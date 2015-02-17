@@ -90,9 +90,15 @@ $("#address").on("keydown", function(e) {
 });
 
 var updateMyDistrictInfo = function(district) {
-  $(".result").html("District " + district);
-  view.myDistrict = district;
-  $(".location-box").addClass("showing-result");
+  if (district) {
+    $(".result").html("District " + district);
+    view.myDistrict = district;
+    $(".location-box").addClass("showing-result");
+  } else {
+    // If using geolocation outside of city limits
+    $(".location-box").addClass("showing-validation");
+    $(".validation").html("Outside of bounds.");
+  }
 };
 
 $(".data-box").on("click", ".demo-tile", function(e) {
