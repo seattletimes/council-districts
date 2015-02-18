@@ -50,6 +50,7 @@ var findMe = function() {
 
   $.when(location, request).then(function(position) {
     $("body").addClass("located");
+    $("#address").val("");
     var district = wolf.findDistrict(position);
     updateMyDistrictInfo(district);
     view.dropPin(position);
