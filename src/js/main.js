@@ -100,11 +100,6 @@ var onward = function() {
   }
 }
 
-$(".onward-button").on("click", onward);
-$("#address").on("keydown", function(e) {
-  if (e.keyCode == 13) onward();
-});
-
 var updateMyDistrictInfo = function(district) {
   if (district) {
     $(".result").html("District " + district);
@@ -117,16 +112,6 @@ var updateMyDistrictInfo = function(district) {
     view.myDistrict = null;
   }
 };
-
-$(".data-box").on("click", ".demo-tile", function(e) {
-  var demoBox = this.querySelector(".demo-box");
-  var bounds = demoBox.getBoundingClientRect();
-  var open = document.querySelector(".demo-tile.open .demo-box");
-  if (bounds.height == 0) {
-    if (open !== null) { closeBox(open) }
-    openBox(demoBox);
-  } 
-});
 
 var openBox = function(box) {
   var $box = $(box);
@@ -158,6 +143,15 @@ var closeBox = function(box) {
   $box.closest(".demo-tile").removeClass("open");
 };
 
+// BEHOLD! The great mess known as my event listeners!
+
+// Submits address from input field
+$(".onward-button").on("click", onward);
+$("#address").on("keydown", function(e) {
+  if (e.keyCode == 13) onward();
+});
+
+// Triggers map update based on selected demographic
 $(".demo").click(function(e) {
   $(".demo.active").removeClass("active");
   $(this).addClass("active");
@@ -169,42 +163,43 @@ $(".demo").click(function(e) {
   $("body").removeClass("show-data");
 });
 
-// changes view based on which district is selected from dropdown
+// Changes view based on which district is selected from dropdown
 $("select").change(function(e) {
   view.zoomToDistrict(e.target.value);
 });
-
 $("#map").on("click", ".district-label", function(e) {
   view.zoomToDistrict($(e.target).html());
 });
 
-// on mobile
+// ON MOBILE
+
+// "Explore" button shows demographic options
 $(".explore").click(function() {
   $("body").addClass("show-data");
 });
-
 $(".close-data").click(function() {
   $("body").removeClass("show-data");
 });
 
+// "About" button shows chatter
 $(".about").click(function() {
   $("body").addClass("show-chatter");
 });
-
 $(".close-chatter").click(function() {
   $("body").removeClass("show-chatter");
 });
 
+// Back button zooms out to default view
 $("body").on("click", ".back", function() {
   view.zoomOut();
   $("body").removeClass("show-back");
 });
 
+// "View data" view shows district-specific charts/numbers
 $(".view-data").click(function() {
   $("body").addClass("add-transition");
   $("body").addClass("show-district");
 });
-
 $(".close-district").click(function() {
   $("body").removeClass("show-district");
   setTimeout(function() {
@@ -212,20 +207,12 @@ $(".close-district").click(function() {
   }, 500);
 });
 
-$(".search-icon").click(function() {
-  $(".location-box").addClass("showing-search");
-  $(".location-box").removeClass("showing-validation");
-  $(".location-box").removeClass("showing-result");
-});
-
+// Locate button hides legend, shows "find me" panel
 $(".show-locate").click(function() {
   $("body").removeClass("show-legend");
 });
 
-$("body").on("touchstart", ".bar", function(e) {
-  $(this).addClass("active");
-});
-
+// Chart tooltips for mobile
 $("body").on("touchstart", ".bar", function(e) {
   e.stopPropagation();
   $(".bar.active").removeClass("active");
