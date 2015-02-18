@@ -248,10 +248,14 @@ h4 {
   position: fixed;
   right: 0px;
   top: @top-height;
-  height: 100%;
+  height: calc(~"100% - @{top-height}");
   width: @box-width;
   background: white;
   overflow: scroll;
+
+  @media (max-height: 660px) {
+    background: linear-gradient(180deg, white, white 95%, #DDD);
+  }
 
   @media @tablet {
     width: 220px;
