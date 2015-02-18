@@ -2,9 +2,6 @@
 
 // Frozen is initial (zoomed out) map view
 
-@height: 36px;
-@margin: 3px;
-
 .leaflet-control-zoom {
   .frozen & {
     display: none;
@@ -16,11 +13,11 @@
 
   @media @mobile {
     .frozen & {
-      padding-top: 43px;
+      // padding-top: 43px;
     }
 
     .frozen.show-legend & {
-      padding-top: 53px;
+      // padding-top: 53px;
     }
 
     .show-back & {
@@ -37,20 +34,6 @@
     .show-district & {
       padding-top: 0;
       .transform(translateY(-100%));
-    }
-  }
-}
-
-.explore-this {
-  display: none;
-
-  @media @mobile {
-    .frozen & {
-      display: block;
-    }
-
-    .show-legend & {
-      display: none;
     }
   }
 }
@@ -77,6 +60,16 @@
   }
 }
 
+.show-locate {
+  display: none;
+
+  @media @mobile {
+    .frozen.show-legend & {
+      display: block;
+    }
+  }
+}
+
 .select {
   .frozen & {
     display: none;
@@ -93,7 +86,7 @@
   }
 
   @media @mobile {
-    margin-top: 54px;
+    margin-top: 82px;
 
     .frozen & {
       .transform(translateY(100%));
@@ -119,16 +112,10 @@
   .frozen & {
     display: block;
   }
-
-  // .show-chatter &, .show-data & {
-  //   display: none;
-  // }
 }
 
 .spinner {
   display: none;
-  height: @height;
-  margin-bottom: @margin;
 
   .loading & {
     display: block;
@@ -137,22 +124,13 @@
 
 .result-box {
   display: none;
+
+  @media @mobile {
+    margin-top: 6px;
+  }
   
   .showing-result & {
     display: block;
-  }
-
-  @media @mobile {
-    height: @height;
-    margin-bottom: @margin;
-  }
-}
-
-.search-icon {
-  display: none;
-
-  @media @mobile {
-    display: inline-block;
   }
 }
 
@@ -160,8 +138,7 @@
   display: none;
 
   @media @mobile {
-    height: @height;
-    margin-bottom: @margin;
+    margin-top: 6px;
   }
 
   .showing-validation & {
@@ -177,10 +154,6 @@
 
 .find-by-address {
   @media @mobile {
-    display: none;
-    height: @height;
-    margin-bottom: @margin;
-
     .showing-search & {
       display: block;
     }
@@ -207,8 +180,6 @@
   }
 
   @media @mobile {
-    margin-top: 30px;
-
     .frozen & {
       .transform(translateY(100%));
     }

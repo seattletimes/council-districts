@@ -39,15 +39,17 @@ var request = $.ajax({
 });
 
 var findMe = function() {
+  $("body").removeClass("located");
   $(".location-box").removeClass("showing-validation");
-    $(".location-box").removeClass("showing-result");
-    $(".location-box").removeClass("showing-search");
-    $(".location-box").addClass("loading");
+  $(".location-box").removeClass("showing-result");
+  $(".location-box").removeClass("showing-search");
+  $(".location-box").addClass("loading");
 
   // true for dev
   var location = locate();
 
   $.when(location, request).then(function(position) {
+    $("body").addClass("located");
     var district = wolf.findDistrict(position);
     updateMyDistrictInfo(district);
     view.dropPin(position);
@@ -67,6 +69,7 @@ $(".locate-icon").click(findMe);
 
 var onward = function() {
   if ($('#address') !== null) {
+    $("body").removeClass("located");
     var address = $('#address').val().replace(/\s/g, '+');
     var bounds = "&bounds=47.4955511,-122.4359085|47.734145,-122.2359032";
     $(".location-box").removeClass("showing-validation");
@@ -205,6 +208,9 @@ $(".search-icon").click(function() {
   $(".location-box").addClass("showing-search");
   $(".location-box").removeClass("showing-validation");
   $(".location-box").removeClass("showing-result");
+});
+$(".show-locate").click(function() {
+  $("body").removeClass("show-legend");
 });
 
 // $(".bar").on("touchstart", function(e) {
