@@ -53,8 +53,6 @@ MapView.prototype = {
         layer.on({
           click: function(e) {
             self.zoomToDistrict(e.target.feature.properties.dist_name);
-            $("body").addClass("show-back");
-            $("#map").addClass("bump-height");
           },
           mouseover: function(e) {
             layer.setStyle({ fillColor: "#c1ceaf", fillOpacity: 0.7 });
@@ -133,6 +131,8 @@ MapView.prototype = {
       this.selectedDistrict = name;
     }
     this.updateView();
+    $("body").addClass("show-back");
+    $("#map").addClass("bump-height");
   },
 
   updateView: function() {
