@@ -38,20 +38,32 @@ var request = $.ajax({
   view.addLayer(data);
 });
 
-// true for dev
-var location = locate();
+var findMe = function() {
+  $(".location-box").removeClass("showing-validation");
+    $(".location-box").removeClass("showing-result");
+    $(".location-box").removeClass("showing-search");
+    $(".location-box").addClass("loading");
 
-$.when(location, request).then(function(position) {
-  var district = wolf.findDistrict(position);
-  updateMyDistrictInfo(district);
-  view.dropPin(position);
-}, function(err) {
-  console.error(err);
-});
+  // true for dev
+  var location = locate();
 
-location.always(function() { 
-  $(".location-box").removeClass("loading");
-});
+  $.when(location, request).then(function(position) {
+    var district = wolf.findDistrict(position);
+    updateMyDistrictInfo(district);
+    view.dropPin(position);
+  }, function(err) {
+    console.error(err);
+  });
+
+  location.always(function() { 
+    $(".location-box").removeClass("loading");
+  });
+
+};
+
+findMe();
+
+$(".locate-icon").click(findMe);
 
 var onward = function() {
   if ($('#address') !== null) {
@@ -98,6 +110,7 @@ var updateMyDistrictInfo = function(district) {
     // If using geolocation outside of city limits
     $(".location-box").addClass("showing-validation");
     $(".validation").html("Outside of bounds.");
+    view.myDistrict = null;
   }
 };
 
@@ -199,4 +212,13 @@ $(".search-icon").click(function() {
 //   // e.stopPropagation();
 //   // $(".click-tooltip").removeClass("click-tooltip");
 //   // $(e.target).next().addClass("click-tooltip");
+// });
+
+
+
+// $(".info-box").scroll(function() {
+//   console.log('scrolling')
+//   if ($(".info-box").scrollHeight > $(".info-box").clientHeight) {
+//   console.log("scroll bigger")
+// }
 // });

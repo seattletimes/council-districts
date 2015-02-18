@@ -1,4 +1,6 @@
 var $ = require("jquery");
+var debug = true;
+
 
 module.exports = function(debug) {
   $(".location-box").addClass("loading");

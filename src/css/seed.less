@@ -185,8 +185,6 @@ h4 {
   z-index: 99;
 
   @media @mobile {
-    // color: white;
-    // background: @red;
     border-radius: 3px;
     font-weight: initial;
     right: 7px;
@@ -401,7 +399,7 @@ h4 {
       @media @tablet {
         width: 200px;
         margin: auto;
-        padding-left: 14px;
+        padding-left: 16px;
       }
     }
 
@@ -410,14 +408,13 @@ h4 {
       padding: 3px 7px;
       font-size: 15px;
       background: #EEE;
-      border-radius: 50%;
+      border-radius: 3px;
       margin-left: 3px;
     }
 
     .find-by-address {
       transition: height 0.5s linear;
       margin: auto;
-      width: 80%;
       padding-bottom: 10px;
 
       @media @mobile {
@@ -426,10 +423,14 @@ h4 {
 
       .address {
         display: inline-block;
-        width: 74%;
+        width: 120px;
         border: 1px solid #CCC;
         padding: 0.5em;
         border-radius: 3px;
+
+        @media @tablet {
+          max-width: 85px;
+        }
 
         @media @mobile {
           max-width: 150px;
@@ -442,7 +443,7 @@ h4 {
         padding: 6px;
         padding-bottom: 7px;
         margin-left: 3px;
-        width: 22%;
+        width: 40px;
         color: white;
         cursor: pointer;
         border-radius: 3px;
@@ -451,8 +452,25 @@ h4 {
           background: @orange;
         }
 
+        @media @tablet {
+          width: 32px;
+        }
+      }
+
+      .locate-icon {
+        background: #CCC;
+        color: @blue;
+        padding: 4px 6px;
+        border-radius: 50%;
+        margin-left: 5px;
+        cursor: pointer;
+
+        &:hover {
+          background: #555;
+        }
+
         @media @mobile {
-          width: 40px;
+          background: #EEE;
         }
       }
     }
