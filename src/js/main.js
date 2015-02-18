@@ -151,6 +151,17 @@ $("#address").on("keydown", function(e) {
   if (e.keyCode == 13) onward();
 });
 
+// Demographic menu animation
+$(".data-box").on("click", ".demo-tile", function(e) {
+  var demoBox = this.querySelector(".demo-box");
+  var bounds = demoBox.getBoundingClientRect();
+  var open = document.querySelector(".demo-tile.open .demo-box");
+  if (bounds.height == 0) {
+    if (open !== null) { closeBox(open) }
+    openBox(demoBox);
+  } 
+});
+
 // Triggers map update based on selected demographic
 $(".demo").click(function(e) {
   $(".demo.active").removeClass("active");
