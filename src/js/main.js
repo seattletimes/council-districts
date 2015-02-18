@@ -182,50 +182,56 @@ $("#map").on("click", ".district-label", function(e) {
 $(".explore").click(function() {
   $("body").addClass("show-data");
 });
+
 $(".close-data").click(function() {
   $("body").removeClass("show-data");
 });
+
 $(".about").click(function() {
   $("body").addClass("show-chatter");
 });
+
 $(".close-chatter").click(function() {
   $("body").removeClass("show-chatter");
 });
+
 $("body").on("click", ".back", function() {
   view.zoomOut();
   $("body").removeClass("show-back");
 });
+
 $(".view-data").click(function() {
   $("body").addClass("add-transition");
   $("body").addClass("show-district");
 });
+
 $(".close-district").click(function() {
   $("body").removeClass("show-district");
   setTimeout(function() {
     $("body").removeClass("add-transition");
   }, 500);
 });
+
 $(".search-icon").click(function() {
   $(".location-box").addClass("showing-search");
   $(".location-box").removeClass("showing-validation");
   $(".location-box").removeClass("showing-result");
 });
+
 $(".show-locate").click(function() {
   $("body").removeClass("show-legend");
 });
 
-// $(".bar").on("touchstart", function(e) {
-//   console.log(e)
-//   // e.stopPropagation();
-//   // $(".click-tooltip").removeClass("click-tooltip");
-//   // $(e.target).next().addClass("click-tooltip");
-// });
+$("body").on("touchstart", ".bar", function(e) {
+  $(this).addClass("active");
+});
 
+$("body").on("touchstart", ".bar", function(e) {
+  e.stopPropagation();
+  $(".bar.active").removeClass("active");
+  $(this).addClass("active");
+});
+$("body").on("touchstart", ".charts", function(e) {
+  $(".bar.active").removeClass("active");
+});
 
-
-// $(".info-box").scroll(function() {
-//   console.log('scrolling')
-//   if ($(".info-box").scrollHeight > $(".info-box").clientHeight) {
-//   console.log("scroll bigger")
-// }
-// });
