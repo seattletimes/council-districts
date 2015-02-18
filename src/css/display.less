@@ -93,12 +93,14 @@
   }
 
   @media @mobile {
+    margin-top: 54px;
+
     .frozen & {
-      .transform(translateY(73%));
+      .transform(translateY(100%));
     }
 
     .show-chatter & {
-      .transform(translateY(-73%));
+      .transform(translateY(-100%));
     }
   }
 }
@@ -206,7 +208,7 @@
 
   @media @mobile {
     margin-top: 30px;
-    
+
     .frozen & {
       .transform(translateY(100%));
     }
