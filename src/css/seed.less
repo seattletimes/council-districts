@@ -39,7 +39,16 @@ h4 {
 
 .select {
   cursor: pointer;
-  margin: 17px
+  margin: 17px;
+  border: none;
+  font-size: 15px;
+  height: 35px;
+  font-weight: bold;
+
+  @media @mobile {
+    margin: 13px;
+    font-size: 15px;
+  }
 }
 
 .view-data {
@@ -94,16 +103,29 @@ h4 {
     width: 12px;
     display: inline-block;
     border: 1px solid #444;
+    position: relative;
 
     &.padded {
       margin-left: 8px;
     }
   }
 
+  .tiny-label {
+    position: absolute;
+    bottom: 12px;
+    left: -2px;
+    font-size: 10px;
+    color: #555;
+  }
+
   &.desktop {
     bottom: 20px;
     left: 20px;
     padding: 15px;
+
+    .legend-header {
+      padding-bottom: 10px;
+    }
 
     .legend-label {
       font-size: 17px;
@@ -129,6 +151,10 @@ h4 {
     .legend-label {
       font-size: 12px;
       padding-bottom: 0;
+    }
+
+    .swatch {
+      margin-bottom: -1px;
     }
 
     .tiny {
@@ -190,7 +216,7 @@ h4 {
   position: absolute;
   right: 12px;
   color: #555;
-  top: 60px;
+  top: 62px;
   font-size: 14px;
   cursor: pointer;
   transition: color 0.1s linear;
