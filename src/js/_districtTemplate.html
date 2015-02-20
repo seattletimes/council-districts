@@ -1,7 +1,5 @@
 <div class="charts">
 
-  <div class="population">{{pop}}</div>
-
   <div class="candidates">
     Candidates for City Council Position {{district}}:
 
@@ -14,13 +12,15 @@
       
   <div class='container'>
 
-    {{#graphs}}      
+    <div class="divider"></div>
 
-      <div class="divider"></div>
+    <div class="population"><strong>Population:</strong> {{pop}}</div>
+
+    {{#graphs}}      
 
       <div class="chart-group">
         
-        <div class="name">{{name}}</div>
+        <div class="name">{{name}}:</div>
         
         <div>
 
@@ -73,8 +73,8 @@
 
       </div>
 
-    {{/graphs}}
+      <div class="divider"></div>
 
-    <div class="divider"></div>
+    {{/graphs}}
   </div>
 </div>

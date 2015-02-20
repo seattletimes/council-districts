@@ -189,7 +189,7 @@ MapView.prototype = {
         optionsArray.push(obj);
       }
 
-      population = "Population: " + districtData.population;
+      population = districtData.population;
     } else {
       $("#map").fadeTo( 300, 0.5 );
       $(".ghost-disclaimer").addClass("show-disclaimer");
