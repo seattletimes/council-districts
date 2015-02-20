@@ -14,6 +14,26 @@
       "label": "65 and over"
     }
   ],
+  "Income": [
+    {
+      "id": "low-income",
+      "label": "Under $25K"
+    },
+    {
+      "id": "other-income",
+      "label": "$25K - $100K",
+      "chartOnly": true
+    },
+    {
+      "id": "med-income",
+      "label": "Over $100K",
+      "altLabel": "$100K - $250K"
+    },
+    {
+      "id": "high-income",
+      "label": "Over $250K"
+    }
+  ],
   "Race & Ethnicity": [
     {
       "id": "white",
@@ -36,50 +56,16 @@
       "label": "Two or more races/other"
     }
   ],
-  "Income": [
+  "Language": [
     {
-      "id": "low-income",
-      "label": "Under $25K"
-    },
-    {
-      "id": "other-income",
-      "label": "$25K - $100K",
+      "id": "english",
+      "label": "Speak English at home",
       "chartOnly": true
     },
     {
-      "id": "med-income",
-      "label": "Over $100K",
-      "altLabel": "$100K - $250K"
-    },
-    {
-      "id": "high-income",
-      "label": "Over $250K"
-    }
-  ],
-  "Transportation to work": [
-    {
-      "id": "drive",
-      "label": "Drive alone"
-    },
-    {
-      "id": "carpool",
-      "label": "Carpool"
-    },
-    {
-      "id": "transit",
-      "label": "Public transit"
-    },
-    {
-      "id": "bike",
-      "label": "Bicycle"
-    },
-    {
-      "id": "walk",
-      "label": "Walk"
-    },
-    {
-      "id": "home",
-      "label": "Work at home"
+      "id": "nonenglish",
+      "label": "Don't speak English at home",
+      "altLabel": "Other language"
     }
   ],
   "Marital status": [
@@ -110,16 +96,30 @@
       "label": "Owners"
     }
   ],
-  "Language": [
+   "Transportation to work": [
     {
-      "id": "english",
-      "label": "Speak English at home",
-      "chartOnly": true
+      "id": "drive",
+      "label": "Drive alone"
     },
     {
-      "id": "nonenglish",
-      "label": "Don't speak English at home",
-      "altLabel": "Other language"
+      "id": "carpool",
+      "label": "Carpool"
+    },
+    {
+      "id": "transit",
+      "label": "Public transit"
+    },
+    {
+      "id": "bike",
+      "label": "Bicycle"
+    },
+    {
+      "id": "walk",
+      "label": "Walk"
+    },
+    {
+      "id": "home",
+      "label": "Work at home"
     }
   ]
 }
