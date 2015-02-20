@@ -261,7 +261,6 @@ h4 {
   height: calc(~"100% - @{top-height}");
   width: @box-width;
   background: white;
-  overflow: scroll;
 
   @media (max-height: 660px) {
     background: linear-gradient(180deg, white, white 95%, #DDD);
@@ -593,10 +592,7 @@ h4 {
 
   .district-box {
     padding: 0 20px;
-
-    @media @mobile {
-      height: calc(~"100% - 52px");
-      overflow: scroll;
-    }
+    overflow: scroll;
+    height: calc(~"100% - 52px");
   }
 }

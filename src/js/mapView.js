@@ -201,6 +201,7 @@ MapView.prototype = {
       district: district,
       candidates: candidateData[district]
     }));  
+    $(".district-box").scrollTop(0);
   },
 
   enableMapInteractions: function(enabled) {
