@@ -14,7 +14,9 @@
 
     <div class="divider"></div>
 
-    <div class="population"><strong>Population:</strong> {{pop}}</div>
+    {{#pop}}
+      <div class="population"><strong>Population:</strong> {{pop}}</div>
+    {{/pop}}
 
     {{#graphs}}      
 
