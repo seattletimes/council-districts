@@ -1,16 +1,16 @@
-.white, .other-age, .other-income, .single, .renters, .drive, .english {
+.white, .single, .renters, .drive, .english {
   background: @blue;
   &.average, &.lighter { background: lighten(@blue, 25%); }
 }
-.black, .carpool, .divorced, .minors, .low-income {
+.black, .carpool, .divorced {
   background: @green;
   &.average, &.lighter { background: lighten(@green, 10%); }
 }
-.asian, .married, .owners, .seniors, .med-income, .transit, .nonenglish {
+.asian, .married, .transit {
   background: @red;
   &.average, &.lighter { background: lighten(@red, 25%); }
 }
-.hispanic, .widowed, .high-income, .bike {
+.hispanic, .widowed, .bike, .owners, .nonenglish {
   background: @orange;
   &.average, &.lighter { background: lighten(@orange, 15%); }
 }
@@ -21,6 +21,24 @@
 .home {
   background: @yellow;
   &.average, &.lighter { background: lighten(@yellow, 5%); }
+}
+
+// purples
+.minors, .low-income {
+  background: #dad3e7;
+  &.average, &.lighter { background: lighten(#dad3e7, 6%); }
+}
+.other-age, .other-income {
+  background: #bdafd2;
+  &.average, &.lighter { background: lighten(#bdafd2, 12%); }
+}
+.seniors, .med-income {
+  background: #9a85b7;
+  &.average, &.lighter { background: lighten(#9a85b7, 18%); }
+}
+.high-income {
+  background: #7c6492;
+  &.average, &.lighter { background: lighten(#7c6492, 24%); }
 }
 
 .charts {
@@ -79,7 +97,7 @@
       position: absolute;
       bottom: 25px; 
       right: 50%;
-      background: #EEE;
+      background: #f6f6f6;
       font-size: 11px;
       z-index: 999;
       cursor: default;

@@ -25,11 +25,10 @@ var restyle = function(feature) {
     }
   }
   return { 
-    color: "#777",
-    fillColor: "#EEE",
+    color: "#666",
     weight: 3,
     opacity: 1,
-    fillOpacity: 0.3
+    fillOpacity: 0
   };
 };
 

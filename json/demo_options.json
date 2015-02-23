@@ -53,7 +53,8 @@
     },
     {
       "id": "other",
-      "label": "Two or more races/other"
+      "label": "Two or more races/other",
+      "chartOnly": true
     }
   ],
   "Language": [
@@ -83,7 +84,8 @@
     },
     {
       "id": "widowed",
-      "label": "Widowed"
+      "label": "Widowed",
+      "chartOnly": true
     }
   ],
   "Housing": [
