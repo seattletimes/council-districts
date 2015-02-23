@@ -187,6 +187,7 @@ $("#map").on("click", ".district-label", function(e) {
 // "Explore" button shows demographic options
 $(".explore").click(function() {
   $("body").addClass("show-data");
+  $("body").removeClass("show-chatter");
 });
 $(".close-data").click(function() {
   $("body").removeClass("show-data");
@@ -195,6 +196,7 @@ $(".close-data").click(function() {
 // "About" button shows chatter
 $(".about").click(function() {
   $("body").addClass("show-chatter");
+  $("body").removeClass("show-data");
 });
 $(".close-chatter").click(function() {
   $("body").removeClass("show-chatter");

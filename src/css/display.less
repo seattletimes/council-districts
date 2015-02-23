@@ -105,8 +105,10 @@
 .close-chatter {
   display: none;
 
-  .show-chatter & {
-    display: block;
+  @media @mobile {
+    .show-chatter & {
+      display: block;
+    }
   }
 }
 
