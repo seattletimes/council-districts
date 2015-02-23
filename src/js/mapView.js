@@ -6,9 +6,9 @@ var districtTemplate = require("./_districtTemplate.html");
 ich.addTemplate("districtTemplate", districtTemplate);
 
 var trans = 
+  "transform" in document.body.style ? "transform" :
   "msTransform" in document.body.style ? "msTransform" :
-  "webkitTransform" in document.body.style ? "webkitTransform" :
-  "transform";
+  "webkitTransform" in document.body.style ? "webkitTransform" : "transform";
 
 var restyle = function(feature) {
   var districtName = feature.properties.dist_name;
@@ -101,9 +101,11 @@ MapView.prototype = {
     var marker = L.marker([position.lat,position.lng], {icon: icon});
     marker.addTo(this.map);
     var oldTransform = marker._icon.style[trans];
+    console.log(trans, marker._icon.style[trans])
     var newTransform = oldTransform.replace(/, \d+/, ", 0");
     marker._icon.style[trans] = newTransform;
-    marker._icon.style.transition = "transform .5s ease-in";
+    marker._icon.style.transition = trans + " .5s ease-in";
+    console.log(marker._icon.style)
 
     //force layout
     var _ = document.body.offsetTop;
