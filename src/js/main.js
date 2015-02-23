@@ -53,6 +53,7 @@ var findMe = function() {
     $("#address").val("");
     var district = wolf.findDistrict(position);
     updateMyDistrictInfo(district);
+    resetDemo();
     view.dropPin(position);
   }, function(err) {
     console.error(err);
@@ -63,6 +64,13 @@ var findMe = function() {
   });
 
 };
+
+var resetDemo = function() {
+  view.selectedDemo = null;
+  var open = document.querySelector(".demo-tile.open .demo-box");
+  if (open !== null) { closeBox(open) }
+  $(".demo.active").removeClass("active");
+}
 
 findMe();
 
@@ -93,6 +101,8 @@ var onward = function() {
 
         var district = wolf.findDistrict(position);
         updateMyDistrictInfo(district);
+        view.selectedDemo = null;
+        resetDemo();
         view.dropPin(position);
       }
       $(".location-box").removeClass("loading");
