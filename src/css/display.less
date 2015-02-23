@@ -174,6 +174,16 @@
   }
 }
 
+.about {
+  display: none;
+
+  @media @mobile {
+    .frozen & {
+      display: block;
+    }
+  }
+}
+
 .data-box {
   display: none;
   transition: -webkit-transform 0.5s ease-in;

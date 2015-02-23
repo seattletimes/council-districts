@@ -148,8 +148,8 @@ h4 {
     font-size: 12px;
     z-index: 99;
     text-align: center;
-    padding-right: 53px;
-
+    margin-right: 6px
+;
     .legend-label {
       font-size: 12px;
       padding-bottom: 0;
@@ -174,13 +174,12 @@ h4 {
 
 .show-locate {
   position: absolute;
-  right: 16px;
+  top: 0;
+  right: 0;
   z-index: 99;
-  bottom: 46px;
   background: #EEE;
-  border-radius: 50%;
   padding: 3px 9px;
-  color: #333;
+  color: @blue;
   font-size: 16px;
 }
 
@@ -383,10 +382,10 @@ h4 {
 
     .inner-buttons {
       width: 35%;
+      height: 66px;
     }
 
     .button {
-      // position: absolute;
       border: none;
       padding: 7px 15px;
       margin-top: 4px;
@@ -394,20 +393,14 @@ h4 {
       cursor: pointer;
       border-radius: 3px;
       letter-spacing: 0.5px;
-      left: 6%;
       font-size: 12px;
-      margin: auto;
       width: 82px;
 
       &.explore {
-        // bottom: 56px;
         background: @red;
-        margin-bottom: 8px;
-      }
-
-      &.about {
-        // bottom: 12px;
-        background: @blue;
+        float: right;
+        margin-top: 18px;
+        margin-right: 8px;
       }
     }
 
