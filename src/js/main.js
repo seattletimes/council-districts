@@ -13,6 +13,14 @@ new Share(".share", {
   },
 });
 
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var gradient = ctx.createLinearGradient(0,0,canvas.width,canvas.height);
+gradient.addColorStop(0,"white");
+gradient.addColorStop(1,"#7B5AA6");
+ctx.fillStyle = gradient;
+ctx.fillRect(0,0,canvas.width,canvas.height);
+
 var map = window.map =  L.map('map', {
   dragging:        false,
   boxZoom:         false,

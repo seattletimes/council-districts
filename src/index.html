@@ -35,8 +35,7 @@
           <div class="legend-name"></div>
           <div class="legend-label"></div>
         </div>
-        <div class="min swatch"><div class="tiny-label">MIN.</div></div> = <span class="min val"></span>%
-        <div class="max swatch padded"><div class="tiny-label">MAX.</div></div> = <span class="max val"></span>%
+        <canvas id="canvas"></canvas>
         <div class="tiny">of district population</div>
       </div>
     </div>
@@ -48,8 +47,7 @@
             <div class="legend-name"></div>
             <div class="legend-label"></div>
           </div>
-          <div class="min swatch"></div> = <span class="min val"></span>% (<em>min</em>)
-          <div class="max swatch padded"></div> = <span class="max val"></span>% (<em>max</em>)
+          <canvas id="canvas"></canvas>
           <div class="tiny">of district population</div>
         </div>
         <div class="show-locate"><i class="fa fa-map-marker"></i></div>
@@ -129,7 +127,7 @@
         });
       %>
       var candidateData = window.candidateData = <%= JSON.stringify(candidateData) %>
-      var demoOptions = <%= JSON.stringify(json.demo_options) %>;
+      var demoOptions = window.demoOptions = <%= JSON.stringify(json.demo_options) %>;
       var demoData = window.demoData = <%= JSON.stringify(csv.demo_data_short) %>;
       var demoPercents = <%= JSON.stringify(csv.demo_data_percentages) %>;
       window.formatNumber = <%= t.formatNumber.toString() %>
