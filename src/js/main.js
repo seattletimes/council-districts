@@ -176,9 +176,9 @@ $(".data-box").on("click", ".demo-tile", function(e) {
 $(".demo").click(function(e) {
   $(".demo.active").removeClass("active");
   $(this).addClass("active");
+  $("body").addClass("show-legend");
   view.selectedDemo = this.id;
   view.updateView();
-  $("body").addClass("show-legend");
 
   // on mobile
   $("body").removeClass("show-data");

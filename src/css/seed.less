@@ -101,13 +101,13 @@ h4 {
   }
 
   .canvas-container {
-    padding: 0 10px;
+    padding: 0 6px;
   }
 
   canvas {
     display: block;
-    height: 24px;
-    width: 187px;
+    height: 28px;
+    width: 195px;
 
     @media @mobile {
       width: 100%;
@@ -118,18 +118,34 @@ h4 {
     font-weight: bold;
   }
 
+  .avg-container {
+    width: 187px;
+    position: relative;
+  }
+
   .tiny-label {
     text-align: center;
-    color: #555;
-    font-size: 12px;
-    font-weight: bold;
-    padding-top: 4px;
+
+    &.num {
+      padding-top: 4px;
+      font-size: 13px;
+    }
+    &.title {
+      font-size: 11px;
+    }
 
     &.min {
       float: left;
+      color: #555;
     }
     &.max {
       float: right;
+      color: #555;
+    }
+    &.average {
+      position: absolute;
+      color: #333;
+      font-weight: bold;
     }
   }
 

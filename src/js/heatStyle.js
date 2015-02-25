@@ -86,21 +86,29 @@ function updateLegend(max, min, stop) {
     var canvas = document.getElementById("desktop-canvas");
   }
 
+  canvas.width = canvas.offsetWidth;
   var ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   var gradient = ctx.createLinearGradient(0,0,canvas.width,0);
   gradient.addColorStop(0,min);
   gradient.addColorStop(stop,"white");
   gradient.addColorStop(1,max);
   ctx.fillStyle = gradient;
+
+  ctx.beginPath();
   ctx.strokeStyle = "#555";
-  ctx.fillRect(0,0,canvas.width,(canvas.height*0.8));
-  ctx.moveTo(1, canvas.height*0.8);
+  ctx.fillRect(0,canvas.height*0.2,canvas.width,canvas.height*0.6);
+  ctx.moveTo(1, 0);
   ctx.lineTo(1, canvas.height);
-  ctx.stroke();
-  ctx.moveTo(canvas.width - 1, canvas.height*0.8);
+  ctx.moveTo(canvas.width - 1, 0);
   ctx.lineTo(canvas.width - 1, canvas.height);
   ctx.stroke();
 
+  ctx.beginPath();
+  ctx.strokeStyle = "#333";
+  ctx.moveTo(stop*canvas.width, 0);
+  ctx.lineTo(stop*canvas.width, canvas.height);
+  ctx.stroke();
 };
 
 // generate color for heat map
@@ -112,9 +120,9 @@ module.exports = {
     var data = $("#" + demographic).data();
     $(".legend-name").html(data.name + ":");
     $(".legend-label").html(data.label);
-    $(".legend .average").html(parseFloat(demo.avg).toFixed(0) + "%")
-    $(".legend .max").html(parseFloat(demo.maxDist).toFixed(0) + "%")
-    $(".legend .min").html(parseFloat(demo.minDist).toFixed(0) + "%")
+    $(".legend .average.num").html(parseFloat(demo.avg).toFixed(0) + "%")
+    $(".legend .max.num").html(parseFloat(demo.maxDist).toFixed(0) + "%")
+    $(".legend .min.num").html(parseFloat(demo.minDist).toFixed(0) + "%")
 
     return fillColor;
   },
@@ -124,5 +132,7 @@ module.exports = {
     var minDist = generateColor(demo.minVal, demo.maxVal, demo.minDist);
     var stop = (demo.avg - demo.minDist)/(demo.maxDist - demo.minDist);
     updateLegend(maxDist, minDist, stop);
+    var perc = stop * 100 + "%";
+    $(".legend .average").css("left", perc);
   }
 };
