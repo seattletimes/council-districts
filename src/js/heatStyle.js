@@ -100,7 +100,7 @@ function updateLegend(max, min, stop) {
   ctx.moveTo(canvas.width - 1, canvas.height*0.8);
   ctx.lineTo(canvas.width - 1, canvas.height);
   ctx.stroke();
-  
+
 };
 
 // generate color for heat map
