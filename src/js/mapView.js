@@ -18,7 +18,8 @@ var restyle = function(feature) {
       return { fillColor: "#9dc8e1", fillOpacity: 0.7 };
     }
   } else if (this.selectedDemo) {
-    return { fillColor: heatStyle(this.selectedDemo, districtName), fillOpacity: 0.8 };
+    heatStyle.colorLegend(this.selectedDemo);
+    return { fillColor: heatStyle.colorDist(this.selectedDemo, districtName), fillOpacity: 0.8 };
   } else if (this.myDistrict) {
     if (feature.properties.dist_name == this.myDistrict) {
       return { fillColor: "#9dc8e1", fillOpacity: 0.7 };

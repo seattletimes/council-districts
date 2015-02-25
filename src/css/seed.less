@@ -96,16 +96,36 @@ h4 {
   background: white;
   border-radius: 3px;
 
+  .canvas-container {
+    padding: 0 10px;
+  }
+
+  canvas {
+    display: block;
+    height: 24px;
+    width: 187px;
+  }
+
   .legend-label {
     font-weight: bold;
   }
 
   .tiny-label {
-    position: absolute;
-    bottom: 12px;
-    left: -2px;
-    font-size: 10px;
+    text-align: center;
     color: #555;
+    font-size: 12px;
+    padding-top: 4px;
+
+    &.min {
+      float: left;
+    }
+    &.max {
+      float: right;
+    }
+  }
+
+  .average {
+    text-align: center;
   }
 
   &.desktop {
@@ -113,23 +133,12 @@ h4 {
     left: 20px;
     padding: 15px;
 
-    .legend-header {
-      padding-bottom: 10px;
-    }
-
     .legend-label {
       font-size: 17px;
       padding-bottom: 8px;
     }
 
-    #canvas {
-      height: 20px;
-      width: 108px;
-    }
 
-    .tiny {
-      font-size: 12px;
-    }
   }
 
   &.mobile {
@@ -146,10 +155,6 @@ h4 {
     .legend-label {
       font-size: 12px;
       padding-bottom: 0;
-    }
-
-    .tiny {
-      font-size: 10px;
     }
 
     .legend-header {

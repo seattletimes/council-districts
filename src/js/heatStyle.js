@@ -23,9 +23,11 @@ for (var key in values) {
   }
 
   bounds[key] = {
-    total: values[key],
-    max: max,
-    min: min
+    maxVal: max,
+    minVal: min,
+    maxDist: Math.max.apply(null, values[key]),
+    minDist: Math.min.apply(null, values[key]),
+    avg: average(values[key])
   }
 }
 
@@ -53,40 +55,74 @@ function average(data){
   return avg;
 }
 
-// generate color for heat map
-module.exports = function(demographic, district) {
-  var maxHue = [123, 90, 166];
-
-  var max = bounds[demographic].max;
-  var min = bounds[demographic].min;
-
-  var value = demoData[district][demographic];
+function generateColor(min, max, value) {
+  var minHue = [123, 90, 166];
+  var maxHue = [202, 105, 81];
 
   var scaler = (value - min) / (max - min);
 
   if (scaler > 1) { scaler = 1 }
-  if (scaler < 0.15) { scaler = 0.15 }
+  if (scaler < 0) { scaler = 0 }
+  scaler = scaler * 2 - 1;
 
-  var values = maxHue.map(function(c) {
-    return Math.round(255 - (255 - c) * scaler);
-  });
-
-  var fillColor = "rgb(" + values.join(",") + ")";
-  var percent = demoPercents[district][demographic];
-
-  if (value == max) {
-    $(".max.swatch").css("background-color", fillColor);
-    $(".max.val").html(percent.toFixed(0));
+  var values;
+  if (scaler < 0) {
+    values = minHue.map(function(c) {
+      return Math.round(255 - (255 - c) * (scaler * -1));
+    });
+  } else {
+    values = maxHue.map(function(c) {
+      return Math.round(255 - (255 - c) * scaler);
+    });
   }
 
-  if (value == min * 2) {
-    $(".min.swatch").css("background-color", fillColor);
-    $(".min.val").html(percent.toFixed(0));
+  return "rgb(" + values.join(",") + ")";
+}
+
+function updateLegend(max, min, stop) {
+  if (window.matchMedia && window.matchMedia("(max-width: 525px)").matches) {
+    var canvas = document.getElementById("mobile-canvas");
+  } else {
+    var canvas = document.getElementById("desktop-canvas");
   }
 
-  var data = $("#" + demographic).data();
-  $(".legend-name").html(data.name + ":");
-  $(".legend-label").html(data.label);
+  var ctx = canvas.getContext("2d");
+  var gradient = ctx.createLinearGradient(0,0,canvas.width,0);
+  gradient.addColorStop(0,min);
+  gradient.addColorStop(stop,"white");
+  gradient.addColorStop(1,max);
+  ctx.fillStyle = gradient;
+  ctx.strokeStyle = "#555";
+  ctx.fillRect(0,0,canvas.width,(canvas.height*0.8));
+  ctx.moveTo(1, canvas.height*0.8);
+  ctx.lineTo(1, canvas.height);
+  ctx.stroke();
+  ctx.moveTo(canvas.width - 1, canvas.height*0.8);
+  ctx.lineTo(canvas.width - 1, canvas.height);
+  ctx.stroke();
+  
+};
 
-  return fillColor;
+// generate color for heat map
+module.exports = {
+  colorDist: function(demographic, district) {
+    var demo = bounds[demographic];
+    var fillColor = generateColor(demo.minVal, demo.maxVal, demoData[district][demographic]);
+
+    var data = $("#" + demographic).data();
+    $(".legend-name").html(data.name + ":");
+    $(".legend-label").html(data.label);
+    $(".legend .average").html(parseFloat(demo.avg).toFixed(0) + "%")
+    $(".legend .max").html(parseFloat(demo.maxDist).toFixed(0) + "%")
+    $(".legend .min").html(parseFloat(demo.minDist).toFixed(0) + "%")
+
+    return fillColor;
+  },
+  colorLegend: function(demographic) {
+    var demo = bounds[demographic];
+    var maxDist = generateColor(demo.minVal, demo.maxVal, demo.maxDist);
+    var minDist = generateColor(demo.minVal, demo.maxVal, demo.minDist);
+    var stop = (demo.avg - demo.minDist)/(demo.maxDist - demo.minDist);
+    updateLegend(maxDist, minDist, stop);
+  }
 };
