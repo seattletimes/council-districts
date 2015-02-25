@@ -70,6 +70,7 @@ var resetDemo = function() {
   var open = document.querySelector(".demo-tile.open .demo-box");
   if (open !== null) { closeBox(open) }
   $(".demo.active").removeClass("active");
+  $("body").removeClass("show-legend");
 }
 
 findMe();

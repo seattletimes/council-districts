@@ -81,16 +81,6 @@ h4 {
   width: 100%;
 }
 
-.explore-this {
-  text-align: center;
-  position: absolute;
-  right: 0px;
-  bottom: 46px;
-  width: 65%;
-  padding: 8px;
-  z-index: 99;
-}
-
 .legend {
   position: absolute;
   background: white;
@@ -171,16 +161,15 @@ h4 {
       font-size: 17px;
       padding-bottom: 8px;
     }
-
-
   }
 
   &.mobile {
     right: 0px;
     bottom: 0px;
     left: inherit;
-    width: 65%;
+    width: 60%;
     padding: 9px;
+    padding-left: 0;
     font-size: 12px;
     z-index: 99;
     text-align: center;
@@ -282,7 +271,7 @@ h4 {
 
   @media @mobile {
     width: 100%;
-    height: calc(~"100% - @{top-height} - 82px");
+    height: calc(~"100% - @{top-height} - 102px");
 
     &.bump-height {
       height: calc(~"100% - @{top-height} - 52px");
@@ -403,15 +392,16 @@ h4 {
 
       .inner-location-box {
         float: right;
-        width: 65%;
+        width: 60%;
         padding-top: 0;
+        padding-right: 17px;
       }
     }
 
     .inner-buttons {
       @media @mobile {
-        width: 35%;
-        height: 86px;
+        width: 40%;
+        height: 57px;
       }
     }
 
@@ -428,9 +418,8 @@ h4 {
 
       &.explore {
         background: @red;
-        float: right;
+        margin: auto;
         margin-top: 29px;
-        margin-right: 7px;
       }
     }
 
