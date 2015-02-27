@@ -92,7 +92,6 @@ h4 {
   }
 
   .canvas-container {
-    padding: 0 6px;
     clear: both;
   }
 
@@ -112,7 +111,6 @@ h4 {
   }
 
   .avg-container {
-    width: 187px;
     position: relative;
   }
 
@@ -138,15 +136,18 @@ h4 {
     &.min {
       float: left;
       color: #555;
+      margin-left: -10px;
     }
     &.max {
       float: right;
       color: #555;
+      margin-right: -10px;
     }
     &.average {
       position: absolute;
       color: #333;
       font-weight: bold;
+      margin-left: -10px;
     }
   }
 
@@ -157,7 +158,7 @@ h4 {
   &.desktop {
     bottom: 20px;
     left: 20px;
-    padding: 15px;
+    padding: 15px 25px;
 
     .legend-label {
       font-size: 17px;
@@ -170,7 +171,7 @@ h4 {
     bottom: 0px;
     left: inherit;
     width: 60%;
-    padding: 9px;
+    padding: 9px 19px;
     padding-left: 0;
     font-size: 12px;
     z-index: 99;
