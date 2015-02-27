@@ -68,11 +68,11 @@ function generateColor(min, max, value) {
   var values;
   if (scaler < 0) {
     values = minHue.map(function(c) {
-      return Math.round(255 - (255 - c) * (scaler * -1));
+      return Math.round(232 - (232 - c) * (scaler * -1));
     });
   } else {
     values = maxHue.map(function(c) {
-      return Math.round(255 - (255 - c) * scaler);
+      return Math.round(232 - (232 - c) * scaler);
     });
   }
 
@@ -91,7 +91,7 @@ function updateLegend(max, min, stop) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   var gradient = ctx.createLinearGradient(0,0,canvas.width,0);
   gradient.addColorStop(0,min);
-  gradient.addColorStop(stop,"white");
+  gradient.addColorStop(stop,"#e8e8e8");
   gradient.addColorStop(1,max);
   ctx.fillStyle = gradient;
 
