@@ -18,7 +18,6 @@ var restyle = function(feature) {
       return { fillColor: "#9dc8e1", fillOpacity: 0.7 };
     }
   } else if (this.selectedDemo) {
-    heatStyle.colorLegend(this.selectedDemo);
     return { fillColor: heatStyle.colorDist(this.selectedDemo, districtName), fillOpacity: 0.8 };
   } else if (this.myDistrict) {
     if (feature.properties.dist_name == this.myDistrict) {
@@ -149,6 +148,9 @@ MapView.prototype = {
       this.enableMapInteractions(false);
       $("#map").fadeTo( 300, 1 );
       $(".ghost-disclaimer").removeClass("show-disclaimer");
+    }
+    if (this.selectedDemo) {
+      heatStyle.colorLegend(this.selectedDemo);
     }
   },
 
