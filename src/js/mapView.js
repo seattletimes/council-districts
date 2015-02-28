@@ -55,7 +55,7 @@ MapView.prototype = {
             self.zoomToDistrict(e.target.feature.properties.dist_name);
           },
           mouseover: function(e) {
-            layer.setStyle({ fillColor: "#dbedf7", fillOpacity: 0.7 });
+            layer.setStyle({ fillColor: "#aaa", fillOpacity: 0.7 });
           },
           mouseout: function(e) {
             geojson.resetStyle(layer);
