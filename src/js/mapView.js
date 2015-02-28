@@ -15,13 +15,13 @@ var restyle = function(feature) {
 
   if (this.selectedDistrict) {
     if (feature.properties.dist_name == this.selectedDistrict) {
-      return { fillColor: "#9dc8e1", fillOpacity: 0.7 };
+      return { fillColor: "#888", fillOpacity: 0.7 };
     }
   } else if (this.selectedDemo) {
     return { fillColor: heatStyle.colorDist(this.selectedDemo, districtName), fillOpacity: 0.8 };
   } else if (this.myDistrict) {
     if (feature.properties.dist_name == this.myDistrict) {
-      return { fillColor: "#9dc8e1", fillOpacity: 0.7 };
+      return { fillColor: "#888", fillOpacity: 0.7 };
     }
   }
   return { 
@@ -55,7 +55,7 @@ MapView.prototype = {
             self.zoomToDistrict(e.target.feature.properties.dist_name);
           },
           mouseover: function(e) {
-            layer.setStyle({ fillColor: "#aaa", fillOpacity: 0.7 });
+            layer.setStyle({ fillColor: "#CCC", fillOpacity: 0.7 });
           },
           mouseout: function(e) {
             geojson.resetStyle(layer);
