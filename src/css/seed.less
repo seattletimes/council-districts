@@ -315,12 +315,16 @@ h4 {
   width: @box-width;
   background: white;
 
-  @media (max-height: 660px) {
+  @media (max-height: 840px) {
     background: linear-gradient(180deg, white, white 95%, #DDD);
   }
 
   @media @tablet {
     width: 220px;
+
+    @media (max-height: 990px) {
+      background: linear-gradient(180deg, white, white 95%, #DDD);
+    }
   }
 
   @media @mobile {
@@ -349,7 +353,7 @@ h4 {
     }
 
     @media @tablet {
-      padding: 21px;
+      padding: 10px 21px;
     }
 
     @media @mobile {
