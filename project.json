@@ -5,11 +5,11 @@
       "path": "geographic-heirloom"
     },
     "live": {
-      "bucket": "",
-      "path": ""
+      "bucket": "projects.seattletimes.com",
+      "path": "2015/city-council-districts"
     }
   },
-  "title": "Seattle City Council Districts",
+  "title": "Seattle's City Council Districts",
   "description": "",
   "url": "",
   "slug": "",
