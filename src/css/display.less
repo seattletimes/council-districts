@@ -94,6 +94,10 @@
     max-height: 80vh;
     overflow-y: auto;
 
+    @media @mobile and (device-aspect-ratio: ~"40/71") {
+      max-height: 300px;
+    }
+
     .frozen & {
       .transform(translateY(100%));
     }
