@@ -22,6 +22,16 @@
   {
     "title": "1",
     "district": "1",
+    "name": "Thomas Koch"
+  },
+  {
+    "title": "1",
+    "district": "1",
+    "name": "David Montoure"
+  },
+  {
+    "title": "1",
+    "district": "1",
     "name": "Charles Redmond"
   },
   {
@@ -35,16 +45,6 @@
     "name": "Brianna Thomas"
   },
   {
-    "title": "1",
-    "district": "1",
-    "name": "Thomas Koch"
-  },
-  {
-    "title": "1",
-    "district": "1",
-    "name": "David Montoure"
-  },
-  {
     "title": "2",
     "district": "2",
     "name": "Bruce Harrell"
@@ -53,6 +53,11 @@
     "title": "2",
     "district": "2",
     "name": "Tammy Morales"
+  },
+  {
+    "title": "3",
+    "district": "3",
+    "name": "Pamela Banks"
   },
   {
     "title": "3",
@@ -107,12 +112,12 @@
   {
     "title": "5",
     "district": "5",
-    "name": "Mian Rice"
+    "name": "Debora Juarez"
   },
   {
     "title": "5",
     "district": "5",
-    "name": "Halei Watkins"
+    "name": "Mian Rice"
   },
   {
     "title": "5",
@@ -122,7 +127,7 @@
   {
     "title": "5",
     "district": "5",
-    "name": "Debora Juarez"
+    "name": "Halei Watkins"
   },
   {
     "title": "6",
