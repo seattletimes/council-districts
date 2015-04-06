@@ -56,8 +56,8 @@ function average(data){
 }
 
 function generateColor(min, max, value) {
-  var minHue = [123, 90, 166];
-  var maxHue = [202, 105, 81];
+  var maxHue = [123, 90, 166];
+  var minHue = [202, 105, 81];
 
   var scaler = (value - min) / (max - min);
 
