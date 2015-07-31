@@ -1,0 +1,10 @@
+{
+  "s3": {
+    "accessKeyId": "AKIAJWKIYLE3AV4AOZAA",
+    "secretAccessKey": "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",
+    "region": "us-west-1"
+  },
+  "google": {
+    "sheets": []
+  }
+}

@@ -5,11 +5,11 @@
 
     <ul>
       {{#candidates}}
-        <li>{{.}}
+        <li>{{#called}}<i class="fa fa-check-circle"></i>{{/called}} {{name}} {{#results}}({{results}}%){{/results}}{{^results}}(-){{/results}}
       {{/candidates}}
     </ul>
   </div>
-      
+
   <div class='container'>
 
     <div class="divider"></div>
@@ -19,20 +19,20 @@
       <div class="divider"></div>
     {{/pop}}
 
-    {{#graphs}}      
+    {{#graphs}}
 
       <div class="chart-group">
-        
+
         <div class="name">{{name}}:</div>
-        
+
         <div>
 
           <div class="key">
             {{#options}}
               {{^noKey}}
                 <div class="key-value">
-                  <div class="{{id}} swatch"></div> 
-                  = {{#altLabel}}{{altLabel}}{{/altLabel}} 
+                  <div class="{{id}} swatch"></div>
+                  = {{#altLabel}}{{altLabel}}{{/altLabel}}
                     {{^altLabel}}{{label}}{{/altLabel}}
                 </div>
               {{/noKey}}
@@ -45,7 +45,7 @@
             {{#options}}
               <div class="{{id}} district bar" style="width: {{dist_percent}}">
                 <div class="tooltip">
-                  <div class="demo-label {{id}} lighter">{{#altLabel}}{{altLabel}}{{/altLabel}} 
+                  <div class="demo-label {{id}} lighter">{{#altLabel}}{{altLabel}}{{/altLabel}}
                     {{^altLabel}}{{label}}{{/altLabel}}</div>
                   <div class="demo-details">
                     <div>District &ndash; <span class="percent">{{dist_val}}%</span></div>
@@ -60,7 +60,7 @@
             {{#options}}
               <div class="{{id}} average bar" style="width: {{avg_percent}}">
                 <div class="tooltip">
-                  <div class="demo-label {{id}} lighter">{{#altLabel}}{{altLabel}}{{/altLabel}} 
+                  <div class="demo-label {{id}} lighter">{{#altLabel}}{{altLabel}}{{/altLabel}}
                     {{^altLabel}}{{label}}{{/altLabel}}</div>
                   <div class="demo-details">
                     <div>District &ndash; <span class="percent">{{dist_val}}%</span></div>

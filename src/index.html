@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <%= t.include("partials/_adHead.html") %>
   </head>
@@ -79,7 +79,7 @@
             Interactive by Audrey Carlsen &bull; Data source: Nielsen, 2014
           </p>
       </div>
-      
+
       <div class="location-box">
         <div class="inner-location-box">
           <div class="result-box">
@@ -99,12 +99,12 @@
             <input id="address" class="address"><button class="onward-button">GO</button><i class="locate-icon fa fa-location-arrow"></i>
           </div>
         </div>
-        
+
           <div class="inner-buttons">
             <div class="explore button">
               EXPLORE
             </div>
-      
+
         </div>
       </div>
 
@@ -118,7 +118,7 @@
       </div>
 
       <select class="select" name="select">
-        <option value="1">District 1</option> 
+        <option value="1">District 1</option>
         <option value="2">District 2</option>
         <option value="3">District 3</option>
         <option value="4">District 4</option>
@@ -137,13 +137,11 @@
     </div>
 
     <script>
-      <% 
+      <%
         var candidateData = {};
         json.CityCouncilCandidates_Sheet1.forEach(function(c) {
-          var district = c.district;
-          var name = c.name;
-          if (!candidateData[district]) { candidateData[district] = [] }
-          candidateData[district].push(name);
+          if (!candidateData[c.district]) { candidateData[c.district] = [] }
+          candidateData[c.district].push(c)
         });
       %>
       var candidateData = window.candidateData = <%= JSON.stringify(candidateData) %>

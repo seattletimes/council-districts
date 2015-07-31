@@ -5,7 +5,7 @@ var ich = require("icanhaz");
 var districtTemplate = require("./_districtTemplate.html");
 ich.addTemplate("districtTemplate", districtTemplate);
 
-var trans = 
+var trans =
   "transform" in document.body.style ? "transform" :
   "msTransform" in document.body.style ? "msTransform" :
   "webkitTransform" in document.body.style ? "webkitTransform" : "transform";
@@ -24,7 +24,7 @@ var restyle = function(feature) {
       return { fillColor: "#888", fillOpacity: 0.7 };
     }
   }
-  return { 
+  return {
     color: "#666",
     weight: 3,
     opacity: 1,
@@ -176,11 +176,11 @@ MapView.prototype = {
         for (var key in avg) {
           var value = avg[key];
           averageData[key] = value;
-        }    
+        }
       }
 
       // Turn options hash into array for templating
-     
+
       for (var name in demoOptions) {
         demoOptions[name].forEach(function(option) {
           option.dist_percent = percentData[option.id] + "%";
@@ -199,12 +199,13 @@ MapView.prototype = {
     }
 
     $(".district-box").html(ich.districtTemplate({
-      graphs: optionsArray, 
-      pop: population, 
+      graphs: optionsArray,
+      pop: population,
       district: district,
       candidates: candidateData[district]
-    }));  
+    }));
     $(".district-box").scrollTop(0);
+    console.log(candidateData[district])
   },
 
   enableMapInteractions: function(enabled) {
