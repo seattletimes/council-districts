@@ -7,32 +7,12 @@
   {
     "title": "1",
     "district": "1",
-    "name": "George Capestany"
-  },
-  {
-    "title": "1",
-    "district": "1",
     "name": "Pavel Goberman"
   },
   {
     "title": "1",
     "district": "1",
-    "name": "Amanda Kay Helmick"
-  },
-  {
-    "title": "1",
-    "district": "1",
     "name": "Lisa Herbold"
-  },
-  {
-    "title": "1",
-    "district": "1",
-    "name": "David Ishii"
-  },
-  {
-    "title": "1",
-    "district": "1",
-    "name": "Thomas Koch"
   },
   {
     "title": "1",
@@ -47,7 +27,27 @@
   {
     "title": "1",
     "district": "1",
+    "name": "Arturo Robles"
+  },
+  {
+    "title": "1",
+    "district": "1",
+    "name": "Jody Rushmer"
+  },
+  {
+    "title": "1",
+    "district": "1",
     "name": "Brianna Thomas"
+  },
+  {
+    "title": "1",
+    "district": "1",
+    "name": "Karl Wirsing"
+  },
+  {
+    "title": "2",
+    "district": "2",
+    "name": "Joshua Farris"
   },
   {
     "title": "2",
@@ -72,6 +72,11 @@
   {
     "title": "3",
     "district": "3",
+    "name": "Leon Carter"
+  },
+  {
+    "title": "3",
+    "district": "3",
     "name": "Rod Hearne"
   },
   {
@@ -92,12 +97,12 @@
   {
     "title": "4",
     "district": "4",
-    "name": "Taso Lagos"
+    "name": "Michael J. Maddux"
   },
   {
     "title": "4",
     "district": "4",
-    "name": "Michael J. Maddux"
+    "name": "Abel Pacheco"
   },
   {
     "title": "4",
@@ -127,7 +132,12 @@
   {
     "title": "5",
     "district": "5",
-    "name": "Mian Rice"
+    "name": "Kris Lethin"
+  },
+  {
+    "title": "5",
+    "district": "5",
+    "name": "Hugh Russell"
   },
   {
     "title": "5",
@@ -142,7 +152,17 @@
   {
     "title": "6",
     "district": "6",
+    "name": "Jon Lisbin"
+  },
+  {
+    "title": "6",
+    "district": "6",
     "name": "Mike O'Brien"
+  },
+  {
+    "title": "6",
+    "district": "6",
+    "name": "Stan Shaufler"
   },
   {
     "title": "6",
@@ -153,6 +173,16 @@
     "title": "7",
     "district": "7",
     "name": "Sally Bagshaw"
+  },
+  {
+    "title": "7",
+    "district": "7",
+    "name": "Gus Hartmann"
+  },
+  {
+    "title": "7",
+    "district": "7",
+    "name": "Deborah Zech-Artis"
   },
   {
     "title": "8",
@@ -172,12 +202,12 @@
   {
     "title": "8",
     "district": "8",
-    "name": "David Trotter"
+    "name": "John Roderick"
   },
   {
-    "title": "8",
-    "district": "8",
-    "name": "Alex Tsimerman"
+    "title": "9",
+    "district": "9",
+    "name": "Alan Bassok"
   },
   {
     "title": "9",
@@ -192,11 +222,16 @@
   {
     "title": "9",
     "district": "9",
-    "name": "Terry Hofman"
+    "name": "Omari Tahir-Garrett"
   },
   {
     "title": "9",
     "district": "9",
-    "name": "James Keblas"
+    "name": "Thomas Tobin"
+  },
+  {
+    "title": "9",
+    "district": "9",
+    "name": "Alex Tsimerman"
   }
 ]
