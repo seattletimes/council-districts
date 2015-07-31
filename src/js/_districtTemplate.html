@@ -5,7 +5,7 @@
 
     <ul>
       {{#candidates}}
-        <li>{{#called}}<i class="fa fa-check-circle"></i>{{/called}} {{name}} {{#results}}({{results}}%){{/results}}{{^results}}(-){{/results}}
+        <li>{{name}} {{#results}}({{results}}%){{/results}}{{^results}}(-){{/results}}{{#called}}<i class="fa fa-check-circle"></i>{{/called}}
       {{/candidates}}
     </ul>
   </div>
