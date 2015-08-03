@@ -205,7 +205,6 @@ MapView.prototype = {
       candidates: candidateData[district]
     }));
     $(".district-box").scrollTop(0);
-    console.log(candidateData[district])
   },
 
   enableMapInteractions: function(enabled) {
