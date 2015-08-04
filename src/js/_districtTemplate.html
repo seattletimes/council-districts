@@ -1,6 +1,8 @@
 <div class="charts">
 
   <div class="candidates">
+    <div class="results-note">Election results as of 8/4/15 at 8:15 p.m.</div>
+    
     Candidates for City Council Position {{district}}:
 
     <ul>
@@ -8,6 +10,9 @@
         <li>{{name}} {{#results}}({{results}}%){{/results}}{{^results}}(-){{/results}}{{#called}}<i class="fa fa-check-circle"></i>{{/called}}
       {{/candidates}}
     </ul>
+
+    <div class="called-key"><i class="fa fa-check-circle"></i> = Candidate will move on to general election</div>
+
   </div>
 
   <div class='container'>
