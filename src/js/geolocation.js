@@ -1,5 +1,5 @@
 var $ = require("jquery");
-var debug = true;
+var debug = false;
 
 
 module.exports = function(debug) {
